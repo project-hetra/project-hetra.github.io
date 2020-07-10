@@ -1,0 +1,127 @@
+@media (min-width: 992px) and (max-width: 1080px){
+	.filter-block .form-inline .form-control{
+		width: 170px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	.navbar .search {
+		/*width: 250px;*/
+		width: 320px;
+	}
+	#mylist .navbar .search {
+		width: 250px;	
+	}
+	.nav.back-btn li a {
+		margin: 10px 0 0 10px;
+	}
+	.nav li a.name {
+		padding: 4px 5px;
+	}
+	.name-circle {
+		margin: 1px 3px 0 0px;
+	}
+	.btn-sec .btn-primary, .btn-sec .btn-default{
+		width: 130px;
+	}
+	.filter-block .form-inline .form-control{
+		width: 200px;
+	}
+}
+@media (max-width: 767px) {
+	.navbar .container-fluid .navbar-header {
+		width: 100%;
+		margin: 0 auto;
+	}
+	.navbar-brand img {
+		max-width: 100px;
+		margin-top: 7px;
+	}
+	.navbar-brand {
+		padding: 5px 0px;
+	}
+	.btn-sec .btn {
+		width: 82px;
+	}
+	.navbar .search {
+		width: 50%;
+		position: absolute;
+		left: 60px;
+		right: 0;
+		bottom: 0;
+		top: 0;
+	}
+	.vertical-middle .search, .search-container .search {
+		width: 100%;
+	}
+	.user-name {
+		padding: 16px 0;
+		float: right;
+	}
+	.navbar-toggle, .navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+		background-color: #272264;
+		border: 1px solid #272264;
+	}
+	.navbar-toggle .icon-bar, .navbar-default .navbar-toggle .icon-bar{
+		background: #fff;
+	}
+	/*.vertical-middle {
+		height: 75vh;
+	}*/
+	.navbar-toggle {
+		margin-top: 18px;
+	}
+	.nav.back-btn li a {
+		width: 90%;
+		margin: 0 auto;
+		color: #000 !important;
+		text-align: center;
+	}
+	.navbar-default .navbar-collapse{
+		border-color: #272264;
+		background: #272264;
+		border: none;
+	}
+	.navbar-default .navbar-collapse .navbar-nav li a, .navbar-default .navbar-nav .open .dropdown-menu li a
+	.navbar-default .navbar-nav .open a, .navbar-default .navbar-nav .open a:hover, .navbar-default .navbar-nav .open a:focus,
+	.navbar-default .navbar-nav .open .dropdown-menu li a {
+		color: #fff;
+	}
+	.alert{
+		width: 95%;
+	}
+	.content, .filter-block{
+		padding: 20px 25px;
+	}
+	.multisteps-form .multisteps-form__progress-btn {
+		text-indent: 0;
+		font-size: 12px;
+	}
+	.filter-block .form-inline .form-control {
+		width: 100%;
+	}
+	.modal .table-responsive {
+		border: none;
+		margin-bottom: 0;
+	}
+	.search-container {
+		width: 90%;
+	}
+}
+@media (min-width: 576px) {
+	#team_list .modal-dialog, #profile .modal-dialog{
+		width: 400px;
+		margin: 30px auto;
+	}
+}
+@media (min-width: 530px) and (max-width: 767px) {
+	.box {
+		margin-right: 20px;
+	}
+}
+
+@media (max-width: 529px) {
+	.box {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+}

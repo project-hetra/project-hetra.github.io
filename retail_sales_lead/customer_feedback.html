@@ -1,0 +1,2006 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Credit Conditions</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/lead.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-progress-step.css" rel="stylesheet">
+    <!-- Script -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lead.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    Favicons -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico">
+    
+    <style>
+
+    label{
+        font-size: 13px!important;
+    font-family: "Open sans",Helvetica,Arial,sans-serif;
+    }
+    
+        
+        .top_button{
+                     /* margin: 20px; */
+            /* padding: 20px; */
+            height: 38px;
+            width: 99%;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+                }
+        
+        .header_dropdown{justify-content:end;}
+        /***header common style***/
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 22px;
+            border: 1px solid #dedede;
+            position: absolute;
+            z-index: 2000;
+            background-color: white;
+            top: 42px;
+        }
+        .dropdown-menu.show {
+            left: 15px;
+        }
+        .dropdown-menu.show > li {text-align:center};
+        
+        /***header common style**/
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                .form label {
+                        font-size: 13px!important;
+                    }
+                   
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+          
+            #myInput {
+                    height: 44px;
+                    border: 1px solid #dedede;
+                    border-radius: 22px;
+                    padding: 6px 48px;
+                    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+                    width:93%;
+                }
+                .header_dropdown{justify-content:end;}
+                .fa.fa-search {
+                    position: absolute;
+                    left: 40px;
+                    font-size: 16px;
+                }
+                .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {color: #fff !important;background-color: #1d1a4b;}
+                a {color: #272264;}
+                #filter-btn {
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    margin-top: 17px;
+                }
+                #clearbtn {
+                background-color: #fff;
+                border: 1px solid #ccc;
+                }
+                /*.btn.btn-default {
+            border: 1px solid #ccc;
+            background-color: white;
+        }*/
+                @media(min-width:320px) and (max-width:767px){
+                    .col-md-4.navbar-brand {width: 50%;}
+                    .nav-pills > li {width: 100%;}
+                    .name {color: #333 !important;}
+                    .navbar-default .navbar-collapse {
+            border-color: #fff;
+            background: #fff;
+            border: none;
+        }
+        .dropdown-menu.show > li {text-align: left;padding:10px;}
+        .dropdown-menu.show > li > a{color:#333 !important;}
+        .dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+        
+                }
+        
+        
+              /*
+            Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+            */
+            @media
+              only screen 
+            and (max-width: 760px), (min-device-width: 768px) 
+            and (max-device-width: 1024px)  {
+                .table tbody tr td {
+                    border-top: 1px solid #e6e6e6;
+                    padding: 10px !important;
+                    padding-left: 50% !important;
+                }
+                /* Force table to not be like tables anymore */
+                table, thead, tbody, th, td, tr {
+                    display: block;
+                }
+        
+                /* Hide table headers (but not display: none;, for accessibility) */
+                thead tr {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+        
+            tr {
+              /*margin: 0 0 1rem 0;*/
+            }
+              
+            tr:nth-child(odd) {
+              /*background: #ccc;*/
+            }
+            
+                td {
+                    /* Behave  like a "row" */
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;
+                    padding-left: 50%;
+                    height:40px;
+                }
+        
+                td:before {
+                    /* Now like a table header */
+                    position: absolute;
+                    /* Top/left values mimic padding */
+                    top: 0;
+                    left: 6px;
+                    width: 45%;
+                    padding-right: 10px;
+                    white-space: nowrap;
+                }
+        
+                /*
+                Label the data
+            You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+                */
+                td:nth-of-type(1):before { content: "Lead ID"; }
+                td:nth-of-type(2):before { content: "Product"; }
+                td:nth-of-type(3):before { content: "Loan Amount"; }
+                td:nth-of-type(4):before { content: "Applicants"; }
+                td:nth-of-type(5):before { content: "Created on"; }
+                td:nth-of-type(6):before { content: "Created By"; }
+                td:nth-of-type(7):before { content: "Priority"; }
+                td:nth-of-type(8):before { content: "Promocode"; }
+                td:nth-of-type(9):before { content: "Status"; }
+                td:nth-of-type(10):before { content: "History"; }
+                td:nth-of-type(11):before { content: ""; }
+                /*td:nth-of-type(9):before { content: ""; }
+                td:nth-of-type(10):before { content: ""; }
+                td:nth-of-type(11):before { content: ""; }
+                td:nth-of-type(12):before { content: ""; }
+                td:nth-of-type(14):before { content: ""; }
+                td:nth-of-type(15):before { content: ""; }
+                td:nth-of-type(16):before { content: ""; }
+                td:nth-of-type(17):before { content: ""; }*/
+        
+            }
+            
+        /*table styles ends here*/
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                .form label {
+                        font-size: 13px!important;
+                    }
+                   
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+         .input-group.input-medium {
+    height: 34px !important;
+}
+.input-group-btn {
+    height: 34px;
+}
+.form-control.date_width{height:34px;}
+
+.w-25.h-4 {
+    width: 10px !important;
+    height: 28px !important;
+    margin-right: 10px;
+    margin-top: 29px;
+    background: transparent;
+    border: none;
+    color: #1d1a4b;
+}
+ 
+.head_font{
+    font-size: 16px;
+}
+        
+    </style>
+    <style>
+        .btn.btn-default {
+            height: 33px;
+        }
+        .form-control.date_width{height:35px;}
+            .radio-inline {
+            width: 155px;
+            margin-left: 0px !important;
+            font-weight: initial;
+        }    .top_button{
+                             /* margin: 20px; */
+                    /* padding: 20px; */
+                    height: 38px;
+                    width: 99%;
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                    font-size: 13px;
+                        }
+                
+                        .panel-primary{
+                            background-color: #1d1a4b!important;
+                            color: white!important;
+                        }
+                
+                        label {
+                            font-size: 13px!important;
+            font-family: "Open sans",Helvetica,Arial,sans-serif;
+            font-weight: 400px;
+                    }
+                
+                .image-upload input {
+                    cursor: pointer;
+                    opacity: 0;
+                    height: 5%;
+                    width: 5%;
+                    z-index: 10;
+                    position: absolute;
+                    top: 0;
+                    left: 0
+                }
+                .fa.fa-upload
+                {
+                    font-size:20px;
+                    } 
+                
+                    .fa.fa-plus
+                {
+                    font-size:14px;
+                    }
+                
+                    .fa.fa-minus
+                {
+                    font-size:14px;
+                    }
+                .date_width{width: 146px;
+                    margin: 0px;
+                    font-size: 12px;}
+                
+                    @media (min-width: 992px){
+                        .form .col-md-2 {
+                    width: 20%;
+                }
+                    }
+                
+                
+                /*version four styles starts here*/
+                a {color:#fff !important; font-size:14px;}
+                .form .col-md-2 {
+                    width: 20% !important;
+                    max-width: 20% !important;
+                    flex: 0 0 20% !important;
+                }
+                .input-group-btn {
+                    border: 1px solid #ccc;
+                    margin-right: -1%;
+                    border-radius: 4px;
+                }
+                @media(min-width:320px) and (max-width:767px){
+                .form .col-md-2 {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    flex: 0 0 100% !important;
+                }
+                u{color:#333!important;}
+                }
+                
+                /**header style starts here**/
+                .fa.fa-search {
+                    position: absolute;
+                    left: 40px;
+                    font-size: 16px;
+                }
+                #myInput {
+                    height: 44px;
+                    border: 1px solid #dedede;
+                    border-radius: 22px;
+                    padding: 6px 48px;
+                    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+                    width: 93%;
+                }
+                .header_dropdown {
+                    justify-content: end;
+                }
+                #myUL {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 22px;
+                    border: 1px solid #dedede;
+                    position: absolute;
+                    z-index: 2000;
+                    background-color: white;
+                    top: 42px;
+                    left:-10px;
+                }
+                .name {
+                    color: #333 !important;
+                }
+                .navbar-default.navbar-nav > li > a {
+                    color: #333 !important;
+                }
+                .dropdown-menu.show > li > a{color:#333 !important;}
+                .dropdown-menu li a:focus, .dropdown-menu li a:hover {
+                    background-color: #272264 !important;
+                    color: #ffffff !important;
+                }
+                #myUL > li >a{color:#333 !important;}
+                @media(min-width:320px) and (max-width:767px){
+                            .col-md-4.navbar-brand {width: 50%;}
+                            .dropdown-menu.show > li {text-align: left;padding:10px;}
+                .dropdown-menu.show > li > a{color:#333 !important;}
+                .dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+                .navbar-default .navbar-collapse {
+                    border-color: #fff;
+                    background: #fff;
+                    border: none;
+                }
+                }
+                #myUL li a::before {
+            content: '';
+            position: absolute;
+            background: url(../images/search.png) no-repeat;
+            width: 16px;
+            height: 16px;
+            left: 20px;
+            top: 10px;
+            }
+            #myUL li a {
+            padding: 8px 60px;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            position: relative;
+            text-align: left;
+            }
+            span.fa.fa-search.dde {
+            padding: 11px 0px;
+            }
+                /**header style ends here**/
+                /*version four style ends here*/
+                
+            </style>
+            <style>
+                .modal-footer {
+            border-top: 0px;
+        }
+        .decision_change {
+            display: block;
+            text-align: left;
+        }
+                .row.m-0{margin:0px;}
+                .radio-inline {
+                    width: 155px;
+                    margin-left:0px !important;
+                }
+                .row.top_bar {
+        margin: 0px;
+        border: 1px solid #ddd;
+        font-weight: 100;
+        border-radius: 6px;
+        padding-top: 5px;
+        padding-bottom: 0px;
+        background: white;
+        }
+                .form-group.col-sm-6.col-md-3.col-lg-3 {
+            width: 28%;
+            max-width: 28%;
+            flex: 0 0 28%;
+        }
+                    .form-group.col-sm-6.col-md-4.col-lg-3 {
+            width: 28%;
+            max-width: 28%;
+            flex: 0 0 28%;
+        }
+                .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload{font-size:20px;}
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+            .upload_down {
+            margin-top: 30px;
+        }
+        .image-upload{margin-top:8px;}
+        .action{width:100%;}
+        .form-group.col-sm-6.col-md-2.col-lg-3 {
+            width: 15%;
+            flex: 0 0 15%;
+        }
+        .radio-inline.p-0.m-0 {
+            padding: 0px;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+        .upload_sanction{
+        position: absolute;
+        font-size: 50px;
+        opacity: 0;
+        right: 87px;
+        top: 34px;
+        width: 95px;
+        height: 37px;
+        }
+        .uploadsan{margin-top:15px;}
+        .check_input {
+            width: 171px;
+            margin-left: 0px;}
+        .form-group.col-sm-6.col-md-4.col-lg-3.p-0{padding:0px;}
+        /* .margin_zero{margin:0px;} */
+        #scroll_starts_here {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        /* .multisteps-form__progress {
+            margin: 8px;
+        } */
+        .input_design {
+            border: 1px solid #ccc;
+            padding: 6px;
+            width: 100%;
+            display: block;
+            border-radius: 5px;
+            margin-top:14px;
+            color: #1d1a4b !important;
+        }
+        .text-dec {
+            text-decoration: underline;
+        }
+        .mar_top {
+            margin-top:0px;
+        }
+        .bottom_20 {
+            float: left;
+            margin: 20px;
+        }
+        .input-group.input-medium {
+            height: 34px !important;
+        }
+        .input-group-btn {
+            height: 34px;
+        }
+        
+        .form-control.date_width{height:34px;}
+        
+            </style>
+</head>
+
+<body class="bg" data-gr-c-s-loaded="true">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+        <div class="container-fluid">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+            <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+              <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" autofocus>
+            <span class="fa fa-search"></span>
+            <ul id="myUL" class="unique">
+                <li><a href="../retail_sales_lead/retail_sales_create_lead.html" >Create New Lead</a></li>
+                <li><a href="../retail_sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li>
+                <li><a href="" >View PD Tasks</a></li>
+                <li><a href="" >View Pending Queries</a></li>
+                <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li>
+                <li><a href="" >View Declined Leads</a></li>
+                <li><a href="" >Track Lead Status</a></li>
+            </ul>
+               </form>
+              <div class="col-md-4 collapse navbar-collapse header_dropdown" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                  <li class="dropdown">
+                        <a href="#" class="name" data-toggle="dropdown">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Dhanapal Nataraj</a></li>
+                            <li><a href=""> <select class="form-control"><option value="Sales Officer" selected="selected" >Sales Officer</option></select></a></li>
+                            <li><a href="#">Velachery Branch</a></li>
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                           
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+              
+            </nav>
+            <!-- <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div> -->
+            
+        </div>
+    </header>
+
+    <main class="mar-top90">
+        <div class="container-fluid">
+            <h3 class="">Lead ID : 12345</h3>
+            <div class="row top_bar">
+                <div class="col-lg-9 col-md-9 col-sm-11">
+                    <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Lead ID </label>
+                            <label for="lead_created_by_name" class="col-form-label-two">12345</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Product</label>
+                            <label for="lead_created_by_name" class="col-form-label-two">LAP</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="customer_name_label">Loan Amount</label>
+                            <label for="customer_name" class="col-form-label-two"> ----- </label>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="roi">Applicant</label>
+                            <label for="roi_value" class="col-form-label-two">Deepika Malhotra</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Status </label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">In progress</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Queue</label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">Credit Condition</label>
+                        </div>
+                    </div>
+                   
+                    </div>
+            
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 mt-4 upload">
+                    <a href="../retail_sales_dde/retail_sales_lead_details.html"><i class="fa fa-eye fa-2x"></i></a>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-5">
+                <a href="document_applicant.html"> <button class="btn btn-primary top_button" type="button">View/Upload Document</button></a> 
+                <a href="../retail_sales_dde_dashboard/query.html"> <button class="btn btn-primary top_button" type="button">Initiate Query</button></a> 
+               
+            </div>               
+                
+            </div>
+
+            <!--progress bar-->
+            <div class="multisteps-form">
+                <div class="multisteps-form__progress">
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="retail_credit_conditions">Credit Conditions</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="retail_sanctioned_details">Sanction Details</button>
+                    <!-- <button class="multisteps-form__progress-btn js-active first-row" type="button" id="retail_dm_details">Distrubments Details</button> -->
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="customer_feedback">Customer Feedback</button>
+                   
+                </div>
+
+                <div class="content" id="container_height">
+                    <form class="multisteps-form__form " method="post" id="form_height" style="height: 500px;">
+                        <div class="multisteps-form__panel js-active" data-animation="scaleIn">
+                            <!------ Product Details ----->
+                            <div class="text-center"> 
+                           <input type="radio" value="Accepted" name="accepted_offer" id="accepted_offer" checked="checked">&nbsp;&nbsp;Customer Accepted Offer
+                           &nbsp;&nbsp;<input type="radio" value="Negotiations" id="negotiations" name="accepted_offer" checked="checked">&nbsp;&nbsp;Customer Negotiations
+                       </div>
+                       
+                       <div class="" id="accepted_offer_section" style="display: block;">
+                        <h3 class="title">Disbursement Details</h3>
+                           
+                        <div class="" id="hide_section"> 
+                            <div class="row mydiv" id="">
+                                <h5 class="col-md-12 head_font"><b>Loan Details</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="sanctioned_loan_amount">Sanctioned Loan Amount (Rs)</label>
+                                    <input type="text" class="form-control" id="sanctioned_loan_amount" value="500000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="effective_rate_interest">Effective Rate of Interest</label>
+                                    <input type="text" class="form-control" id="effective_rate_interest" value="3.5" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Tenor in Months</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="6" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="processing_fee">Processing Fee(Inclusive of applicable service Tax) (Rs.) </label>
+                                    <input type="text" class="form-control" id="processing_fee" value="5000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="technical_fee">Technical Fee (Rs.)</label>
+                                    <input type="text" class="form-control" id="technical_fee" value="6000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="admin_fee">Admin Fee (Rs.)</label>
+                                    <input type="text" class="form-control" id="admin_fee" value="5000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="total_deduction">Total Deduction(Rs.)</label>
+                                    <input type="text" class="form-control" id="total_deduction" value="20000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="emi_rs">EMI (Rs.)</label>
+                                    <input type="text" class="form-control" id="emi_rs" value="6000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="cersai_tax">CERSAI (Inclusive of Sevice Tax) (Rs.)</label>
+                                    <input type="text" class="form-control" id="cersai_tax" value="2400" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="property_insurance">Property insurance (inclusive of service)</label>
+                                    <input type="text" class="form-control" id="property_insurance" value="2000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="credit_holder_name">Credit Shield Holder Name</label>
+                                    <input type="text" class="form-control" id="credit_holder_name" value="Deepika" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="total_collection">Total Collection(Rs.)</label>
+                                    <input type="text" class="form-control" id="total_collection" value="50000" disabled>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="net_disbursement">Net Disbursement Amount</label>
+                                    <input type="text" class="form-control" id="net_disbursement" value="400" disabled>
+                                </div>
+                            </div>
+                            <div class="row mydiv" id="">
+                                <h5 class="col-md-12 head_font"><b>First Disbursement</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="sanctioned_loan_amount">Construction Cost</label>
+                                    <input type="text" class="form-control" id="sanctioned_loan_amount" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="effective_rate_interest">Building Type</label>
+                                    <input type="text" class="form-control" id="effective_rate_interest" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Stage Completed %</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="processing_fee">Recommended Disbursement</label>
+                                    <input type="text" class="form-control" id="processing_fee" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="technical_fee">Net Disbursement</label>
+                                    <input type="text" class="form-control" id="technical_fee" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="admin_fee">Margin Money</label>
+                                    <input type="text" class="form-control" id="admin_fee" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="total_deduction">Construction Stage</label>
+                                    <input type="text" class="form-control" id="total_deduction" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="emi_rs">Recommended %</label>
+                                    <input type="text" class="form-control" id="emi_rs" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="cersai_tax">Already Disbursed Amount</label>
+                                    <input type="text" class="form-control" id="cersai_tax" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="property_insurance">Pending Disbursement</label>
+                                    <input type="text" class="form-control" id="property_insurance" value="">
+                                </div>
+                                
+                                
+                            </div>   
+                            <div class="row mydiv" id="">
+                                <h5 class="col-md-12 head_font"><b>Favoring Details</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="sanctioned_loan_amount">Payment Mode</label>
+                                    <select class="form-control" id="payment_mode">
+                                        <option value="NEFT" selected="selected" >NEFT</option>
+                                        <option value="IMPS"  >IMPS</option>
+                                        <option value="DD"  >DD</option>
+                                        <option value="Cheque" >Cheque</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="effective_rate_interest">Payable To</label>
+                                    <select class="form-control">
+                                        <option value="Applicant" selected="selected" >Applicant</option>
+                                        <option value="Third Party" selected="" >Third Party</option>
+                                        <option value="Financial Institution" selected="" >Financial Institution</option>
+                                        <option value="Builder" selected="" >Builder</option>
+                                        <option value="BT - Internal" selected="" >BT - Internal</option>
+                                        <option value="Co-Applicant 1" selected="" >Co-Applicant 1</option>
+                                        <option value="Co-Applicant 2" selected="" >Co-Applicant 2</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Payable Short Descr%</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                            </div> 
+                            <div id="container_obli_dd">
+                            <div class="row mydiv" id="cheque_section">
+                                <h5 class="col-md-12 head_font"><b>Cheque</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="sanctioned_loan_amount">Disbursement Amount</label>
+                                    <input type="text" class="form-control" id="sanctioned_loan_amount" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="effective_rate_interest">Instrument Type</label>
+                                    <input type="text" class="form-control" id="effective_rate_interest" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Instrument Number</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Instrument Date</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Favouring Bank</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Favouring Bank branch</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Favouring Bank branch IFSC Code</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <button type="button" onclick="Clone_biz()" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-plus"></i></button>
+                                     <button type="button" onclick="Delete_biz(this)" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="row mydiv" id="dd_section">
+                                <h5 class="col-md-12 head_font"><b>DD</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="sanctioned_loan_amount">Disbursement Amount</label>
+                                    <input type="text" class="form-control" id="sanctioned_loan_amount" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="effective_rate_interest">Instrument Type</label>
+                                    <input type="text" class="form-control" id="effective_rate_interest" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Instrument Number</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Instrument Date</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Favouring Bank</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Favouring Bank branch</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="tenor_month">Favouring Bank branch IFSC Code</label>
+                                    <input type="text" class="form-control" id="tenor_month" value="">
+                                </div>
+                                <button type="button" onclick="Clone_biz()" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-plus"></i></button>
+                                     <button type="button" onclick="Delete_biz(this)" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                            <div id="container_obli">
+                                <div class="row mydiv" id="neft_section">
+                                    <h5 class="col-md-12 head_font"><b>NEFT </b></h5>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="sanctioned_loan_amount">Customer Bank Name</label>
+                                        <input type="text" class="form-control" id="sanctioned_loan_amount" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="effective_rate_interest">IFSC code</label>
+                                        <input type="text" class="form-control" id="effective_rate_interest" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Bank Branch</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Customer Bank Account type</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Customer Bank Account Number</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Account holder name</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <button type="button" onclick="Clone_biz()" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-plus"></i></button>
+                                     <button type="button" onclick="Delete_biz(this)" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-minus"></i></button>
+                                   
+                                </div> 
+                                <div class="row mydiv" id="imps_section">
+                                    <h5 class="col-md-12 head_font"><b>IMPS </b></h5>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="sanctioned_loan_amount">Customer Bank Name</label>
+                                        <input type="text" class="form-control" id="sanctioned_loan_amount" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="effective_rate_interest">IFSC code</label>
+                                        <input type="text" class="form-control" id="effective_rate_interest" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Bank Branch</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Customer Bank Account type</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Customer Bank Account Number</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="tenor_month">Account holder name</label>
+                                        <input type="text" class="form-control" id="tenor_month" value="">
+                                    </div>
+                                    <button type="button" onclick="Clone_biz()" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-plus"></i></button>
+                                     <button type="button" onclick="Delete_biz(this)" class="w-25 h-4 mt-0 ml-2"><i class="fa fa-minus"></i></button>
+                                   
+                                </div>   
+                            </div> 
+                                            
+                            <!-- <div class="row mydiv" id="thediv">
+                                <h5 class="col-md-12 head_font"><b>Bank Details</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="first_name">Customer Bank Name</label>
+                                    <select  class="form-control" id=""  name="" >
+                                        <option value="" selected="selected">--select 1--</option>
+                                        <option value="">--select 2 ---</option>
+                                        <option value="">-- select 3--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="micr_code">MICR Code</label>
+                                    <input type="text" class="form-control" id="micr_code" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="ifsc_code">IFSC Code</label>
+                                    <input type="text" class="form-control" id="ifsc_code" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="bank_branch">Bank Branch</label>
+                                    <input type="text" class="form-control" id="bank_branch" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="bank_account_type">Customer Bank Account Type</label>
+                                    <select  class="form-control" id="bank_account_type"  name="" >
+                                        <option value="" selected="selected">--select 1--</option>
+                                        <option value="">--select 2 ---</option>
+                                        <option value="">-- select 3--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="bank_account_number">Customer Bank Account Number</label>
+                                    <input type="text" class="form-control" id="bank_account_number" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="account_holder_name">Account Holder Name</label>
+                                    <input type="text" class="form-control" id="account_holder_name" value="">
+                                </div>
+                            </div> -->
+                            <div class="row mydiv" id="">
+                                <h5 class="col-md-12 head_font"><b>SPDC Details</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="pre_emi">Pre-EMI/EMI Amount</label>
+                                    <select  class="form-control" id="pre_emi"  name="" >
+                                        <option value="" selected="selected">-- Cheque 1--</option>
+                                        <option value="">-- Cheque 2 ---</option>
+                                        <option value="">-- Cheque 3--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_no">Intr.No</label>
+                                    <input type="text" class="form-control" id="intr_no" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_date">Instr.Date</label>
+                                    <input type="date" class="form-control" id="intr_date" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_bank_name">Instr.Bank Name</label>
+                                    <input type="text" class="form-control" id="intr_bank_name" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_branch_name">Intr.Branch Name</label>
+                                    <input type="text" class="form-control" id="intr_branch_name" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="instr_amount">Instr.Amount</label>
+                                    <input type="text" class="form-control" id="instr_amount" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="instr_account_number">Instr.Bank Account Number</label>
+                                    <input type="text" class="form-control" id="instr_account_number" value="">
+                                </div>
+                                
+                            </div>
+                            <div class="row mydiv" id="">
+                                <h5 class="col-md-12 head_font"><b>PDC Details</b></h5>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="pre_emi">Pre-EMI/EMI Amount</label>
+                                    <select  class="form-control" id="pre_emi"  name="" >
+                                        <option value="" selected="selected">-- Cheque 1--</option>
+                                        <option value="">-- Cheque 2 ---</option>
+                                        <option value="">-- Cheque 3--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_no">Intr.No</label>
+                                    <input type="text" class="form-control" id="intr_no" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_date">Instr.Date</label>
+                                    <input type="date" class="form-control" id="intr_date" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_bank_name">Instr.Bank Name</label>
+                                    <input type="text" class="form-control" id="intr_bank_name" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="intr_branch_name">Intr.Branch Name</label>
+                                    <input type="text" class="form-control" id="intr_branch_name" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="instr_amount">Instr.Amount</label>
+                                    <input type="text" class="form-control" id="instr_amount" value="">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                    <label for="instr_account_number">Instr.Bank Account Number</label>
+                                    <input type="text" class="form-control" id="instr_account_number" value="">
+                                </div>
+                                
+                            </div>
+                           
+                            
+                                                                        
+                        </div>
+                        </div>
+                            <div id="negotiations_section" style="display: none;">
+                                <h3 class="title">Negotiation Details</h3>
+                                <div class="row">
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <label for="">Select</label>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <label for="">Category</label>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <label for="">Approved Details</label>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <label for="">Negotiation Detials</label>
+                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <input type="checkbox" value="">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <p>Loan Amount</p>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <input type="text" disabled="disabled" value="800000.00" class="form-control"> 
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <input type="text" value="900000.00" class="form-control"> 
+                                     </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <input type="checkbox" value="" checked="checked">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <p>ROI</p>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <input type="text" disabled="disabled" value="18.5%" class="form-control"> 
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <input type="text" value="16%" class="form-control"> 
+                                     </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <input type="checkbox" value="">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <p>Processing Fee</p>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <input type="text" disabled="disabled" value="6000" class="form-control"> 
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <input type="text" value="2500" class="form-control"> 
+                                     </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <input type="checkbox" value="" checked="checked">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <p>Life Cover</p>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <select class="form-control" disabled="disabled">
+                                             <option value="Required">Required</option>
+                                             <option value="Not Required">Not Required</option>
+                                         </select>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <select class="form-control">
+                                             <option value="Not Required">Not Required</option>
+                                             <option value="Required">Required</option>
+                                         </select> 
+                                     </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <input type="checkbox" value="">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <p>PAC</p>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <select class="form-control" disabled="disabled">
+                                             <option value="Required">Required</option>
+                                             <option value="Not Required">Not Required</option>
+                                         </select>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <select class="form-control">
+                                             <option value="Not Required">Not Required</option>
+                                             <option value="Required">Required</option>
+                                         </select>
+                                     </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <input type="checkbox" value="" checked="checked">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <p>VAS</p>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <select class="form-control" disabled="disabled">
+                                             <option value="Required">Required</option>
+                                             <option value="Not Required">Not Required</option>
+                                         </select>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <select class="form-control">
+                                             <option value="Not Required">Not Required</option>
+                                             <option value="Required">Required</option>
+                                         </select>
+                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-4 col-lg-1">
+                                         <input type="checkbox" value="" checked="checked">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <p>Login Fee</p>
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                         <input type="text" value="9000" class="form-control">
+                                     </div>
+                                     <div class="form-group col-sm-6 col-md-4 col-lg-2">
+                                        <input type="text" value="9000" class="form-control">
+                                     </div>
+                                </div>
+                                
+                            </div>
+                            
+                    
+                </div></form>
+               
+            </div>
+           
+
+        </div>
+         <div class="btn-sec clear-both row">
+                    <div class="col-sm-5">
+
+                    </div>
+                    <div class="col-sm-7 text-right">
+                        <p class="btn btn-primary save" id="submit"> Save </p>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Submit</button>
+                        <br>
+                    <br>
+                    <br>
+                    </div>
+                </div>
+
+        <div class="alert alert-success alert-dismissible" id="alert" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> Saved!
+        </div>
+
+
+
+
+    </div></main>
+
+<!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header text-center">
+          <h4 class="modal-title">Submit Lead</h4>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Are you sure you want to submit?
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer text-center">
+        	<button type="button" class="btn btn-success" data-dismiss="modal" id="yes_button">Yes</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script-progress-step.js "></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        	$("#yes_button").click(function(){
+        		document.location = "../retail_sales_dashboard/my_dashboard.html";
+        	});
+        $("#payable_to").change(function(){
+            
+                                        
+                                        
+            var payable_to_val = $("#payable_to").val();
+            if(payable_to_val == "Dealer")
+            {
+                var result_options = '<option  value="Dealer1" >Dealer1</option>';
+                $("#payable_to_result").html(result_options);
+            }
+            if(payable_to_val == "Borrower")
+            {
+                var result_options = '<option  value="Deepika Malhotra" >Deepika Malhotra</option>';
+                $("#payable_to_result").html(result_options);
+            }
+            if(payable_to_val == "Co-Borrower")
+            {
+                var result_options = '<option  value="Co-app1" >Co-app1</option>';
+                $("#payable_to_result").html(result_options);
+            }
+
+        });
+        $("#payable_to1").change(function(){
+            
+                                        
+                                        
+            var payable_to_val = $("#payable_to1").val();
+            if(payable_to_val == "Dealer")
+            {
+                var result_options = '<option  value="Dealer1" >Dealer1</option>';
+                $("#payable_to_result1").html(result_options);
+            }
+            if(payable_to_val == "Borrower")
+            {
+                var result_options = '<option  value="Deepika Malhotra" >Deepika Malhotra</option>';
+                $("#payable_to_result1").html(result_options);
+            }
+            if(payable_to_val == "Co-Borrower")
+            {
+                var result_options = '<option  value="Co-app1" >Co-app1</option>';
+                $("#payable_to_result1").html(result_options);
+            }
+            
+        });
+        $("#payable_to2").change(function(){
+            
+                                        
+                                        
+            var payable_to_val = $("#payable_to2").val();
+            if(payable_to_val == "Dealer")
+            {
+                var result_options = '<option  value="Dealer1" >Dealer1</option>';
+                $("#payable_to_result2").html(result_options);
+            }
+            if(payable_to_val == "Borrower")
+            {
+                var result_options = '<option  value="Deepika Malhotra" >Deepika Malhotra</option>';
+                $("#payable_to_result2").html(result_options);
+            }
+            if(payable_to_val == "Co-Borrower")
+            {
+                var result_options = '<option  value="Co-app1" >Co-app1</option>';
+                $("#payable_to_result2").html(result_options);
+            }
+            
+        });
+        $("#payable_to3").change(function(){
+            
+                                        
+                                        
+            var payable_to_val = $("#payable_to3").val();
+            if(payable_to_val == "Dealer")
+            {
+                var result_options = '<option  value="Dealer1" >Dealer1</option>';
+                $("#payable_to_result3").html(result_options);
+            }
+            if(payable_to_val == "Borrower")
+            {
+                var result_options = '<option  value="Deepika Malhotra" >Deepika Malhotra</option>';
+                $("#payable_to_result3").html(result_options);
+            }
+            if(payable_to_val == "Co-Borrower")
+            {
+                var result_options = '<option  value="Co-app1" >Co-app1</option>';
+                $("#payable_to_result3").html(result_options);
+            }
+            
+        });
+        $("#payable_to4").change(function(){
+            
+                                        
+                                        
+            var payable_to_val = $("#payable_to4").val();
+            if(payable_to_val == "Dealer")
+            {
+                var result_options = '<option  value="Dealer1" >Dealer1</option>';
+                $("#payable_to_result4").html(result_options);
+            }
+            if(payable_to_val == "Borrower")
+            {
+                var result_options = '<option  value="Deepika Malhotra" >Deepika Malhotra</option>';
+                $("#payable_to_result4").html(result_options);
+            }
+            if(payable_to_val == "Co-Borrower")
+            {
+                var result_options = '<option  value="Co-app1" >Co-app1</option>';
+                $("#payable_to_result4").html(result_options);
+            }
+            
+        });
+        $("#payable_to5").change(function(){
+            
+                                        
+                                        
+            var payable_to_val = $("#payable_to5").val();
+            if(payable_to_val == "Dealer")
+            {
+                var result_options = '<option  value="Dealer1" >Dealer1</option>';
+                $("#payable_to_result5").html(result_options);
+            }
+            if(payable_to_val == "Borrower")
+            {
+                var result_options = '<option  value="Deepika Malhotra" >Deepika Malhotra</option>';
+                $("#payable_to_result5").html(result_options);
+            }
+            if(payable_to_val == "Co-Borrower")
+            {
+                var result_options = '<option  value="Co-app1" >Co-app1</option>';
+                $("#payable_to_result5").html(result_options);
+            }
+            
+        });
+        });
+    </script>
+    <script>
+        $("#alert").hide();
+        $("#submit").click(function() {
+            $("#alert").toggle();
+        });
+
+        var hdr_locations_ids = new Array("#retail_credit_conditions","#retail_sanctioned_details","#retail_dm_details","#customer_feedback");
+         var length_hdr_locations_ids = hdr_locations_ids.length;
+        $('button').click(function() {
+            var get_button_id_here = $(this).attr('id');
+            var actual_id_get = "#" + get_button_id_here;
+            for (m = 0; m < length_hdr_locations_ids; m++) {
+                if (hdr_locations_ids[m] == actual_id_get) {
+                    var get_html_file_name_here = actual_id_get.split("#");
+                    var actual_file_name = get_html_file_name_here[1] + ".html";
+                    var path = actual_file_name;
+                    document.location = path;
+                } else {
+
+                }
+
+            }
+        });
+
+        $("#hide_section").hide();
+        $("#accepted_offer_section").hide();
+        $("#negotiations_section").hide();
+        $("#accepted_offer").click(function(){
+            var accepted_offer = $("#accepted_offer").attr("checked",true).val();
+            if(accepted_offer == "Accepted")
+            {
+                $("#accepted_offer_section").show();
+                $("#negotiations_section").hide();
+                $("#hide_section").show();
+            }
+            else
+            {
+                $("#negotiations_section").hide();
+                $("#hide_section").hide();
+            }
+        });
+        $("#negotiations").click(function(){
+
+            var negotiation = $("#negotiations").attr("checked",true).val();
+            if(negotiation == "Negotiations")
+            {
+                 $("#accepted_offer_section").hide();
+                 $("#negotiations_section").show();
+                 $("#hide_section").hide();
+                
+            }
+            else
+            {
+                $("#negotiations_section").hide();
+                $("#hide_section").hide();
+            }
+        });
+        $("#line_1").hide();
+         $("#line_2").hide();
+          $("#line_3").hide();
+           $("#line_4").hide();
+            $("#line_5").hide();
+        $("#customer_accepted_offers1").hide();
+            $("#customer_accepted_offers2").hide();
+            $("#customer_accepted_offers3").hide();
+            $("#customer_accepted_offers4").hide();
+            $("#customer_accepted_offers5").hide();
+
+        $("#add_disbursement_details").click(function(){
+            $("#customer_accepted_offers1").show();
+            $("#customer_accepted_offers2").hide();
+            $("#customer_accepted_offers3").hide();
+            $("#customer_accepted_offers4").hide();
+            $("#customer_accepted_offers5").hide();
+            $("#line_1").show();
+        });
+
+        $("#add_disbursement_details1").click(function(){
+            
+            $("#customer_accepted_offers1").show();
+            $("#customer_accepted_offers2").show();
+            $("#customer_accepted_offers3").hide();
+            $("#customer_accepted_offers4").hide();
+            $("#customer_accepted_offers5").hide();
+            $("#line_2").show();
+        });
+        $("#add_disbursement_details2").click(function(){
+            
+            $("#customer_accepted_offers1").show();
+            $("#customer_accepted_offers3").show();
+            $("#customer_accepted_offers2").show();
+            $("#customer_accepted_offers4").hide();
+            $("#customer_accepted_offers5").hide();
+            $("#line_2").show();
+        });
+        $("#add_disbursement_details3").click(function(){
+            $("#customer_accepted_offers4").show();
+            $("#customer_accepted_offers1").show();
+            $("#customer_accepted_offers2").show();
+            $("#customer_accepted_offers3").show();
+            $("#customer_accepted_offers5").hide();
+            $("#line_3").show();
+        });
+        $("#add_disbursement_details4").click(function(){
+            $("#customer_accepted_offers5").show();
+            $("#customer_accepted_offers1").show();
+            $("#customer_accepted_offers2").show();
+            $("#customer_accepted_offers3").show();
+            $("#customer_accepted_offers4").show();
+            $("#line_4").show();
+        });
+        $("#remove_disbursement_details").click(function(){
+            $("#customer_accepted_offers").hide();
+            $("#neft_section").hide();
+            $("#rtgs_section").hide();
+            $("#cheque_section").hide();
+            $("#dd_section").hide();
+            $("#Internal_BT_section").hide(); 
+            $("#line_5").show();
+        });
+        $("#remove_disbursement_details1").click(function(){
+            $("#customer_accepted_offers1").hide();
+             $("#neft_section1").hide();
+    $("#rtgs_section1").hide();
+    $("#cheque_section1").hide();
+    $("#dd_section1").hide();
+    $("#Internal_BT_section1").hide(); 
+        });
+        $("#remove_disbursement_details2").click(function(){
+            $("#customer_accepted_offers2").hide();
+             $("#neft_section2").hide();
+    $("#rtgs_section2").hide();
+    $("#cheque_section2").hide();
+    $("#dd_section2").hide();
+    $("#Internal_BT_section2").hide(); 
+        });
+        $("#remove_disbursement_details3").click(function(){
+            $("#customer_accepted_offers3").hide();
+             $("#neft_section3").hide();
+    $("#rtgs_section3").hide();
+    $("#cheque_section3").hide();
+    $("#dd_section3").hide();
+    $("#Internal_BT_section").hide(); 
+        });
+        $("#remove_disbursement_details4").click(function(){
+            $("#customer_accepted_offers4").hide();
+             $("#neft_section4").hide();
+    $("#rtgs_section4").hide();
+    $("#cheque_section4").hide();
+    $("#dd_section4").hide();
+    $("#Internal_BT_section4").hide(); 
+        });
+        $("#remove_disbursement_details5").click(function(){
+            $("#customer_accepted_offers5").hide();
+             $("#neft_section5").hide();
+    $("#rtgs_section5").hide();
+    $("#cheque_section5").hide();
+    $("#dd_section5").hide();
+    $("#Internal_BT_section5").hide(); 
+        });
+        
+       
+    </script>
+    <script type="text/javascript">
+ 
+    function Clone_biz() {
+
+
+  var clone = document.getElementById('neft_section').cloneNode(true); // "deep" clone
+  document.getElementById("container_obli").appendChild(clone);
+
+  var clone = document.getElementById('dd_section').cloneNode(true); // "deep" clone
+  document.getElementById("container_obli").appendChild(clone);
+
+  var clone = document.getElementById('imps_section').cloneNode(true); // "deep" clone
+  document.getElementById("container_obli").appendChild(clone);
+
+  var clone = document.getElementById('cheque_section').cloneNode(true); // "deep" clone
+  document.getElementById("container_obli_dd").appendChild(clone);
+}
+
+function Delete_biz(button) {
+  var parent = button.parentNode;
+  var grand_father = parent.parentNode;
+  grand_father.removeChild(parent);
+}
+
+</script>
+     <script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+         
+        $("#sales_create_lead").click(function(){
+            var inptvl= $("#myInput").val("Create Lead");
+            $('.unique').hide();
+        });
+        $("#sales_dashboard").click(function(){
+             var inptvl2 = $("#myInput").val("My Dashboard");
+             $('.unique').hide();
+        });
+        $("#sl_search_ac_btn").click(function(){
+            var html_locvl =  $("#myInput").val();
+            if(html_locvl == "Create Lead" )
+            {  
+                path = "../sales_lead/sales_create_lead.html";
+                document.location = path ;
+            }
+            if(html_locvl == "My Dashboard")
+            {
+                path1 = "../sales_dashboard/my_dashboard.html";
+                document.location = path1 ;
+            }
+        });
+    </script>
+   
+<script type="text/javascript">
+$(document).ready(function(){
+    
+  $('[data-toggle="tooltip"]').tooltip();
+    $("#neft_section").hide();
+    $("#rtgs_section").hide();
+    $("#cheque_section").hide();
+    $("#dd_section").hide();
+    $("#Internal_BT_section").hide(); 
+  $("#payment_method").change(function(){
+    var payment_methid_val = $("#payment_method").val();
+    
+  if(payment_methid_val == "NEFT") 
+  {
+    $("#neft_section").show();
+    $("#rtgs_section").hide();
+    $("#cheque_section").hide();
+    $("#dd_section").hide();
+    $("#Internal_BT_section").hide();
+  }
+  if(payment_methid_val == "RTGS") 
+  {
+    $("#neft_section").hide();
+    $("#rtgs_section").show();
+    $("#cheque_section").hide();
+    $("#dd_section").hide();
+    $("#Internal_BT_section").hide();
+  }
+  if(payment_methid_val == "Cheque") 
+  {
+   $("#neft_section").hide();
+    $("#rtgs_section").hide();
+    $("#cheque_section").show();
+    $("#dd_section").hide(); 
+    $("#Internal_BT_section").hide();
+  }
+  if(payment_methid_val == "DD")
+  {
+    $("#neft_section").hide();
+    $("#rtgs_section").hide();
+    $("#cheque_section").hide();
+    $("#Internal_BT_section").hide();
+    $("#dd_section").show();
+  }
+  if(payment_methid_val == "Internal_BT") 
+  {
+    $("#neft_section").hide();
+    $("#rtgs_section").hide();
+    $("#cheque_section").hide();
+    $("#dd_section").hide();
+    $("#Internal_BT_section").show();
+  }
+
+  });
+    $("#neft_section1").hide();
+    $("#rtgs_section1").hide();
+    $("#cheque_section1").hide();
+    $("#dd_section1").hide();
+    $("#Internal_BT_section1").hide(); 
+  $("#payment_method1").change(function(){
+    var payment_methid_val = $("#payment_method1").val();
+    
+  if(payment_methid_val == "NEFT") 
+  {
+    $("#neft_section1").show();
+    $("#rtgs_section1").hide();
+    $("#cheque_section1").hide();
+    $("#dd_section1").hide();
+    $("#Internal_BT_section1").hide();
+  }
+  if(payment_methid_val == "RTGS") 
+  {
+    $("#neft_section1").hide();
+    $("#rtgs_section1").show();
+    $("#cheque_section1").hide();
+    $("#dd_section1").hide();
+    $("#Internal_BT_section1").hide();
+  }
+  if(payment_methid_val == "Cheque") 
+  {
+   $("#neft_section1").hide();
+    $("#rtgs_section1").hide();
+    $("#cheque_section1").show();
+    $("#dd_section1").hide(); 
+    $("#Internal_BT_section1").hide();
+  }
+  if(payment_methid_val == "DD")
+  {
+    $("#neft_section1").hide();
+    $("#rtgs_section1").hide();
+    $("#cheque_section1").hide();
+    $("#Internal_BT_section1").hide();
+    $("#dd_section1").show();
+  }
+  if(payment_methid_val == "Internal_BT") 
+  {
+    $("#neft_section1").hide();
+    $("#rtgs_section1").hide();
+    $("#cheque_section1").hide();
+    $("#dd_section1").hide();
+    $("#Internal_BT_section1").show();
+  }
+
+  });
+  
+    $("#neft_section2").hide();
+    $("#rtgs_section2").hide();
+    $("#cheque_section2").hide();
+    $("#dd_section2").hide();
+    $("#Internal_BT_section2").hide(); 
+  $("#payment_method2").change(function(){
+    var payment_methid_val = $("#payment_method2").val();
+    
+  if(payment_methid_val == "NEFT") 
+  {
+    $("#neft_section2").show();
+    $("#rtgs_section22").hide();
+    $("#cheque_section2").hide();
+    $("#dd_section2").hide();
+    $("#Internal_BT_section2").hide();
+  }
+  if(payment_methid_val == "RTGS") 
+  {
+    $("#neft_section2").hide();
+    $("#rtgs_section2").show();
+    $("#cheque_section2").hide();
+    $("#dd_section2").hide();
+    $("#Internal_BT_section2").hide();
+  }
+  if(payment_methid_val == "Cheque") 
+  {
+   $("#neft_section2").hide();
+    $("#rtgs_section2").hide();
+    $("#cheque_section2").show();
+    $("#dd_section2").hide(); 
+    $("#Internal_BT_section2").hide();
+  }
+  if(payment_methid_val == "DD")
+  {
+    $("#neft_section2").hide();
+    $("#rtgs_section2").hide();
+    $("#cheque_section2").hide();
+    $("#Internal_BT_section2").hide();
+    $("#dd_section2").show();
+  }
+  if(payment_methid_val == "Internal_BT") 
+  {
+    $("#neft_section2").hide();
+    $("#rtgs_section2").hide();
+    $("#cheque_section2").hide();
+    $("#dd_section2").hide();
+    $("#Internal_BT_section2").show();
+  }
+
+  });
+
+
+    $("#neft_section3").hide();
+    $("#rtgs_section3").hide();
+    $("#cheque_section3").hide();
+    $("#dd_section3").hide();
+    $("#Internal_BT_section3").hide(); 
+  $("#payment_method3").change(function(){
+    var payment_methid_val = $("#payment_method3").val();
+    
+  if(payment_methid_val == "NEFT") 
+  {
+    $("#neft_section3").show();
+    $("#rtgs_section3").hide();
+    $("#cheque_section3").hide();
+    $("#dd_section3").hide();
+    $("#Internal_BT_section3").hide();
+  }
+  if(payment_methid_val == "RTGS") 
+  {
+    $("#neft_section3").hide();
+    $("#rtgs_section3").show();
+    $("#cheque_section3").hide();
+    $("#dd_section3").hide();
+    $("#Internal_BT_section3").hide();
+  }
+  if(payment_methid_val == "Cheque") 
+  {
+   $("#neft_section3").hide();
+    $("#rtgs_section3").hide();
+    $("#cheque_section3").show();
+    $("#dd_section3").hide(); 
+    $("#Internal_BT_section3").hide();
+  }
+  if(payment_methid_val == "DD")
+  {
+    $("#neft_section3").hide();
+    $("#rtgs_section3").hide();
+    $("#cheque_section3").hide();
+    $("#Internal_BT_section3").hide();
+    $("#dd_section3").show();
+  }
+  if(payment_methid_val == "Internal_BT") 
+  {
+    $("#neft_section3").hide();
+    $("#rtgs_section3").hide();
+    $("#cheque_section3").hide();
+    $("#dd_section3").hide();
+    $("#Internal_BT_section3").show();
+  }
+
+  });
+
+
+    $("#neft_section4").hide();
+    $("#rtgs_section4").hide();
+    $("#cheque_section4").hide();
+    $("#dd_section4").hide();
+    $("#Internal_BT_section4").hide(); 
+  $("#payment_method4").change(function(){
+    var payment_methid_val = $("#payment_method4").val();
+    
+  if(payment_methid_val == "NEFT") 
+  {
+    $("#neft_section4").show();
+    $("#rtgs_section4").hide();
+    $("#cheque_section4").hide();
+    $("#dd_section4").hide();
+    $("#Internal_BT_section4").hide();
+  }
+  if(payment_methid_val == "RTGS") 
+  {
+    $("#neft_section4").hide();
+    $("#rtgs_section4").show();
+    $("#cheque_section4").hide();
+    $("#dd_section4").hide();
+    $("#Internal_BT_section4").hide();
+  }
+  if(payment_methid_val == "Cheque") 
+  {
+   $("#neft_section4").hide();
+    $("#rtgs_section4").hide();
+    $("#cheque_section4").show();
+    $("#dd_section4").hide(); 
+    $("#Internal_BT_section4").hide();
+  }
+  if(payment_methid_val == "DD")
+  {
+    $("#neft_section4").hide();
+    $("#rtgs_section4").hide();
+    $("#cheque_section4").hide();
+    $("#Internal_BT_section4").hide();
+    $("#dd_section4").show();
+  }
+  if(payment_methid_val == "Internal_BT") 
+  {
+    $("#neft_section4").hide();
+    $("#rtgs_section4").hide();
+    $("#cheque_section4").hide();
+    $("#dd_section4").hide();
+    $("#Internal_BT_section4").show();
+  }
+
+  });
+
+
+    $("#neft_section5").hide();
+    $("#rtgs_section5").hide();
+    $("#cheque_section5").hide();
+    $("#dd_section5").hide();
+    $("#Internal_BT_section5").hide(); 
+  $("#payment_method5").change(function(){
+    var payment_methid_val = $("#payment_method5").val();
+    
+  if(payment_methid_val == "NEFT") 
+  {
+    $("#neft_section5").show();
+    $("#rtgs_section5").hide();
+    $("#cheque_section5").hide();
+    $("#dd_section5").hide();
+    $("#Internal_BT_section5").hide();
+  }
+  if(payment_methid_val == "RTGS") 
+  {
+    $("#neft_section5").hide();
+    $("#rtgs_section5").show();
+    $("#cheque_section5").hide();
+    $("#dd_section5").hide();
+    $("#Internal_BT_section5").hide();
+  }
+  if(payment_methid_val == "Cheque") 
+  {
+   $("#neft_section5").hide();
+    $("#rtgs_section5").hide();
+    $("#cheque_section5").show();
+    $("#dd_section5").hide(); 
+    $("#Internal_BT_section5").hide();
+  }
+  if(payment_methid_val == "DD")
+  {
+    $("#neft_section5").hide();
+    $("#rtgs_section5").hide();
+    $("#cheque_section5").hide();
+    $("#Internal_BT_section5").hide();
+    $("#dd_section5").show();
+  }
+  if(payment_methid_val == "Internal_BT") 
+  {
+    $("#neft_section5").hide();
+    $("#rtgs_section5").hide();
+    $("#cheque_section5").hide();
+    $("#dd_section5").hide();
+    $("#Internal_BT_section5").show();
+  }
+
+  });
+  
+  
+});
+</script>
+<script type="text/javascript">
+    $("#alert").hide();
+        $("#submit").click(function() {
+            $("#alert").toggle();
+        });
+</script>
+
+
+
+</body></html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Create New Lead</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!---- <link href="css/style-progress-step.css" rel="stylesheet"> --->
+    <!-- Script version 4-->
+    <script src="js/jquery.min.3.5.1.js"></script>
+    <script src="js/bootstrap.min.4.4.1.js"></script>
+     <!-- Script version 4-->
+
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico">
+  
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $(".dropdown_menu").hide();
+              $(".name").click(function(){
+                $(".dropdown_menu").toggle();
+              });
+            });
+        </script>
+    <style type="text/css">
+        .search .microphone-icon {
+    /* background: url(../images/mic.png) no-repeat center; */
+    cursor: pointer;
+    /*margin-inline-end: 16px;*/
+    padding: 11px 18px 0px 7px;
+    right: 0;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    /*background-color: #f68834;*/
+    color: #0c0c0c;
+    font-weight: bold;
+   
+
+}
+/**header style starts here**/
+.fa.fa-search {
+    position: absolute;
+    left: 40px;
+    font-size: 16px;
+}
+#myInput {
+    height: 44px;
+    border: 1px solid #dedede;
+    border-radius: 22px;
+    padding: 6px 48px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+    width: 93%;
+}
+.header_dropdown {
+    justify-content: end;
+}
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 22px;
+    border: 1px solid #dedede;
+    position: absolute;
+    z-index: 2000;
+    background-color: white;
+    top: 42px;
+    left:4px;
+}
+.name {
+    color: #333 !important;
+}
+.navbar-default.navbar-nav > li > a {
+    color: #333 !important;
+}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu li a:focus, .dropdown-menu li a:hover {
+    background-color: #272264 !important;
+    color: #ffffff !important;
+}
+#myUL > li >a{color:#333 !important;}
+@media(min-width:320px) and (max-width:767px){
+            .col-md-4.navbar-brand {width: 50%;}
+            .dropdown-menu.show > li {text-align: left;padding:10px;}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+.navbar-default .navbar-collapse {
+    border-color: #fff;
+    background: #fff;
+    border: none;
+}
+}
+#create_button_top
+{
+    margin-top: 30px;
+    margin-left: 120px;
+}
+/**header style ends here**/
+.dropdown_menu{
+    list-style-type: none;
+padding: 6px;
+margin: 0;
+border: 1px solid #dedede;
+position: absolute;
+z-index: 2000;
+background-color: white;
+top: 47px;
+box-shadow: 0 6px 12px rgba(0,0,0,.175);
+width: 166px;
+}
+.dropdown_menu > a{color:#333 !important;}
+    </style>
+    <style>.input-group-btn-mob {
+        border: 1px solid #ccc;
+        margin-right: -1%;
+        border-radius: 4px;
+        background-color: #ccc;
+        padding: 6px;
+    }</style>
+</head>
+
+<body class="bg">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+            <div class="container-fluid">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+                <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+                <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" >
+                <span class="fa fa-search"></span>
+                <ul id="myUL" class="unique">
+                    <li><a href="retail_sales_create_lead.html" >Create New Lead</a></li>
+                    <li><a href="../retail_sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li>
+                    <li><a href="" >View PD Tasks</a></li>
+                    <li><a href="" >View Pending Queries</a></li>
+                    <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li>
+                    <li><a href="" >View Declined Leads</a></li>
+                    <li><a href="" >Track Lead Status</a></li>
+                </ul>
+                </form>
+                   <div class="col-md-4 collapse navbar-collapse header_dropdown d-flex justify-content-end" id="navbarTogglerDemo03">
+                <div class="navbar-nav mt-2 mt-lg-0">
+                 
+                        <a href="#" class="name">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown_menu">
+                            <a href="#">Dhanapal Nataraj</a>
+                            <div class="mt-2"></div>
+                            <a href="#">
+                                <select class="form-control">
+                                <option value="Sales Officer" selected="selected" >Sales Officer</option>
+                                <option value="Sales Officer" selected="selected" >Credit Officer</option>
+                            </select>
+                            </a>
+                            <div class="mt-2"></div>
+                            <a href="#">Velachery Branch</a>
+                             <div class="mt-2"></div>
+                       
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                          
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+           
+              </div>
+                 
+                </nav>           
+            </div>
+        </header>
+        <main class="mar-top90 m-0">
+        <div class="container-fluid overflow-hidden">
+            <h3 class="margin_zero">Create Lead</h3>
+            <!--progress bar-->
+            <div class="content">
+                 <div class="row m-0">
+                    <!-- <form action="lead_section.html" method="post"> -->
+                        <div class="form-group col-sm-12 col-md-4 col-lg-4 pl-0">
+                            <label for="business_division" class="business_division" >Business Division <sub class="star_red_col" >*</sub> </label>
+                            <select class="form-control mandatory " id="business_division" >                              
+                                <option value="Retail Loan">Retail Loan</option>
+                              </select>
+
+                        </div>
+                    <!-- </form> -->
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="product_category">Product Category <sub class="star_red_col" >*</sub></label>
+                        <select class="form-control" id="product_category">
+                                <option value="">-- select one --</option>                          
+                                <option value="Secured">Secured</option>
+                                <option value="Unsecured">Unsecured</option>
+                             </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="product_type">Product Type <sub class="star_red_col" >*</sub></label>
+                        <select class="form-control" id="product_type" name="product_type" >                           
+                            <option value="">-- select one -- </option>
+                             </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="funding_program">Funding Program <sub class="star_red_col" >*</sub></label>
+                        <select class="form-control" id="funding_program" name="funding_program" > 
+                                <option value="">-- select one -- </option>                          
+                                <option value="Assessed">Assessed Income</option>
+                                <option value="Declared">Declared Income</option>
+                             </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="product_classification">Product Classification <sub class="star_red_col" >*</sub></label>
+                        <select class="form-control" id="product_classification" name="product_classification" >
+                             <option value="">-- select one -- </option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option> 
+                             </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="scheme">Scheme <sub class="star_red_col" >*</sub></label>
+                        <select class="form-control" id="scheme" name="scheme" >
+                             <option value="">-- select one -- </option>
+                              
+                             </select>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="sourcing_channel">Sourcing Channel <sub class="star_red_col" >*</sub></label>
+                       
+                            <select class="form-control mandatory " id="sourcing_channel">
+                                <option value="Assets Division">Assets Division</option>
+                                <option value="Liability Division">Liability Division</option>
+                                <option value="Web based">Web based</option>
+                                <option value="Campaign">Campaign</option>
+                                <option value="Corporate Finance">Corporate Finance</option>
+                                <option value="Business Banking">Business Banking</option>
+                                <option value="Business Correspondence">Business Correspondence</option>
+                                <option value="Call Centre">Call Centre</option>
+                            </select>
+                         
+
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="sourcing_type">Sourcing Type <sub class="star_red_col" >*</sub></label>
+                        <select class="form-control mandatory " id="sourcing_type">                                       
+                                <option value="">-- select one -- </option>
+                          </select>
+
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="sourcing_code">Sourcing Code <sub class="star_blue_col" >*</sub></label>
+                        <input type="text" class="form-control mandatory select2 " id="sourcing_code"   placeholder="sourcing code" >                                       
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="campaign_code">Campaign Code <sub class="star_blue_col" >*</sub></label>
+                        <input type="text" class="form-control " id="campaign_code"   placeholder="Auto fill From LTS" name="campaign_code" disabled >
+                    </div>
+                     <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="scheme_type">Priority</label>
+                        <select class="form-control " id="scheme_type">
+                         
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>                                       
+                            </select>
+
+                    </div>
+                </div>
+              
+               
+                <div class="row">
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="entity">Entity <sub class="star_red_col" >*</sub> </label>
+                        <select class="form-control mandatory" id="select_main_button_leadco">
+                                <option value="individual">Individual </option>
+                                <option value="non-individual">Non-individual </option>                           
+                            </select>
+
+                    </div>
+                </div>
+                <div class="row individual_section_leadco">
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="">Title <sub class="star_red_col" >*</sub></label>
+                        <select class="form-control" id="" name="" >
+                           
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="M/s">M/s</option>
+                                
+                             </select>
+                    </div>
+                     <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="">Initial <sub class="star_blue_col" >*</sub></label>
+                        <input type="text" class="form-control " id=""   placeholder="" name="" >
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="first_name">First Name <sub class="star_red_col" >*</sub></label>
+                        <input type="text" class="form-control" id="first_name">
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="middle_name">Middle Name</label>
+                        <input type="text" class="form-control" id="middle_name">
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="last_name">Last Name <sub class="star_red_col" >*</sub></label>
+                        <input type="text" class="form-control" id="last_name">
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="full_name">Full Name <sub class="star_red_col" ></sub></label>
+                        <input type="text" class="form-control" id="full_name">
+                    </div>
+                </div>
+                <div class="row non_individual_section_leadco">
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="company_name1">Company Name 1 <sub class="star_red_col" >*</sub></label>
+                        <input type="text" class="form-control" id="company_name1">
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="company_name2">Company Name 2</label>
+                        <input type="text" class="form-control" id="company_name2">
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="company_name3">Company Name 3</label>
+                        <input type="text" class="form-control" id="company_name3">
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class=" form-group col-sm-12 col-md-4 col-lg-4">
+                        <label for="mobile">Mobile <sub class="star_red_col" >*</sub></label>
+                        <div class="input-group input-medium">
+                            <span class="input-group-btn-mob">+91</span>
+                            <input type="text" class="form-control mandatory" id="mobile" placeholder="Mobile" name="mobile">
+                        </div>
+                      </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4 individual_section_leadco">
+                        <label for="Asset Make">Date Of Birth <sub class="star_red_col" >*</sub> </label>
+                        <div class="input-group input-medium">
+                            <!-- <span class="input-group-btn">
+                                <button class="btn btn-default">  </button>
+                            </span> -->
+                            <input type="date" class="form-control date_caps" id="date">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4 col-lg-4 non_individual_section_leadco">
+                        <label for="Asset Make">Date Of Incorporation <sub class="star_red_col" >*</sub></label>
+                        <div class="input-group input-medium">
+                            <!-- <span class="input-group-btn">
+                                <button class="btn btn-default"> </button>
+                            </span> -->
+                            <input type="date" class="form-control date_caps" id="date">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 btn-sec row container-fluid mx-auto mt-0" id="create_button_assessed">
+
+                        <div class="col-sm-12 text-right p-0">
+
+                            <button class="btn btn-primary mar-right8 proceed_btn_new"  id="lead_create_assessed" type="button" onclick="retail_dedupe_as_page();" > Create Lead</button>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 btn-sec row container-fluid mx-auto mt-0" id="create_button_declared">
+
+                        <div class="col-sm-12 text-right p-0">
+
+                            <button class="btn btn-primary mar-right8 proceed_btn_new"  id="lead_create_declared" type="button" onclick="retail_dedupe_de_page();" > Create Lead</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+<div class="mt-4"></div>
+        </div>
+
+        <div class="modal fade" id="create_lead_as">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header  text-center ">
+                        <!-- <h4 class="text-center">Decision on Dedupe Results</h4> -->
+                        <h6 class="modal-title ">Create Lead</h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                       
+
+                    </div>
+                    <!-- Modal body -->
+
+
+                    <div class="modal-body ">
+                        <div class="">
+                            <div class="row text-center">
+                                <div class="col-12 p-0">
+
+
+                                    <div class="form-group">
+                                        <p>New Lead is Created with Lead ID:12345</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="ok_footer text-right p-2">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="retail_dedupe_as_page();">OK</button>
+                      
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="create_lead_dc">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header  text-center ">
+                        <!-- <h4 class="text-center">Decision on Dedupe Results</h4> -->
+                        <h6 class="modal-title ">Create Lead</h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                       
+
+                    </div>
+                    <!-- Modal body -->
+
+
+                    <div class="modal-body ">
+                        <div class="">
+                            <div class="row text-center">
+                                <div class="col-12 p-0">
+
+
+                                    <div class="form-group">
+                                        <p>New Lead is Created with Lead ID:12345</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="ok_footer text-right p-2">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="retail_dedupe_de_page();">OK</button>
+                      
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer pf">
+        <div class="container">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          
+
+  
+
+$(".non_individual_section_leadco").hide();
+    $("#select_main_button_leadco").change(function() {
+        var IndVsNonValue = $("#select_main_button_leadco").val();
+        if (IndVsNonValue == "individual") {
+            $(".non_individual_section_leadco").hide();
+            $(".individual_section_leadco").show();
+        } else {
+            $(".non_individual_section_leadco").show();
+            $(".individual_section_leadco").hide();
+        }
+    });
+
+        });
+
+        /*$("#product_category").change(function() {
+        var val = $(this).val();
+        if (val == "Secured") {
+            $("#product_type").html("<option value='HF'>HF</option><option value='LAP-Assessed'>LAP</option><option value='Agriallied-Assessed'>Agri Allied</option><option value='BL-Assessed'>BL</option>");
+            $("#funding_program").html("<option value='Assessed'>Assessed</option><option value='Declared'>Declared</option>");
+       
+        } else if (val == "Unsecured") {
+            $("#product_type").html("<option value='Workingcapital-Declared'>Working Capital</option><option value=''></option>");
+            $("#funding_program").html("<option value='Declared'>Declared</option>");
+       
+        }
+    });*/
+        $("#product_category").change(function(){
+            var p_cat = $("#product_category").val();
+            if(p_cat == "Secured" )
+            {
+                $("#product_type").html("<option value='HF'>HF</option><option value='LAP'>LAP</option><option value='Agri Allied'>Agri Allied</option><option value='BL'>BL</option>");
+                
+            }
+            if(p_cat == "Unsecured" )
+            {
+                //<option value='HF'>HF</option><option value='LAP'>LAP</option><option value='Agri Allied'>Agri Allied</option><option value='BL'>BL</option>
+                $("#product_type").html("<option value='Working Capital'>Working Capital</option>");
+                $("#funding_program").val("Declared");
+                
+
+            }
+
+        });
+
+        $("#funding_program").change(function(){
+            var p_t = $("#product_type").val();
+            var f_p = $("#funding_program").val();
+            if(p_t == "LAP" && f_p == "Assessed")
+            {
+                $("#product_classification").html("<option value='MLAP'>MLAP</option><option value='GLAP'>GLAP</option>");
+            }
+            if(p_t == "HF" && f_p == "Assessed")
+            {
+                $("#product_classification").html("<option value='MHF'>MHF</option><option value='GHF'>GHF</option>");
+            }
+            if(p_t == "Agri Allied" && f_p == "Assessed")
+            {
+                 $("#product_classification").html("<option value='Agri Secured Loan'>Agri Secured Loan</option><option value='Agri Distressed Loan'>Agri Distressed Loan</option><option value='Livestocks'>Livestocks</option>");
+            }
+            if(p_t == "BL" && f_p == "Assessed")
+            {
+                $("#product_classification").html("<option value='Business Loan Secured-A'>Business Loan Secured(A)</option>");
+            }
+
+            if(p_t == "LAP" && f_p == "Declared")
+            {
+                $("#product_classification").html("<option value='SLAP'>SLAP</option>");
+            }
+            if(p_t == "HF" && f_p == "Declared")
+            {
+               $("#product_classification").html("<option value='AHF'>AHF</option><option value=''></option>");
+            }
+            if(p_t == "BL" && f_p == "Declared")
+            {
+                $("#product_classification").html("<option value='Business Loan Secured-D'>Business Loan Secured(D)</option>");
+            }
+            if(p_t == "Working Capital" && f_p == "Declared")
+            {
+                 $("#product_classification").html("<option value='Unsecured OverDraft'>Unsecured OverDraft</option><option value='Unsecured TermLoan'>Unsecured TermLoan</option><option value='Unsecured Dropline Overdraft'>Unsecured Dropline Overdraft</option>");
+            }
+        });
+        $("#funding_program").mouseover(function(){
+            var p_t = $("#product_type").val();
+            var f_p = $("#funding_program").val();
+            if(p_t == "LAP" && f_p == "Assessed")
+            {
+                $("#product_classification").html("<option value='MLAP'>MLAP</option><option value='GLAP'>GLAP</option>");
+            }
+            if(p_t == "HF" && f_p == "Assessed")
+            {
+                $("#product_classification").html("<option value='MHF'>MHF</option><option value='GHF'>GHF</option>");
+            }
+            if(p_t == "Agri Allied" && f_p == "Assessed")
+            {
+                 $("#product_classification").html("<option value='Agri Secured Loan'>Agri Secured Loan</option><option value='Agri Distressed Loan'>Agri Distressed Loan</option><option value='Livestocks'>Livestocks</option>");
+            }
+            if(p_t == "BL" && f_p == "Assessed")
+            {
+                $("#product_classification").html("<option value='Business Loan Secured-A'>Business Loan Secured(A)</option>");
+            }
+
+            if(p_t == "LAP" && f_p == "Declared")
+            {
+                $("#product_classification").html("<option value='SLAP'>SLAP</option>");
+            }
+            if(p_t == "HF" && f_p == "Declared")
+            {
+               $("#product_classification").html("<option value='AHF'>AHF</option><option value=''></option>");
+            }
+            if(p_t == "BL" && f_p == "Declared")
+            {
+                $("#product_classification").html("<option value='Business Loan Secured-D'>Business Loan Secured(D)</option>");
+            }
+            if(p_t == "Working Capital" && f_p == "Declared")
+            {
+                 $("#product_classification").html("<option value='Unsecured OverDraft'>Unsecured OverDraft</option><option value='Unsecured TermLoan'>Unsecured TermLoan</option><option value='Unsecured Dropline Overdraft'>Unsecured Dropline Overdraft</option>");
+            }
+        });
+
+    /*$("#product_type").change(function() {
+        var val = $(this).val();
+        if (val == "LAP-Assessed") {
+            $("#product_classification").html("<option value='MLAP'>MLAP</option><option value='GLAP'>GLAP</option>");
+
+         }
+        else if (val == "Agriallied-Assessed") {
+            $("#product_classification").html("<option value='Agri Secured Loan'>Agri Secured Loan</option><option value='Agri Distressed Loan'>Agri Distressed Loan</option><option value='Livestocks'>Livestocks</option>");
+         
+        }
+        else if (val == "BL-Assessed") {
+            $("#product_classification").html("<option value='Business Loan Secured-A'>Business Loan Secured(A)</option>");
+         
+        }
+        else if (val == "LAP-Declared") {
+            $("#product_classification").html("<option value='SLAP'>SLAP</option>");
+
+        }
+        else if (val == "Workingcapital-Declared") {
+            $("#product_classification").html("<option value='Unsecured OverDraft'>Unsecured OverDraft</option><option value='Unsecured TermLoan'>Unsecured TermLoan</option><option value='Unsecured Dropline Overdraft'>Unsecured Dropline Overdraft</option>");
+         
+        }
+        else if (val == "BL-Declared") {
+            $("#product_classification").html("<option value='Business Loan Secured-D'>Business Loan Secured(D)</option>");
+         
+        }
+    });
+
+
+    $("#product_type").change(function() {
+        var val = $(this).val();
+        if (val == "HF") {
+   
+   
+            $("#funding_program").html("<option value='Assessed'>Assessed</option><option value='Declared'>Declared</option>");
+           
+            $("#funding_program").change(function() {
+        var val = $(this).val();
+        if (val == "Declared") { 
+    $("#product_classification").html("<option value='AHF'>AHF</option><option value=''></option>");
+}
+
+    else{
+            $("#product_classification").html("<option value='MHF'>MHF</option><option value='GHF'>GHF</option>");
+        }});
+       
+        }       
+    });*/
+   
+    $("#funding_program").change(function() {
+        var val = $(this).val();
+        if (val == "Declared") {
+            $("#create_button_assessed").show();
+            $("#create_button_declared").hide();
+
+        } else{
+            $("#create_button_assessed").hide();
+            $("#create_button_declared").show();
+
+        }
+      
+       
+       
+    });
+
+
+
+
+
+    $("#product_classification").change(function() {
+        var val = $(this).val();
+            var f_p = $("#funding_program").val();
+        if (val == "MLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }if (val == "GLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "MHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT'>BT</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "GHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT'>BT</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "Agri Allied" && f_p == "Assessed") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "BL" && f_p == "Assessed") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "SLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option>");
+
+        }
+
+        if (val == "AHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "BL" && f_p == "Declared" ) {
+            $("#scheme").html("<option value='Normal'>Normal</option>");
+
+        }
+        if (val == "Agri Distressed Loan") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "Agri Secured Loan") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "Livestocks") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+       
+       
+    });
+    $("#scheme").mouseover(function() {
+        var val = $("#product_classification").val();
+        var f_p = $("#funding_program").val();
+        if (val == "MLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }if (val == "GLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "MHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT'>BT</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "GHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT'>BT</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "Agri Allied" && f_p == "Assessed") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "BL" && f_p == "Assessed") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "SLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option>");
+
+        }
+
+        if (val == "AHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "BL" && f_p == "Declared") {
+            $("#scheme").html("<option value='Normal'>Normal</option>");
+
+        }
+        if (val == "Agri Distressed Loan") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "Agri Secured Loan") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "Livestocks") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        
+       
+    });
+    $("#funding_program").mouseout(function() {
+        var val = $("#product_classification").val();
+        var f_p = $("#funding_program").val();
+        if (val == "MLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }if (val == "GLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "MHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT'>BT</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "GHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT'>BT</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "Agri Allied" && f_p == "Assessed") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "BL" && f_p == "Assessed") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "SLAP") {
+            $("#scheme").html("<option value='Normal'>Normal</option>");
+
+        }
+
+        if (val == "AHF") {
+            $("#scheme").html("<option value='Home Loan-Purchase'>Home Loan-Purchase</option><option value='Home Loan-Construction'>Home Loan-Construction</option><option value='Home Loan-Extension'>Home Loan-Extension</option><option value='Home Loan-Improvement'>Home Loan-Improvement</option><option value='Home Loan-Composite'>Home Loan-Composite</option><option value='BT+Topup'>BT+Topup</option><option value='Insurance'>Insurance</option>");
+
+        }
+        if (val == "BL" && f_p == "Declared") {
+            $("#scheme").html("<option value='Normal'>Normal</option>");
+
+        }
+        if (val == "Agri Distressed Loan") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "Agri Secured Loan") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        if (val == "Livestocks") {
+            $("#scheme").html("<option value='Normal'>Normal</option><option value='Pre-Topup'>Pre-Topup</option>");
+
+        }
+        
+       
+    });
+   
+    $("#sourcing_channel").change(function() {
+        var val = $(this).val();
+        if (val == "Assets Division") {
+            $("#sourcing_type").html(" <select class='form-control mandatory' id='sourcing_type' multiple='multiple'>     <option value='DSA'>DSA</option><option value='Dealers'>Dealers</option><option value='Connectors'>Connectors</option><option value='Direct'>Direct/Employee/DSE</option><option value='Manufacturers'>Manufacturers</option></select>");
+
+        } else if (val == "Liability Division") {
+            $("#sourcing_type").html("<option value='Liability Branch Code' >Liability Branch Code</option>");
+        } else if (val == "Web based") {
+            $("#sourcing_type").html("<option value='Corporate Website'>Corporate Website</option><option value='Internet Banking'>Internet Banking</option><option value='Mobile Banking'>Mobile Banking</option>");
+        } else if (val == "Campaign") {
+            $("#sourcing_type").html("<option value='Not applicable'>Not applicable</option>");
+
+        } else {
+            $("#sourcing_type").html("<option value='Not applicable'>Not applicable</option>");
+
+        }
+    });
+
+    $("#create_button_assessed").show();
+    $("#create_button_declared").hide();
+
+    $("#funding_program").change(function() {
+        var val = $(this).val();
+        if (val == "Assessed") {
+            $("#create_button_assessed").show();
+            $("#create_button_declared").hide();
+
+        } else{
+            $("#create_button_assessed").hide();
+            $("#create_button_declared").show();
+
+        }
+      
+       
+       
+    });
+
+    function retail_dedupe_as_page() {
+    location.href = 'retail_sales_lead_dedupe.html';
+}
+
+function retail_dedupe_de_page() {
+    location.href = '../declared/retail_sales_lead_dedupe.html';
+}
+
+    </script>
+</body>
+</html>
+

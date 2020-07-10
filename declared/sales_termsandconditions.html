@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>In Principle Offer</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/lead.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <!-- Script -->
+  <!--   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/lead.js"></script>
+    <!-- Font Awesome -->
+
+    <!-- Script version 4-->
+    <script src="js/jquery.min.3.5.1.js"></script>
+    <script src="js/bootstrap.min.4.4.1.js"></script>
+     <!-- Script version 4-->
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.PNG">
+    <script type="text/javascript">
+        function saveVal() {
+            var inputFirst = document.getElementById("product_type").value;
+            localStorage.setItem("product_type", inputFirst);
+            inputFirst = localStorage.getItem("product_type");
+        }
+    </script>
+    <style>
+        li {
+            line-height: 30px;
+            font-weight: 500;
+        }
+        
+        .col-12.mb-3 {
+            margin-bottom: 3%;
+        }
+        
+        .content {
+            margin-bottom: 50px;
+        }
+        
+        label.col-form-label {
+            text-align: left;
+        }
+              /**header style starts here**/
+.fa.fa-search {
+    position: absolute;
+    left: 40px;
+    font-size: 16px;
+}
+#myInput {
+    height: 44px;
+    border: 1px solid #dedede;
+    border-radius: 22px;
+    padding: 6px 48px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+    width: 93%;
+}
+.header_dropdown {
+    justify-content: end;
+}
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 22px;
+    border: 1px solid #dedede;
+    position: absolute;
+    z-index: 2000;
+    background-color: white;
+    top: 42px;
+    left:4px;
+}
+.name {
+    color: #333 !important;
+}
+.navbar-default.navbar-nav > li > a {
+    color: #333 !important;
+}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu li a:focus, .dropdown-menu li a:hover {
+    background-color: #272264 !important;
+    color: #ffffff !important;
+}
+#myUL > li >a{color:#333 !important;}
+@media(min-width:320px) and (max-width:767px){
+            .col-md-4.navbar-brand {width: 50%;}
+            .dropdown-menu.show > li {text-align: left;padding:10px;}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+.navbar-default .navbar-collapse {
+    border-color: #fff;
+    background: #fff;
+    border: none;
+}
+}
+.btn-sec .btn {font-size: 14px}
+.btn.btn-primary.p-2.m-2 {
+    font-size: 14px;
+}
+h4{font-size:18px;font-weight:bolder;}
+a {
+    color: #272264;
+}
+/**header style ends here**/
+#end_btn1,#end_btn2
+{
+    font-size: 14px;
+}
+.dropdown_menu{
+    list-style-type: none;
+padding: 6px;
+margin: 0;
+border: 1px solid #dedede;
+position: absolute;
+z-index: 2000;
+background-color: white;
+top: 47px;
+box-shadow: 0 6px 12px rgba(0,0,0,.175);
+width: 166px;
+}
+.dropdown_menu > a{color:#333 !important;}
+
+    </style>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $(".dropdown_menu").hide();
+              $(".name").click(function(){
+                $(".dropdown_menu").toggle();
+              });
+            });
+        </script>
+</head>
+
+<body class="bg">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+            <div class="container-fluid">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+                <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand pl-0"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+                <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" >
+                <span class="fa fa-search"></span> 
+                <ul id="myUL" class="unique">
+                    <li><a href="../sales_lead/sales_create_lead.html" >Create New Lead</a></li> 
+                    <li><a href="../sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li> 
+                    <li><a href="" >View PD Tasks</a></li> 
+                    <li><a href="" >View Pending Queries</a></li> 
+                    <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li> 
+                    <li><a href="" >View Declined Leads</a></li> 
+                    <li><a href="" >Track Lead Status</a></li> 
+                </ul>
+                </form>
+                  <div class="col-md-4 collapse navbar-collapse header_dropdown d-flex justify-content-end" id="navbarTogglerDemo03">
+                <div class="navbar-nav mt-2 mt-lg-0">
+                  
+                        <a href="#" class="name">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown_menu">
+                            <a href="#">Dhanapal Nataraj</a>
+                            <div class="mt-2"></div>
+                            <a href="#"> 
+                                <select class="form-control">
+                                <option value="Sales Officer" selected="selected" >Sales Officer</option>
+                                <option value="Sales Officer" selected="selected" >Credit Officer</option>
+                            </select>
+                            </a>
+                            <div class="mt-2"></div>
+                            <a href="#">Velachery Branch</a>
+                             <div class="mt-2"></div>
+                        
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                           
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+            
+              </div>
+                  
+                </nav>
+                <!-- <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                </div> -->
+                
+            </div>
+        </header>
+    <main class="mar-top90">
+        <div class="container-fluid overflow-hidden">
+            <div class="content">
+                <div class="col-12 p-0">
+                    <h3 class="margin_zero">In Principle Offer</h3>
+                    <!---<div class="table-responsive application">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-head-bg">
+                                    <th>Product Offered <i class="fa fa-sort"></i> </th>
+                                    <th>Customer Segment <i class="fa fa-sort"></i> </th>
+                                    <th>Loan Tenor <i class="fa fa-sort"></i> </th>
+                                    <th>Loan Amount Range <i class="fa fa-sort"></i> </th>
+                                    <th>Age of the car at the end of tenor (months) <i class="fa fa-sort"></i> </th>
+                                    <th>Loan to Value <i class="fa fa-sort"></i> </th>
+                                    <th>Insurance Cross sell<i class="fa fa-sort"></i> </th>
+                                    <th>Loan to Value Insurance Funded<i class="fa fa-sort"></i> </th>
+                                    <th>Equitas Fast tag required <i class="fa fa-sort"></i> </th>
+                                    <th>On road pricing funding<i class="fa fa-sort"></i> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New CV</td>
+                                    <td>Customer</td>
+                                    <td>12</td>
+                                    <td>15L</td>
+                                    <td>5 years</td>
+                                    <td>10L</td>
+                                    <td>5</td>
+                                    <td>12</td>
+                                    <td>applicable</td>
+                                    <td>125</td>
+                                </tr>
+                                <tr>
+                                    <td>New CV</td>
+                                    <td>Customer</td>
+                                    <td>12</td>
+                                    <td>15L</td>
+                                    <td>5 years</td>
+                                    <td>10L</td>
+                                    <td>5</td>
+                                    <td>12</td>
+                                    <td>applicable</td>
+                                    <td>125</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div> ---->
+                     <hr />
+                    <div class="container-fluid" id="sales_credit_score"  >
+                        <div class="row" id="sales_credit_score_sec" >
+                            <div class="row col-lg-12 col-md-12 col-sm-12 m-0 mx-auto">
+                                <div id="" class="col-md-2 p-0">Source of Credit Bureau</div><div id="" class="col-md-2 p-0"><b>Web based</b></div>
+                                <div id="" class="col-md-2 p-0">Credit Bureau Score</div><div id="" class="col-md-2 p-0"><b>1000000</b></div>
+                                <div id="" class="col-md-2 p-0">NL results</div><div id="" class="col-md-2 p-0"><b>24 Months</b></div>
+                                                                
+                            </div>
+                            <div class="row col-lg-12 col-md-12 col-sm-12 m-0 mx-auto">
+                               <div id="" class="col-md-2 p-0">NL response</div><div id="" class="col-md-2 p-0"><b>confirmed</b></div>
+                             <div id="" class="col-md-2 p-0">NL status</div><div id="" class="col-md-2 p-0"><b>Pending</b></div>
+                                <div id="" class="col-md-2 p-0">NL approver Name</div><span id="credit_score_tag5"></div>                                                              
+                            </div>
+                            <!---- <div class="col-lg-4">
+                                <p id=""><span id="">Product Offered</span><span id="credit_score_tag1">New CV</span></p>
+                                <p id=""><span id="">Customer Segment</span><span id="credit_score_tag2">Customer</span></p>
+                                <p id=""><span id="">Loan Tenor</span><span id="credit_score_tag3">12</span></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p id=""><span id="">Loan Amount Range</span><span id="credit_score_tag4">15L</span></p>
+                                <p id=""><span id="">Age of the car at the end of tenor (months)</span><span>&nbsp;</span><span id="credit_score_tag5"> 5 Years</span></p>
+                                <p id=""><span id="">Loan to Value</span><span id="credit_score_tag6">10L</span></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p id=""><span id="">Loan to Value Insurance Funded</span><span id="credit_score_tag7">12L</span></p>
+                                <p id=""><span id="">Equitas Fast Tag Required</span><span id="credit_score_tag8">Applicable</span></p>
+                                <p id=""><span id="">On Road Pricing Funding</span><span id="credit_score_tag9">125</span></p>
+                            </div> ---->
+                        </div>
+                        
+                        <p class="text-center mt-3" id="credit_score_tag10" ><b>Eligible Loan Amount : 1000000</b></p>
+                        <hr />
+                   
+                        <!----<div class="text-center" id="">
+                            <button type="button" class="btn btn-primary" onclick="terms_info();" >Proceed</button>
+                            <a href="../sales_dashboard/my_dashboard.html"> <p type="button" class="btn btn-primary" >Reject</p></a>
+                        </div> ---->
+                    </div>
+                    <div id="termsnconditions">
+                       <!----  <p><b>A copy of this has been sent to your registered 
+                    email address as well.</b></p>  ----->
+                        <h4><b>Disclaimer</b></h4>
+                        <ul>
+                            <li>I / We declare that all the particulars and information given in the application form are true, correct, complete and up to date in all respects and I / we have not with-held any information whatsoever. 1/We confirm that I
+                                /We have no insolvency proceeding initiated against me/us nor have 1/we have ever been adjudicated insolvent / bankrupt. I /We have read the application from and brochures and are agreeable to all the terms /conditions
+                                of availing financial assistance from bank / Its Group Companies/its agents to make references and enquiries relevant to information in this application form which Equitas/its Group companies/its Agents consider necessary'.
+                                1/we undertake to inform Equitas/group companies/its Agents regarding the change in the residential addresses to provide any further information that that Equitas/its Group Companies/its Agents may require </li>
+                            <li>
+                                I/We further declare and confirm that the credit facilities/ financial assistance if any enjoyed by me/us with other banks has been disclosed herein above. I/We declare the we have read the application form and brochure and are agreeable to the terms/
+                                conditions of availing the credit facilities/financial assistance mentioned herein from Equitas.
+                            </li>
+                            <!---- <li>I/We understand that certain particulars given by me/us are required by the operational guidelines governing banks</li>
+                            <li>Save and except to the extent as disclosed in this application. I /We (if a person other than a subsidiary of Equitas or a section 25 company or a government company, or in case of facility/ ies are not encompassed by the restrictions
+                                specified by the Reserve Bank of India / National Housing Bank (RBI/NHB) from time to time) as applicable represents that; no director or a relative/near relation (as specified by RBI/NHB) of a director of a banking/housing
+                                finance (including Equitas) or a relative/ near relation (as specified by the RBI/NHB) of a senior officer of company/bank (as specified by RBI/NHB) is a partner of mine/us, a director, manager employee of mine/us or a
+                                subsidiary of me/us or a subsidiary or the holding company of me/us, or a guarantor on behalf of/for/to me/us, or holds substantial interest in me/us, or a subsidiary of the holding company of me/us. </li>
+                            <li>I/We agree that Equitas small Finance bank may provide the credit facilities/ financial assistance mentioned herein only if permitted and if approved in the manner specified or required by the Reserve Bank of India/ National
+                                Housing Bank (RBI/NHB) from to time. </li>
+                            <li>/We agree and understand that Equitas Small finance bank reserves the right to reject the application and that Equitas Shall not be responsible/liable in any manner whatsoever to me/us for such rejection or any delay in notifying
+                                me/us of such rejection and any costs, losses, damages or expenses, or other consequences, caused by reason of such rejection, or any delay in notifying me/us of such rejection, of our application. </li>
+                            <li>I/We acknowledges that Equitas/group companies reserve the right to retain the photographs and documents submitted along with this application application and will not return the same to the applicant/s. </li>
+                            <li>I/We hereby affirm and declare that I/We have not made any payments in cash. I/We hereby agree and authorize Equitas/its Group companies and their agents to exchange, share or part with all the information, data or data or
+                                document in relation to my/our application including but not limited to the credit repayment, history or any default, if any, committed by me/ us to other Equitas Group companies/ bank, financial institutions, credit bureaus,
+                                agencies statutory bodies or such other persons as Equitas/its Groups companies may deem necessary or appropriate as may be required for use of the said information or data by such person(s) or furnishing of the processed
+                                information/ date*/ products thereof to the other banks financial institutions, credit providers or users registered with such persons as required under applicable laws/statutes or to provide services to the customers for
+                                the products availed by by them and shall not hold Equitas/its Group companies/ their agents liable for use this information. </li>
+                            <li>1/We confirm that the initials form this application form are made by me/ us and the validity' of the initials shall not be disputed by me/ us. </li>  ------>
+                        </ul>
+
+                    </div>
+                    <!---- <div class="col-lg-12 col-md-12 col-sm-12">
+                        <p><b><input type="checkbox" name="terms"> I accept the <u>Terms and Conditions</u></b></p>
+                    </div> ----->
+                    <div class="row">
+                        <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                            <label for="otp_number">Mobile Number</label>
+                            <input type="text" class="form-control mandatory" id="otp_number" name="otp_number" value="7894561230">
+                        </div>
+                        <div class="form-group col-sm-6 col-md-4 col-lg-4">
+                            <label for="otp_number"><b>OTP sent to your mobile number 9876543210</b></label>
+                            <input type="text" class="form-control mandatory input_box" id="otp_number" name="otp_number">
+                        </div>
+                        <div class="button submit_button_2 mt-4">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#otp_no">Resend OTP</button>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        
+                    </div>
+                    <div class="col-md-12 button submit_button text-center d-flex justify-content-center">
+                        <!--- <label for="offers_accepted" id="offers_accep" >Offers Accepted</label> --->
+                        <button type="button" id="end_btn1" class="btn btn-success mr-2" data-toggle="modal" data-target="#myModal">Customer Accpeted Offer</button>
+                        <button type="button" id="end_btn2" class="btn btn-danger" data-toggle="modal" data-target="#myModal_cancel">Customer Rejected Offer</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title text-center">Congrats! You have got a prospective lead</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                     <span class="col-md-12 d-flex justify-content-center img-container img-center"><img src="images/tick-mark.png" width="90px;"></span>
+
+                    <p id="model_p_size" class="col-md-12 d-flex justify-content-center">Please proceed</p>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer d-flex justify-content-center">
+                            <button type="button" class="btn btn-success" id="ok_co_applicant" data-dismiss="modal" onclick="qde_section();">OK</button>
+                    <!---- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> --->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+<!------ End of the Success Model ---------> 
+        <!-- The Modal -->
+            <div class="modal" id="myModal_cancel">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title text-center">Oops! You have lost a lead</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                     <span class="col-md-12 d-flex justify-content-center img-container"><img src="images/wrong.png" width="90px;" /></span>
+
+                   <!---- Your Offer has been rejected---->
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer text-center">
+                            <button type="button" class="btn btn-danger" id="ok_co_applicant" data-dismiss="modal" onclick="activity();">Reject</button>
+                    <!---- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> --->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+        </div>
+    </main>
+<br />
+                    <br />
+                    <br />
+    <!-- Footer -->
+    <footer class="footer pf">
+        <div class="container">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+         
+        $("#sales_create_lead").click(function(){
+            var inptvl= $("#myInput").val("Create Lead");
+            $('.unique').hide();
+        });
+        $("#sales_dashboard").click(function(){
+             var inptvl2 = $("#myInput").val("My Dashboard");
+             $('.unique').hide();
+        });
+        $("#sl_search_ac_btn").click(function(){
+            var html_locvl =  $("#myInput").val();
+            if(html_locvl == "Create Lead" )
+            {  
+                path = "../sales_lead/sales_create_lead.html";
+                document.location = path ;
+            }
+            if(html_locvl == "My Dashboard")
+            {
+                path1 = "../sales_dashboard/my_dashboard.html";
+                document.location = path1 ;
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Hetra - Loan Origination System</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/activity.css" rel="stylesheet">
+    <!-- Script -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- jQuery library -->
+        <script src="js/jquery.min.3.5.1.js"></script>
+
+        <script src="js/bootstrap.min.4.4.1.js"></script> 
+</head>
+<style>
+.name {
+    font-size: 14px !important;
+    color: #333;
+}
+#sl_search_ac_btn {
+    font-size: 14px !important;
+}
+#myUL li a {
+    color: #272264 !important;
+}
+
+</style>
+<body>
+    <div id="loader" class="center"></div>
+    <header class="navbar navbar-fixed-top">
+        <div class="container-fluid container-fluid d-flex justify-content-end">
+            <div class="navbar-header">
+                <!-- Mobile header-->
+                <span class="visible-xs">
+						<span class="user-name">
+							<a href="#profile" data-toggle="modal">
+								<span class="name-circle"><span class="name-circle-txt"> D </span></span>
+                </a>
+                </span>
+                </span>
+            </div>
+            <nav id="bs-navbar" class="collapse navbar-collapse hidden-xs">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="name" data-toggle="dropdown">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Dhanapal Nataraj</a></li>
+                            <li><a href=""> <select class="form-control"><option value="Sales Officer" selected="selected" >Sales Officer</option></select></a></li>
+                            <li><a href="#">Velachery Branch</a></li>
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                            <li></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="search-container text-center">
+                <img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class="logo">
+                <div class="search">
+                    <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" autofocus>
+                    <span class="search-icon-left"></span> 
+                    <span class="microphone-icon" id="sl_search_ac_btn" >GO</span>
+                    <ul id="myUL" class="unique">
+                       <!----  <li><a id="sales_create_lead" >Create Lead</a></li> 
+                        <li><a id="sales_dashboard" >My Dashboard</a></li>  ---->
+                        <li><a href="../retail_sales_lead/retail_sales_create_lead.html" >Create New Lead</a></li> 
+<li><a href="../retail_sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li> 
+<li><a href="" >View PD Tasks</a></li> 
+<li><a href="" >View Pending Queries</a></li> 
+<li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li> 
+<li><a href="" >View Declined Leads</a></li> 
+<li><a href="" >Track Lead Status</a></li> 
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- User profile modal-->
+        <div class="modal fade" id="profile">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">Profile Details</h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                       
+                    </div>
+                    <div class="modal-body">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="images/user.jpg" alt="[Image: User image]" width="70">
+                            </div>
+                            <div class="media-body">
+
+                                <p class="media-heading" ><a href="#">Dhanapal Nataraj</a></p>
+                                <p><select class="form-control" id="sales_officer_mb" ><option value="Sales Officer" selected="selected">Sales Officer</option><option value="Sales Manager" >Sales Managerr</option></select></p>
+                                <p>Velachery Branch</p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <p class="text-right visible-xs"><a href="#" class="btn btn-primary"><i class="fa fa-sign-out"></i> Logout</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <!--<footer class="footer">
+			<div class="container-fluid">
+				<p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+		  </div>
+		</footer>-->
+<script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+         
+        $("#sales_create_lead").click(function(){
+            var inptvl= $("#myInput").val("Create Lead");
+            $('.unique').hide();
+        });
+        $("#sales_dashboard").click(function(){
+             var inptvl2 = $("#myInput").val("My Dashboard");
+             $('.unique').hide();
+        });
+        $("#sl_search_ac_btn").click(function(){
+            var html_locvl =  $("#myInput").val();
+            if(html_locvl == "Create Lead" )
+            {  
+                path = "../sales_lead/sales_create_lead.html";
+                document.location = path ;
+            }
+            if(html_locvl == "My Dashboard")
+            {
+                path1 = "../sales_dashboard/my_dashboard.html";
+                document.location = path1 ;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

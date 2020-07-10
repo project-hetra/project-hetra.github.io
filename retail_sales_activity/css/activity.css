@@ -1,0 +1,19 @@
+.search .microphone-icon {
+    /* background: url(../images/mic.png) no-repeat center; */
+    cursor: pointer;
+    /*margin-inline-end: 16px;*/
+    padding: 11px 18px 0px 7px;
+    right: 0;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    /*background-color: #f68834;*/
+    color: #0c0c0c;
+    font-weight: bold;
+    
+
+}
+
+#sales_officer_mb
+{
+    padding: 6px 0px !important;
+}

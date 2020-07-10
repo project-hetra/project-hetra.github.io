@@ -1,0 +1,202 @@
+i.fa.fa-user {
+    font-size: 20px;
+    padding-right: 10px;
+}
+/*i.fa.fa-home {
+    font-size: 20px;
+    padding-right: 10px;
+}
+i.fa.fa-hourglass-half {
+    font-size: 20px;
+    padding-right: 10px;
+
+}
+h3.dashboard {
+    margin-top: 0px;
+    font-size: 24px;
+}*/
+
+/**********dashboard css********/
+/*.dashboard_nav{width:200px; background-color:#c8c8c8;}*/
+.dashboard_nav > .lead_auto_width{padding:7px;text-align:center; width:120px;background-color:#ddd;}
+.dashboard_nav > .lead_auto_width:hover{padding:7px;text-align:center; width:120px;background-color:#ddd;}
+.dashboard_nav > .PD_auto_width{padding:7px;text-align:center; width:60px;background-color:#ddd;}
+.dashboard_nav > .PD_auto_width:hover{padding:7px;text-align:center; width:60px;background-color:#ddd;}
+.dashboard_nav > .vech_auto_width{padding:7px;text-align:center; width:128px;background-color:#ddd;}
+.dashboard_nav > .vech_auto_width:hover{padding:7px;text-align:center; width:128px;background-color:#ddd;}
+.dashboard_nav > a:hover{padding:10px;text-align:center; width:200px;}
+.tab-content.content {
+    border-radius: 0px !important;
+    padding-top: 10px;
+	padding-bottom: 10px;
+    margin-top: 20px;
+}
+.multisteps-form__progress.mt-0 {
+    margin: 0px;
+}
+.mt-0{margin-top:0px;}
+/*.mar-top85{margin-top:82px;}
+*/.col-lg-4.col-md-4.col-sm-12.dashboard_nav.p-0 {
+    padding: 0px;
+    width: 32.333%;
+}
+.float-left{float:left;}
+.p-0{padding:0px;}
+.content.my_dashboard{height:70vh;margin-bottom:50px;}
+.tab-content.float-left.col-lg-12.col-md-12.col-sm-12.p-0 {
+    /*border: 1px solid #ddd;*/
+    border-radius: 0px;
+    margin-top: 0px;
+}
+.col-md-4.col-lg-4.col-sm-12.sub_top {
+    width: 28.9%;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 0px;
+}
+.sub_button {
+    padding: 14px;
+    background-color: #ddd;
+    width: 200px;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    cursor:pointer;
+    border-radius: 4px;
+}
+.active_color{background-color: #6f6c6c;
+color: white;}
+.checkbox{margin:0px !important;}
+#lead_my_list {
+    width: 100px;
+    padding: 7px;
+}
+#lead_my_commonpool {
+    width: 170px;
+    padding: 7px;
+}
+#lead_my_list_pd{
+    width: 100px;
+    padding: 7px;
+}
+#lead_my_commonpool_pd{
+    width: 170px;
+    padding: 7px;
+}
+#lead_my_list_viability{
+    width: 100px;
+    padding: 7px;
+}
+#lead_my_commonpool_viability{
+    width: 170px;
+    padding: 7px;
+}
+
+.row.clearfix.m-0{margin:0px 0px 30px 0px;}
+.table tbody tr td {
+    border-top: 1px solid #e6e6e6;
+    padding: 10px !important;
+}
+
+/****model team memeber**/
+#team_list .modal-body ul li {
+    margin-bottom: 15px;    
+}
+#team_list .modal-body ul li a{
+    font-size: 15px;
+    text-decoration: none;  
+}
+#team_list .modal-body ul li a .fa{
+    font-size: 18px;
+    margin-right: 8px;
+    color: #272264;
+}
+#team_list .modal-body ul li .radio{
+    float: right;
+    margin: 0;
+}
+#sub-users {
+    padding-left: 25px;
+    padding-top: 15px;
+}
+
+/***model team ember ends here***/
+
+
+/* Custom checkbox, radio start */
+.checkbox input, .radio input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkbox label, .radio label{ 
+    position: relative;
+}
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: -2px;
+    height: 14px;
+    width: 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+.checkbox input:checked ~ .checkmark {
+  background-color: #272264;
+  border: 1px solid #272264;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox input:checked ~ .checkmark:after, .radio input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkbox .checkmark:after {
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.radio .checkmark {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    left:0;
+}
+.radio input:checked ~ .checkmark {
+    background-color: #fff;
+    border: 1px solid #272264;
+}
+.radio .checkmark:after {
+  left: 3px;
+  top: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #272264;
+}
+.records.col-xs-3.col-sm-4 {
+    padding: 0px;
+}
+.col-xs-12.col-sm-4.text-right {
+    padding: 0px;
+}
+/* Custom checkbox, radio end */
+.filter-block {
+    background: #fff;
+    padding: 10px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    margin-top:10px;
+}

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Lead to Lead Dedupe Results</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/lead.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-progress-step.css" rel="stylesheet">
+    <!-- Script -->
+
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+   <!--  <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/lead.js"></script>
+
+     <!-- Script version 4-->
+    <script src="js/jquery.min.3.5.1.js"></script>
+    <script src="js/bootstrap.min.4.4.1.js"></script>
+     <!-- Script version 4-->
+
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico">
+
+    <style type="text/css">
+        /***fleet design starts here******/
+/*#track > tbody > tr > td{padding:10px;}*/
+      /*
+    Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+    */
+    @media
+      only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+        .table tbody tr td {
+            border-top: 1px solid #e6e6e6;
+            padding: 10px;
+            padding-left: 50%;
+        }
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+      /*margin: 0 0 1rem 0;*/
+    }
+      
+    tr:nth-child(odd) {
+      /*background: #ccc;*/
+    }
+    
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+            height:40px;
+        }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        /*
+        Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+        */
+        td:nth-of-type(1):before { content: "Select"; }
+        td:nth-of-type(2):before { content: "Lead ID"; }
+        td:nth-of-type(3):before { content: "Branch"; }
+        td:nth-of-type(4):before { content: "Created Date"; }
+        td:nth-of-type(5):before { content: "Created By"; }
+        td:nth-of-type(6):before { content: "Product"; }
+        td:nth-of-type(7):before { content: "Loan Amount"; }
+        td:nth-of-type(8):before { content: "Applicant"; }
+        td:nth-of-type(9):before { content: "Mobile"; }
+        td:nth-of-type(10):before { content: "Lead Stage"; }
+        td:nth-of-type(11):before { content: "Status"; }
+        td:nth-of-type(12):before { content: "Rejection Reason"; }
+        /*td:nth-of-type(14):before { content: "Mobile"; }
+        td:nth-of-type(15):before { content: "PD"; }
+        td:nth-of-type(16):before { content: "Grid Value"; }
+        td:nth-of-type(17):before { content: "Track"; }*/
+    }
+    .font-weight{font-weight:bold;background-color:#efefef;}
+    .track{margin-bottom: 30px;}
+    .input_value{width:90px;}
+    i.fa.fa-plus.add-row {
+    /*background-color: #ddd;*/
+    padding: 10px;
+    cursor:pointer;
+}
+i.fa.fa-minus.delete-row {
+    background-color: #ddd;
+    padding: 10px;
+    cursor:pointer;
+}
+/*QDE styles ends here*/
+
+/**header style starts here**/
+.fa.fa-search {
+    position: absolute;
+    left: 40px;
+    font-size: 16px;
+}
+#myInput {
+    height: 44px;
+    border: 1px solid #dedede;
+    border-radius: 22px;
+    padding: 6px 48px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+    width: 93%;
+}
+.header_dropdown {
+    justify-content: end;
+}
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 22px;
+    border: 1px solid #dedede;
+    position: absolute;
+    z-index: 2000;
+    background-color: white;
+    top: 42px;
+    left:4px;
+}
+.name {
+    color: #333 !important;
+}
+.navbar-default.navbar-nav > li > a {
+    color: #333 !important;
+}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu li a:focus, .dropdown-menu li a:hover {
+    background-color: #272264 !important;
+    color: #ffffff !important;
+}
+#myUL > li >a{color:#333 !important;}
+@media(min-width:320px) and (max-width:767px){
+            .col-md-4.navbar-brand {width: 50%;}
+            .dropdown-menu.show > li {text-align: left;padding:10px;}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+.navbar-default .navbar-collapse {
+    border-color: #fff;
+    background: #fff;
+    border: none;
+}
+}
+.btn-sec .btn {font-size: 14px}
+/**header style ends here**/
+.dropdown_menu{
+    list-style-type: none;
+padding: 6px;
+margin: 0;
+border: 1px solid #dedede;
+position: absolute;
+z-index: 2000;
+background-color: white;
+top: 47px;
+box-shadow: 0 6px 12px rgba(0,0,0,.175);
+width: 166px;
+}
+.dropdown_menu > a{color:#333 !important;}
+    </style>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $(".dropdown_menu").hide();
+              $(".name").click(function(){
+                $(".dropdown_menu").toggle();
+              });
+            });
+        </script>
+</head>
+
+<body class="bg">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+            <div class="container-fluid">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+                <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand pl-0"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+                <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" >
+                <span class="fa fa-search"></span> 
+                <ul id="myUL" class="unique">
+                    <li><a href="../sales_lead/sales_create_lead.html" >Create New Lead</a></li> 
+                    <li><a href="../sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li> 
+                    <li><a href="" >View PD Tasks</a></li> 
+                    <li><a href="" >View Pending Queries</a></li> 
+                    <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li> 
+                    <li><a href="" >View Declined Leads</a></li> 
+                    <li><a href="" >Track Lead Status</a></li> 
+                </ul>
+                </form>
+                  <div class="col-md-4 collapse navbar-collapse header_dropdown d-flex justify-content-end" id="navbarTogglerDemo03">
+                <div class="navbar-nav mt-2 mt-lg-0">
+                  
+                        <a href="#" class="name">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown_menu">
+                            <a href="#">Dhanapal Nataraj</a>
+                            <div class="mt-2"></div>
+                            <a href="#"> 
+                                <select class="form-control">
+                                <option value="Sales Officer" selected="selected" >Sales Officer</option>
+                                <option value="Sales Officer" selected="selected" >Credit Officer</option>
+                            </select>
+                            </a>
+                            <div class="mt-2"></div>
+                            <a href="#">Velachery Branch</a>
+                             <div class="mt-2"></div>
+                        
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                           
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+            
+              </div>
+                  
+                </nav>
+                <!-- <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                </div> -->
+                
+            </div>
+        </header>
+
+    <main class="mar-top90 mt-0">
+        <div class="container-fluid overflow-hidden">
+            <!-- <h3>Lead - #1000002 </h3>-->
+            <h3 class="dedupe_head">Lead to Lead Dedupe Results</h3>
+            <div class="">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="table-responsive application">
+                            <table class="table">
+                                <thead>
+                                    <tr class="table-head-bg">
+                                        <th>Select <i class="fa fa-sort"></i> </th>
+                                        <th>Lead ID<i class="fa fa-sort"></i> </th>
+                                         <th>Branch<i class="fa fa-sort"></i> </th>
+                                        <th>Create Date<i class="fa fa-sort"></i> </th>
+                                        <th>Created By <i class="fa fa-sort"></i> </th>
+                                        <th>Product <i class="fa fa-sort"></i> </th>
+                                        <!-- <th>Business Division <i class="fa fa-sort"></i> </th> -->
+                                        <th>Loan Amount<i class="fa fa-sort"></i></th>
+                                        <th>Applicant <i class="fa fa-sort"></i> </th>
+                                        <th>Mobile <i class="fa fa-sort"></i> </th>
+                                        <th>Lead Stage <i class="fa fa-sort"></i> </th>
+                                        <th>Status<i class="fa fa-sort"></i> </th>
+                                        <th>Rejection Reason<i class="fa fa-sort"></i> </th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input class="radio-pick" type="radio" name="radio-pick" isChecked="false"  id="radio_btn"  /></td>
+                                        <td>12345</td>
+                                        <td>T Nagar</td>
+                                        <td>05-03-2020</td>
+                                        <td>Person-1</td>
+                                        <!-- <td>Vechical Finance</td> -->
+                                        <td>HF</td>
+                                        <td>500000</td>
+                                        <td>Mathew</td>
+                                        <td >9876543211</td>
+                                        <td>Lead Creation</td>
+                                        <td class="pending_reason" >Inprogress</td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><input class="radio-pick" type="radio" name="radio-pick" isChecked="false" disabled="disabled" /></td>
+                                        <td>18907</td>
+                                        <td>Velachery</td>
+                                        <td>08-03-2020</td>
+                                        <td>Person-1</td>
+                                        <!-- <td>Vechical Finance</td> -->
+                                        <td>LAP</td>
+                                        <td>500000</td>
+                                        <td>Mathew</td>
+                                        <td >9876543212</td>
+                                        <td>Credit</td>
+                                        <td class="pending_reason" >Inprogress</td>
+                                        <td>&nbsp;</td>
+
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td><input class="radio-pick" type="radio" name="radio-pick" isChecked="false" disabled="disabled" /></td>
+                                        <td>34098</td>
+                                        <td>Mount Road</td>
+                                        <td>05-03-2019</td>
+                                        <td>Person-2</td>
+                                        <!-- <td>Vechical Finance</td> -->
+                                        <td>MAH</td>
+                                        <td>500000</td>
+                                        <td>Mathew</td>
+                                        <td >9876543213</td>
+                                        <td>Credit</td>
+                                        <td class="reject_reason" >Rejected</td>
+                                        <td>Cutomer identified in NL</td>
+
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                            <div class="btn-sec clear-both">
+                                <!----- <div class="records col-sm-6">
+                                    <select class="form-control input-sm">
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            </select>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 text-right page">
+                                    <nav class="col-sm-12 col-md-12 col-lg-12 page">
+                                        <ul class="pagination">
+                                            <li class="disabled"><a href="#"><span>«</span></a></li>
+                                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#"><span>»</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>----->
+
+                                <div class="text-center">
+
+
+                                    <button class="btn btn-primary mar-right8 proceed_btn_new"  id="proceed_without_sumbit" type="button" data-toggle="modal" data-target="#proceedModal_without" > Proceed as new lead</button>
+                                    <button class="btn btn-primary mar-right8 proceed_btn_new" type="button" data-toggle="modal" data-target="#proceedModal_with" id="proceed_new_button" > Proceed with selected lead</button>
+                                   <!-- <button class="btn btn-primary js-btn-next" id="reject_button" type="button"> Reject lead</button> -->
+
+
+
+                                    <div class="col-12 mx-auto" id="proceed_div">
+                                        <!-- <div class="col-6 field">
+                                            <label for="proceed_reason">Select the reason for Proceed</label>
+                                        </div>
+                                        <div class="col-6 field">
+                                            <select class="form-control " id="proceed_reason">
+                                            <option value="Reason-1" >Reason-1</option>
+                                            <option value="Reason-2" >Reason-2</option>                                                            
+                                        </select>
+                                        </div> -->
+                                       <!----  <button class="btn btn-primary mar-right8" id="proceed_with_sumbit" type="button" data-toggle="modal" data-target="#proceedModal_with"> Submit </button>
+                                        <button class="btn btn-primary mar-right8" id="proceed_without_sumbit" type="button" data-toggle="modal" data-target="#proceedModal_without"> Submit </button> ---->
+                                    </div>
+                                    <div class=" col-12 mx-auto" id="reject_div">
+                                        <div class="col-md-12 field d-flex justify-content-center">
+                                            <label for="reject_reason">Select the reason for Rejection</label>
+                                        </div>
+                                        <div class="col-md-12 field d-flex justify-content-center">
+                                            <select class="form-control " id="reject_reason">
+                                            <option value="Reason-1" >Reason-1</option>
+                                            <option value="Reason-2" data-toggle="modal" >Reason-2</option>    
+
+                                        </select>
+
+                                        </div>
+                                        <button class="btn btn-primary mar-right8" id="reject_sumbit" type="button" data-toggle="modal" data-target="#rejectModal"> Submit </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="proceedModal_with">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header  text-center ">
+                        <!-- <h4 class="text-center">Decision on Dedupe Results</h4> -->
+                        <h6 class="modal-title ">Decision on Dedupe Results</h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
+
+                    </div>
+                    <!-- Modal body -->
+
+
+                    <div class="modal-body ">
+                        <div class="">
+                            <div class="row text-center">
+                                <div class="col-12 p-0">
+
+
+                                    <div class="form-group">
+                                        <p>Are you sure you want to proceed with lead 12345?</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="ok_footer text-right p-2">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="lead_details();">Yes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="proceedModal_without">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header text-center ">
+                        <!-- <h4 class="text-center">Decision on Dedupe Results</h4> -->
+                       
+                        <h6 class="modal-title  ">Decision on Dedupe Results</h6>
+                         <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <!-- Modal body -->
+
+
+                    <div class="modal-body ">
+                        <div class="">
+                            <div class="row text-center">
+                                <div class="col-12 p-0">
+
+
+                                    <div class="form-group">
+                                        <p>Are you sure you want to proceed with new lead?</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="ok_footer text-right p-2">
+                         <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="lead_details();">Yes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="rejectModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header text-center">
+                        <!-- <h4 class="text-center">Decision on Dedupe Results</h4> -->
+
+
+                        
+                         <h6 class="modal-title  ">Decision on Dedupe Results</h6>
+                         <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+
+                    <!-- Modal body -->
+                    <div class="modal-body ">
+
+                        <div class="">
+                            <div class="row text-center">
+                                <div class="col-12 p-0">
+
+
+                                    <div class="form-group">
+                                        <p>Are you sure you want to reject this lead?</p>
+                                        </p>
+                                        <p>Reason for rejection: <b>Reason1<b></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Modal footer -->
+                    <div class="ok_footer text-right p-2">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="create_lead();">Yes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+    <br />
+                    <br />
+                    <br />
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script-progress-step.js"></script>
+    <script>
+        $("#alert").hide();
+        $("#submit").click(function() {
+            $("#alert").toggle();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#reject_div").hide();
+             $("#proceed_new_button").prop("disabled", true);
+            $("input[type=radio]").click(function(){
+                if($(this).attr("isChecked") == "false"){
+
+                    $(this).attr("isChecked","true");
+                    $(this).prop("checked",true);
+                     $("#proceed_without_sumbit").prop("disabled", true);
+                     $("#proceed_new_button").prop("disabled", false);
+                    
+                }
+                else{
+                    $(this).attr("isChecked","false");
+                    $(this).prop("checked",false);
+                    $("#proceed_new_button").prop("disabled", true);
+                    $("#proceed_without_sumbit").prop("disabled", false);
+                }
+
+            });
+            $("#reject_button").click(function() {
+                
+                $("#proceed_div").hide();
+                $("#reject_div").show();
+            });
+});
+
+    </script>
+     <script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+         
+        $("#sales_create_lead").click(function(){
+            var inptvl= $("#myInput").val("Create Lead");
+            $('.unique').hide();
+        });
+        $("#sales_dashboard").click(function(){
+             var inptvl2 = $("#myInput").val("My Dashboard");
+             $('.unique').hide();
+        });
+        $("#sl_search_ac_btn").click(function(){
+            var html_locvl =  $("#myInput").val();
+            if(html_locvl == "Create Lead" )
+            {  
+                path = "../sales_lead/sales_create_lead.html";
+                document.location = path ;
+            }
+            if(html_locvl == "My Dashboard")
+            {
+                path1 = "../sales_dashboard/my_dashboard.html";
+                document.location = path1 ;
+            }
+        });
+
+        function create_lead() {
+    location.href = 'retail_sales_create_lead.html';
+}
+
+function lead_details() {
+    location.href = 'retail_sales_lead_details.html';
+}
+    </script>
+
+</body>
+
+</html>

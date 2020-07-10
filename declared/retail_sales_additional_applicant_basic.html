@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Applicant Basic Details</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <script src="js/jquery.min.3.5.1.js"></script>
+    <script src="js/bootstrap.min.4.4.1.js"></script>
+
+        <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-progress-step.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
+    <!-- Script -->
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/applicant-details-js.js"></script>
+
+
+
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet"/>
+		<!-- Favicons -->
+    <link rel="apple-touch-icon" href="images/mini-logo.png" />
+    <link rel="icon" href="images/favicon.PNG" />
+    <style>
+
+        .input-group.input-medium {
+    height: 34px !important;
+}
+.input-group-btn {
+    height: 34px;
+}
+.form-control.date_width{height:34px;}
+
+        .top_button{
+                     /* margin: 20px; */
+            /* padding: 20px; */
+            height: 38px;
+            width: 99%;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+                }
+        
+        .header_dropdown{justify-content:end;}
+        /***header common style***/
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 22px;
+            border: 1px solid #dedede;
+            position: absolute;
+            z-index: 2000;
+            background-color: white;
+            top: 42px;
+        }
+        .dropdown-menu.show {
+            left: 15px;
+        }
+        .dropdown-menu.show > li {text-align:center};
+        
+        /***header common style**/
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                label {
+            font-size: 13px!important;
+            font-family: "Open sans",Helvetica,Arial,sans-serif;
+            font-weight: 400px;
+            }
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+          
+            #myInput {
+                    height: 44px;
+                    border: 1px solid #dedede;
+                    border-radius: 22px;
+                    padding: 6px 48px;
+                    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+                    width:93%;
+                }
+                .header_dropdown{justify-content:end;}
+                .fa.fa-search {
+                    position: absolute;
+                    left: 40px;
+                    font-size: 16px;
+                }
+                .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {color: #fff !important;background-color: #1d1a4b;}
+                a {color: #272264;}
+                #filter-btn {
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    margin-top: 17px;
+                }
+                #clearbtn {
+                background-color: #fff;
+                border: 1px solid #ccc;
+                }
+                .btn.btn-default {
+           /* border: 1px solid #ccc;*/
+            /*background-color: white;*/
+        }
+                @media(min-width:320px) and (max-width:767px){
+                    .col-md-4.navbar-brand {width: 50%;}
+                    .nav-pills > li {width: 100%;}
+                    .name {color: #333 !important;}
+                    .navbar-default .navbar-collapse {
+            border-color: #fff;
+            background: #fff;
+            border: none;
+        }
+        .dropdown-menu.show > li {text-align: left;padding:10px;}
+        .dropdown-menu.show > li > a{color:#333 !important;}
+        .dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+        
+                }
+        
+        
+              /*
+            Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+            */
+            @media
+              only screen 
+            and (max-width: 760px), (min-device-width: 768px) 
+            and (max-device-width: 1024px)  {
+                .table tbody tr td {
+                    border-top: 1px solid #e6e6e6;
+                    padding: 10px !important;
+                    padding-left: 50% !important;
+                }
+                /* Force table to not be like tables anymore */
+                table, thead, tbody, th, td, tr {
+                    display: block;
+                }
+        
+                /* Hide table headers (but not display: none;, for accessibility) */
+                thead tr {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+        
+            tr {
+              /*margin: 0 0 1rem 0;*/
+            }
+              
+            tr:nth-child(odd) {
+              /*background: #ccc;*/
+            }
+            
+                td {
+                    /* Behave  like a "row" */
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;
+                    padding-left: 50%;
+                    height:40px;
+                }
+        
+                td:before {
+                    /* Now like a table header */
+                    position: absolute;
+                    /* Top/left values mimic padding */
+                    top: 0;
+                    left: 6px;
+                    width: 45%;
+                    padding-right: 10px;
+                    white-space: nowrap;
+                }
+        
+                /*
+                Label the data
+            You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+                */
+                td:nth-of-type(1):before { content: "Lead ID"; }
+                td:nth-of-type(2):before { content: "Product"; }
+                td:nth-of-type(3):before { content: "Loan Amount"; }
+                td:nth-of-type(4):before { content: "Applicants"; }
+                td:nth-of-type(5):before { content: "Created on"; }
+                td:nth-of-type(6):before { content: "Created By"; }
+                td:nth-of-type(7):before { content: "Priority"; }
+                td:nth-of-type(8):before { content: "Promocode"; }
+                td:nth-of-type(9):before { content: "Status"; }
+                td:nth-of-type(10):before { content: "History"; }
+                td:nth-of-type(11):before { content: ""; }
+                /*td:nth-of-type(9):before { content: ""; }
+                td:nth-of-type(10):before { content: ""; }
+                td:nth-of-type(11):before { content: ""; }
+                td:nth-of-type(12):before { content: ""; }
+                td:nth-of-type(14):before { content: ""; }
+                td:nth-of-type(15):before { content: ""; }
+                td:nth-of-type(16):before { content: ""; }
+                td:nth-of-type(17):before { content: ""; }*/
+        
+            }
+            
+        /*table styles ends here*/
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                .form label {
+                        font-size: 13px!important;
+                    }
+                   
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+          
+        
+    </style>
+    <style>
+        .fixed-btn {
+            position: fixed;
+            position: fixed;
+            top: 300px;
+            right: -12px;
+            height: 100px;
+            z-index: 999;
+        }
+    </style>
+
+	</head>
+	
+	<body class="bg">
+		<header class="navbar navbar-default navbar-fixed-top p-0">
+            <div class="container-fluid">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+                <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+                  <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" autofocus>
+                <span class="fa fa-search"></span>
+                <ul id="myUL" class="unique">
+                    <li><a href="../sales_lead/sales_create_lead.html" >Create New Lead</a></li>
+                    <li><a href="../sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li>
+                    <li><a href="" >View PD Tasks</a></li>
+                    <li><a href="" >View Pending Queries</a></li>
+                    <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li>
+                    <li><a href="" >View Declined Leads</a></li>
+                    <li><a href="" >Track Lead Status</a></li>
+                </ul>
+                   </form>
+                  <div class="col-md-4 collapse navbar-collapse header_dropdown" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mt-2 mt-lg-0">
+                      <li class="dropdown">
+                            <a href="#" class="name" data-toggle="dropdown">
+                                <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Dhanapal Nataraj</a></li>
+                                <li><a href=""> <select class="form-control"><option value="Sales Officer" selected="selected" >Sales Officer</option></select></a></li>
+                                <li><a href="#">Velachery Branch</a></li>
+                                <!--- <li><a href="#profile" >Profile</a></li> ---->
+                               
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                  </div>
+                  
+                </nav>
+                <!-- <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                </div> -->
+                
+            </div>
+        </header>
+		
+		<main class="mar-top90 mt-1">
+			<div class="container-fluid overflow-hidden">
+				<!-- <h3 class="dashboard">QDE - Reference</h3> -->
+                <h3 class="mt-1">Lead ID : 12345</h3>
+                <div class="row top_bar">
+                    <div class="col-lg-10 col-md-10 col-sm-12">
+                        <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_created_by">Lead ID </label>
+                                <label for="lead_created_by_name" class="col-form-label-two">12345</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_created_by">Product</label>
+                                <label for="lead_created_by_name" class="col-form-label-two">LAP</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="customer_name_label">Loan Amount</label>
+                                <label for="customer_name" class="col-form-label-two"></label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="roi">Applicant</label>
+                                <label for="roi_value" class="col-form-label-two">Deepika Malhotra</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_handled_by">Status </label>
+                                <label for="lead_handled_by_name" class="col-form-label-two">In progress</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_handled_by">Queue</label>
+                                <label for="lead_handled_by_name" class="col-form-label-two">QDE</label>
+                            </div>
+                        </div>
+                        </div>
+    
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-5">
+                    <a href="document_applicant.html"> <button class="btn btn-primary top_button" type="button">View/Upload Document</button></a> 
+                    </div>               
+                    
+                </div>
+
+					<!--progress bar-->
+					<div class="multisteps-form">
+						<div class="multisteps-form__progress">
+							<button class="multisteps-form__progress-btn js-active" id="sales_additional_applicant_basic" type="button">Basic Details</button>
+		                    <button class="multisteps-form__progress-btn" id="sales_additional_applicant_kyc" type="button">KYC Details</button>
+		                    <button class="multisteps-form__progress-btn" id="sales_additional_applicant_MFI" type="button">MFI Details</button>
+						</div>
+						<div class="content" id="">
+							 <div class="btn-sec clear-both row">
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                <label for="Vechical Type">Entity</label>
+                                   <input type="text" class="form-control" id="" disabled value="Individual"> 
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                <label for="Vechical Type">Relationship with Lead</label>
+                                <select class="form-control" id="">
+                                    <option value="">-- select one -- </option>
+                                <option value="individual"> Applicant </option>
+                                <option value="non-individual"> Co-applicant </option>
+                                <option value="non-individual"> Guarantor </option>
+                                </select>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                <label for="Vechical Type">Title</label>
+                                <input type="text" class="form-control" id="" disabled value="M/S"> 
+                                </div>
+                                
+                            </div>
+                            <div id="individual_section_start">
+                                <!-- <h4 class="title">Individual</h4> -->
+                                <div class="row">
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="first_name">Initial</label>
+                                        <input type="text" class="form-control" id="" disabled value="A.R">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="first_name">First Name</label>
+                                        <input type="text" class="form-control" id="first_name" disabled value="Deepika" >
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="middle_name">Middle Name</label>
+                                        <input type="text" class="form-control" id="middle_name" disabled value="">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="last_name">Last Name</label>
+                                        <input type="text" class="form-control" id="last_name" value="Malhotra" disabled>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="last_name">Full Name</label>
+                                        <input type="text" class="form-control" id="last_name" value="M/S A.R Deepika Malhotra" disabled>
+                                    </div>
+
+                                    <!----<div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" id="name" value="Mr. Antony Mathew" readonly>
+                                    </div> --->
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="mobile_number">Mobile Number</label>
+                                        <input type="text" class="form-control" id="mobile_number" name="mobile_number" value="8974563210" readonly>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="date_of_birth">DOB</label>
+                                        <div class="input-group input-medium">
+                                        <span class="input-group-btn">
+                                                    <button class="btn btn-default"> <i class="fa fa-calendar"></i> </button>
+                                                </span>
+                                        <input type="" class="form-control date_width" id="tax_date" value="31-13-1984" disabled>
+                                        </div>
+                                    </div>
+                                    
+                                   <!--- <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="senior_citizen">Senior Citizen?</label>
+                                        <select class="form-control" id="senior_citizen" name="senior_citizen">
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                    </div> ---->
+                                    <!-- <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="guardian_name">Guardian Name(applicable for minor applicant)</label>
+                                        <input type="text" class="form-control" id="guardian_name" name="guardian_name">
+                                    </div> -->
+                                   <!--- <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="existing_customer">If Guardian is an existing customer, UCIC</label>
+                                        <input type="text" class="form-control" id="existing_customer" name="existing_customer">
+                                    </div> ---->
+                                    <!-- <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="father_name" class="mb-4">Father Name</label>
+                                        <input type="text" class="form-control" id="father_name" name="father_name">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="spouse_name" >Spouse Name</label>
+                                        <input type="text" class="form-control" id="spouse_name" name="spouse_name">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="maiden_name">Mother's Maiden Name</label>
+                                        <input type="text" class="form-control" id="maiden_name" name="maiden_name">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="occupation">Occupation</label>
+                                        <select class="form-control" id="occupation" name="occupation">
+                                                    <option>Occupation 1</option>
+                                                    <option>Occupation 2</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="nationality">Nationality</label>
+                                        <select class="form-control" id="nationality" name="nationality">
+                                                    <option>Select</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="customer_category">Customer Category</label>
+                                        <select class="form-control" id="customer_category" name="customer_category">
+                                                    <option>Select</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="email_id">Email ID</label>
+                                        <input type="email" class="form-control" id="email_id" name="email_id" />
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="alternate_email_id">Alternate email ID</label>
+                                        <input type="text" class="form-control" id="alternate_email_id" name="alternate_email_id" />
+                                                    
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="preffered_language">Preferred Language for Communication</label>
+                                        <select class="form-control" id="preffered_language" name="preffered_language">
+                                                    <option>Select</option>
+                                                </select>
+                                    </div> -->
+                                  <!--   <div class="btn-sec clear-both ">
+                                        <div class="col-sm-5"></div>
+                                        <div class="col-sm-7 text-right">
+                                            <button class="btn btn-primary mar-right8"> Save </button>
+                                            <button class="btn btn-primary js-btn-next" type="button"> Next </button>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div id="non_individual_section_start">
+                                <!-- <h4 class="title">Non-Individual</h4> -->
+                                <div class="row">
+                                    
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="customer_category">Company First Name</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="Lead Created">Company Middle Name</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="Lead Created By">Company Last Name</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="Lead Created By">Company Full Name</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="channel">Company 1</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="sourcing type">Company 2</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="sourcing code">Company 3</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="entity">Date Of Incorporation</label>
+                                        <div class="input-group input-medium">
+                                        <span class="input-group-btn">
+                                                    <button class="btn btn-default"> <i class="fa fa-calendar"></i> </button>
+                                                </span>
+                                        <input type="date" class="form-control date_width" id="tax_date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="title">Number Of Directions</label>
+                                        <input type="text" class="form-control" id="amount">
+                                    </div>
+                                </div>
+                            </div>
+                       
+						</div>    
+						<div class="btn-sec clear-both row mb-4 mt-0">
+							<div class="col-sm-5"></div>
+							<div class="col-sm-7 text-right">
+								<button class="btn btn-primary dash_href" type="button"><a href="retail_sales_applicant_details.html">Back</a></button>
+								<button class="btn btn-primary" id="submit" > Save </button>
+								<button class="btn btn-primary dash_href" type="button"><a href="sales_additional_applicant_kyc.html">Next</a></button>
+							</div>		
+						</div>
+					</div>
+			</div>
+		</main>
+		<!-- Footer -->
+		<footer class="footer">
+			
+				<p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+		  
+		</footer>
+	
+    <div class="alert alert-success alert-dismissible" id="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Saved!
+        </div>
+
+
+<script type="text/javascript">
+    $("#alert").hide();
+        $("#submit").click(function() {
+            $("#alert").toggle();
+        });
+</script>
+
+	<script type="text/javascript" src="js/script-progress-step.js"></script>
+		
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+		var hdr_locations_ids = new Array("#sales_additional_applicant_basic","#sales_additional_applicant_kyc","#sales_additional_applicant_MFI");
+		var length_hdr_locations_ids = hdr_locations_ids.length;
+			$('button').click(function(){
+				var get_button_id_here = $(this).attr('id');
+				var actual_id_get = "#"+get_button_id_here;
+			for(m=0;m<length_hdr_locations_ids;m++)
+			{
+				if(hdr_locations_ids[m] == actual_id_get)
+				{
+					var get_html_file_name_here = actual_id_get.split("#");
+					var actual_file_name = get_html_file_name_here[1]+".html";
+					var path = actual_file_name;
+					document.location = path;
+				}
+				else
+				{
+					
+				}
+
+			}
+		});
+		});
+	</script>
+    <script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+         
+        $("#sales_create_lead").click(function(){
+            var inptvl= $("#myInput").val("Create Lead");
+            $('.unique').hide();
+        });
+        $("#sales_dashboard").click(function(){
+             var inptvl2 = $("#myInput").val("My Dashboard");
+             $('.unique').hide();
+        });
+        $("#sl_search_ac_btn").click(function(){
+            var html_locvl =  $("#myInput").val();
+            if(html_locvl == "Create Lead" )
+            {  
+                path = "../sales_lead/sales_create_lead.html";
+                document.location = path ;
+            }
+            if(html_locvl == "My Dashboard")
+            {
+                path1 = "../sales_dashboard/my_dashboard.html";
+                document.location = path1 ;
+            }
+        });
+    </script>
+    
+	</body>
+</html>

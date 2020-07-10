@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>DDE</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.3.5.1.js"></script>
+        <script src="js/bootstrap.min.4.4.1.js"></script> 
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/dde.css" rel="stylesheet">
+    <link href="css/cam.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-progress-step.css" rel="stylesheet">
+    <style>
+
+        .top_button{
+                     /* margin: 20px; */
+            /* padding: 20px; */
+            height: 38px;
+            width: 99%;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+                }
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                label {
+                    font-size: 13px!important;
+    font-family: "Open sans",Helvetica,Arial,sans-serif;
+    font-weight: 400px;
+            }
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+        
+        /*version four styles starts here*/
+        a { font-size:14px;}
+        .form .col-md-2 {
+            width: 20% !important;
+            max-width: 20% !important;
+            flex: 0 0 20% !important;
+        }
+        .input-group-btn {
+            border: 1px solid #ccc;
+            margin-right: -1%;
+            border-radius: 4px;
+        }
+        @media(min-width:320px) and (max-width:767px){
+        .form .col-md-2 {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+        }
+        u{color:#333!important;}
+        }
+        
+        /**header style starts here**/
+        .fa.fa-search {
+            position: absolute;
+            left: 40px;
+            font-size: 16px;
+        }
+        #myInput {
+            height: 44px;
+            border: 1px solid #dedede;
+            border-radius: 22px;
+            padding: 6px 48px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+            width: 93%;
+        }
+        .header_dropdown {
+            justify-content: end;
+        }
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 22px;
+            border: 1px solid #dedede;
+            position: absolute;
+            z-index: 2000;
+            background-color: white;
+            top: 42px;
+            left:-10px;
+        }
+        .name {
+            color: #333 !important;
+        }
+        .navbar-default.navbar-nav > li > a {
+            color: #333 !important;
+        }
+        .dropdown-menu.show > li > a{color:#333 !important;}
+        .dropdown-menu li a:focus, .dropdown-menu li a:hover {
+            background-color: #272264 !important;
+            color: #ffffff !important;
+        }
+        #myUL > li >a{color:#333 !important;}
+        @media(min-width:320px) and (max-width:767px){
+                    .col-md-4.navbar-brand {width: 50%;}
+                    .dropdown-menu.show > li {text-align: left;padding:10px;}
+        .dropdown-menu.show > li > a{color:#333 !important;}
+        .dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+        .navbar-default .navbar-collapse {
+            border-color: #fff;
+            background: #fff;
+            border: none;
+        }
+        }
+        #myUL li a::before {
+    content: '';
+    position: absolute;
+    background: url(../images/search.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    left: 20px;
+    top: 10px;
+    }
+    #myUL li a {
+    padding: 8px 60px;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    position: relative;
+    text-align: left;
+    }
+    span.fa.fa-search.dde {
+    padding: 11px 0px;
+    }
+        /**header style ends here**/
+        /*version four style ends here*/
+        
+    </style>
+    <style>
+        .row.top_bar {
+    margin: 0px;
+    border: 1px solid #ddd;
+    font-weight: 100;
+    border-radius: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: white;
+}
+
+.fa.fa-angle-left {
+    font-size: 30px;
+}
+.fa.fa-angle-right {
+    font-size: 30px;
+}
+.prev-first-data {
+    display: flex;
+    justify-content: end;
+}
+
+
+
+.multisteps-form__progress-btn:after {
+  position: absolute;
+  top: 5px;
+  /*left: calc(-50% - 13px / 2);*/
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  display: block;
+  /*width: 100%;*/
+  height: 2px;
+  content: '';
+  background-color: currentColor;
+  z-index: 1;
+}
+
+#credit_sourcing_details:after,#credit_tvr_details:after, #credit_application_details:after, #credit_vehicle_details:after, #credit_fleet_details:after,#credit_liveloan:after, #credit_income_details:after, #credit_psl_data:after{width:100% !important;left: 70px;}
+
+#credit_fi_pd:after, #credit_vehicle_viability:after, #credit_existing_relationship:after,#credit_score_card:after, #credit_cam:after, #credit_deviations:after, #credit_insurance:after, #credit_conditions:after{width:100% !important;}
+
+
+    </style>
+    <!-- Script -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dde.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function readURL(input) {
+                var inptall = $(':input');
+                var inpttype = inptall.attr('type');
+
+                if (inpttype = "file") {
+                    for (var i = 0; i < input.files.length; i++) {
+                        if (input.files[i]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                var img = $('<a href="' + e.target.result + '"> preview this image</a><img id="dynamic">');
+                                img.attr('src', e.target.result);
+
+                                img.appendTo('#form1');
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    }
+                }
+            }
+
+
+
+            $("#imgUpload").change(function() {
+                readURL(this);
+            });
+            $("#imgUpload1").change(function() {
+                readURL(this);
+            });
+        });
+    </script>
+
+
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico">
+</head>
+
+<body class="bg">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+        <div class="container-fluid">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+            <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+            <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" autofocus>
+            <span class="fa fa-search"></span> 
+            <ul id="myUL" class="unique">
+                <li><a href="../retail_sales_lead/retail_sales_create_lead.html" >Create New Lead</a></li> 
+                <li> <a href="../retail_sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li> 
+                <li><a href="" >View PD Tasks</a></li> 
+                <li><a href="" >View Pending Queries</a></li> 
+                <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li> 
+                <li><a href="" >View Declined Leads</a></li> 
+                <li><a href="" >Track Lead Status</a></li> 
+            </ul>
+            </form>
+              <div class="col-md-4 collapse navbar-collapse header_dropdown" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                  <li class="dropdown">
+                        <a href="#" class="name" data-toggle="dropdown">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Dhanapal Nataraj</a></li>
+                            <li><a href=""> <select class="form-control"><option value="Sales Officer" selected="selected" >Sales Officer</option></select></a></li>
+                            <li><a href="#">Velachery Branch</a></li>
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                           
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+              
+            </nav>
+            <!-- <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div> -->
+            
+        </div>
+    </header>
+
+    <main class="mar-top90 mt-1">
+        <div class="container-fluid overflow-hidden">
+            <h3 class="">Lead ID : 12345</h3>
+
+            <div class="row top_bar">
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Lead ID </label>
+                            <label for="lead_created_by_name" class="col-form-label-two">12345</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Product</label>
+                            <label for="lead_created_by_name" class="col-form-label-two">LAP</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="customer_name_label">Loan Amount</label>
+                            <label for="customer_name" class="col-form-label-two">300000</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="roi">Applicant</label>
+                            <label for="roi_value" class="col-form-label-two">Deepika Malhotra</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Status </label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">In progress</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Queue</label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">Branch Cam</label>
+                        </div>
+                    </div>
+                    </div>
+            
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-5">
+                <a href="document_applicant.html"> <button class="btn btn-primary top_button" type="button">View/Upload Document</button></a> 
+                </div>               
+                
+            </div>
+
+            <!--progress bar-->
+            <div class="multisteps-form">
+                <div class="multisteps-form__progress">
+                    <!-- <a class="prev-first-data" href="javascript:void(0)"><i class="fa fa-angle-left"></i></a>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_sourcing_details">Lead Details</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_application_details">Applicants</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_vehicle_details">Collaterals</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_fleet_details">Fleet</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_liveloan">Exposure</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_income_details">Income Details</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_psl_data">PSL Data</button>
+                    <button class="multisteps-form__progress-btn js-active first-row" type="button" id="credit_vehicle_valuation">Vehicle Valuation</button>
+                    
+
+                    
+                    <button class="multisteps-form__progress-btn js-active second-row" type="button" id="credit_tvr_details">TVR</button>
+                    <button class="multisteps-form__progress-btn js-active second-row" type="button" id="credit_fi_pd">FI and PD Report</button>
+                    <button class="multisteps-form__progress-btn js-active second-row" type="button" id="credit_vehicle_viability">Viability</button>
+                    <button class="multisteps-form__progress-btn js-active second-row" type="button" id="credit_existing_relationship">Existing Relationship</button>  
+                    <button class="multisteps-form__progress-btn js-active second-row" type="button" id="credit_score_card">Score Card</button>                    
+                    <button class="multisteps-form__progress-btn js-active second-row" type="button" id="credit_cam">CAM</button>                    
+                    <button class="multisteps-form__progress-btn second-row" type="button" id="credit_deviations">Deviations</button>
+                    <button class="multisteps-form__progress-btn second-row" type="button" id="credit_insurance">Insurance</button> -->
+                    <!-- <button class="multisteps-form__progress-btn second-row" type="button" id="credit_conditions">Credit Conditions</button>
+                    <button class="multisteps-form__progress-btn second-row" type="button" id="credit_term_sheets">Term Sheets</button> 
+                    <button class="multisteps-form__progress-btn second-row" type="button" id="credit_sanction_details">Sanction Details</button> &nbsp;&nbsp;&nbsp; -->
+                    <!-- <a class="next-second-data text-right" href="javascript:void(0)"><i class="fa fa-angle-right"></i></a>  -->                  
+                    <!-- <button class="multisteps-form__progress-btn " type="button" id="credit_document_upload">Document Details</button> -->
+                    <!-- <button class="multisteps-form__progress-btn " type="button" id="credit_reference">Reference</button> -->
+                </div>
+
+                <div class="content container-fluid overflow-hidden">
+                    <p class="caption">Basic Details</p>
+                <form> 
+                    <!--basic table starts here-->
+                    <table class="cam_table">
+                      
+                      
+                      <tr>
+                        <td>Branch name</td>
+                        <td>BAPUNAGAR</td>
+                        <td>Lead No</td>
+                        <td>GHFIN0014011394118</td>
+                        <td>PD Date</td>
+                        <td>12/Jan/2018</td>
+                        <td>CAM Date</td>
+                        <td>24/Jan/2018</td>
+                      </tr>
+                      <tr>
+                        <td>Application name</td>
+                        <td>RAMESH GOKALDAS CHUHAN</td>
+                        <td>Address</td>
+                        <td>85, MADHUVAN PART-1-2-3 VASANTNAGAR TOWNSHIP</td> 
+                        <td>Contact No</td>
+                        <td>9898973579</td>
+                        <td>Member ID</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Relationship with Equitas</td>
+                        <td>Non-member</td>
+                        <td>Main Applicant Source of Income</td>
+                        <td>Business</td> 
+                        <td>Vintage</td>
+                        <td>More than 15 years</td>
+                        <td>Nature of Business/Job</td>
+                        <td>Temp.structure</td>
+                      </tr>
+                      <tr>
+                        <td>Income Type</td>
+                        <td colspan="3">Ass.Busi/Rental income+ Cash salary with docs</td>
+                        <td>Credit History</td>
+                        <td>Clean cibil & high mark record</td>
+                        <td>Loan Type</td>
+                        <td>Home Construction</td>
+                      </tr>
+                    </table>
+                    <!--basic table ends here-->
+        
+                    <!---sourcing table starts here-->
+                    <p class="caption">Loan Type Process</p>
+                       <!--  <table class="cam_table">                        
+                          
+                          <tr>
+                            <td>App no</td>
+                            <td></td>
+                            <td>CAM Date</td>
+                            <td></td>
+                            <td>Existing Exposure</td>
+                            <td>₹ 0.00  
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Area Name</td>
+                            <td></td>
+                            <td>Branch Name</td>
+                            <td></td>
+                             <td>Proposed Exposure</td>
+                            <td>₹ 0.00  
+                            </td>
+                            
+                          </tr>
+                           <tr>
+                            <td>Sourcing Chennal</td>
+                            <td></td>
+                            <td>Sourcing  SO Name</td>
+                            <td></td>
+                            <td>Overall Exposure</td>
+                            <td>₹ 0.00  
+                            </td>
+                            
+                            
+                          </tr>
+              
+                           <tr>
+                            <td>Payout %</td>
+                            <td></td>
+                            <td>Distance from branch</td>
+                            <td></td>
+                             <td>Credit Approval</td>
+                            <td> -->
+                                <!-- <form>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="">No Deviation
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="">BM
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="">CM
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="">CLM
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="">CLCM
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="">ACM
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" value="">AM
+                                </label>
+                              </form> -->
+                            <!-- </td>
+                          </tr>
+                          <tr>
+                            <td>Customer Category</td>
+                            <td></td>
+                            <td>Loan amount</td>
+                            <td></td>
+                            <td>Rate Approval</td>
+                            <td> 
+                           
+                            
+                          </tr>
+                          <tr>
+                            <td>Branch ED%</td>
+                            <td></td>
+                            <td>SO ED %</td>
+                            <td></td>
+                            <td>Property Ownership</td>
+                            <td> 
+                            </td>
+                            
+                            
+                          </tr>
+                          <tr>
+                            <td>VF score</td>
+                            <td></td>
+                             <td>FI Status</td>
+                            <td></td>
+                            
+                            
+                           
+                             <td>Proof Collected</td>
+                            <td> 
+                            </td>
+                          </tr>
+                           <tr>
+                            <td>PD status</td>
+                            <td colspan="5"> 
+                            </td>
+                          </tr>
+                        </table> -->
+                        <!--sourcing table ends here--->
+        
+                        <!---proposed Vechicle Details-->
+                        <p class="caption">INCOME DETAILS</p>
+                        <table class="cam_table_proposed">
+                           
+                            <thead>
+                                <tr class="">
+                                    <th>NAME</th>
+                                    <th>SOURCE OF INCOME</th>
+                                    <th>AGE</th>
+                                    <th>RELATIONSHIP</th>
+                                    <th>INCOME</th>
+                                    <th>INCOME TAKEN %</th>
+                                    <th>FACTORED INCOME</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>NARESHBHAI R MOCHI</td>
+                                        <td>INCOME NOT CONSIDER</td>
+                                        <td>26</td>
+                                        <td>Son</td>
+                                        <td>10000.00</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>                                               
+                                    </tr>
+                                    <tr>
+                                        <td>CHAUHAN DILIPSINH JASHVANTSINH</td>
+                                        <td>INCOME NOT CONSIDER</td>
+                                        <td>42</td>
+                                        <td>Others</td>
+                                        <td>0.00</td>
+                                        <td>0.00</td>
+                                       <td>0.00</td>                                     
+                                    </tr>
+                                    <tr>
+                                        <td>RAMESH GOKALDAS CHUHAN</td>
+                                        <td>BUSINESS WITH OUT PROOF</td>
+                                        <td>52</td>
+                                        <td>Self</td>
+                                        <td>42000.00</td>
+                                        <td>75.00</td>
+                                        <td>31500.00</td>
+                                                                   
+                                    </tr>
+                                    <tr>
+                                        <td>MAMATA RAMESHBHAI CHAUHAN</td>
+                                        <td>BUSINESS WITH OUT PROOF</td>
+                                        <td>33</td>
+                                        <td>Spouse</td>
+                                        <td>19500.00</td>
+                                        <td>75.00</td>
+                                        <td>14625.00</td>
+                                                                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-right">Total Income for Loan Eligibility</td> 
+                                        <td>46125.00</td>                                       
+                                    </tr>
+                                    <tr>
+                                        <td>Agricultural Income (If any)</td>
+                                        <td>Agri. Land in Acres</td>
+                                        <td>0.00</td>
+                                        <td>Agri. Income Amount</td>
+                                        <td>0.00</td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!---proposed Vechicle Details-->
+                        
+                        <!---party agreement details-->
+                        <p class="caption">Obligation Monthly</p>
+                        <table class="cam_table_proposed">
+                           
+                            <!-- <thead>
+                                <tr class="">
+                                    <th>ENTITY</th>
+                                    <th>NAME</th>
+                                    <th>ENTITY</th>
+                                    <th>AGE</th>
+                                    <th>RELATIONSHIP</th>
+                                </tr>
+                            </thead> -->
+                            <tbody>
+                                <tr>
+                                    <td class="bank_name" style="width:16.5%;">FINANCIER</td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                                                     
+                                </tr>
+                                <tr>
+                           
+                                    <td style="width:16.5%;" class="bank_name">TYPE OF LOAN</td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"> Total MFI</td>
+                                    <td style="width:16.5%;"></td>                                               
+                                </tr>
+                                <tr>
+                                   <td style="width:16.5%;" class="bank_name"> BORROWER</td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;">Total Business/Personal</td>
+                                    <td style="width:16.5%;"></td>                 
+                                </tr>
+                                <tr>
+                                <td style="width:16.5%;" class="bank_name">EMI AMOUNT</td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"></td>
+                                    <td style="width:16.5%;"> Total Obligation</td>
+                                    <td style="width:16.5%;">0.00</td>           
+                                </tr>
+                                <tr>
+                                    
+                                    <td colspan="6" class=""></td>
+                                    <td style="width:16.5%;">Assumed Obligation</td>
+                                    <td style="width:16.5%;">0.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!---party agreement details-->
+        
+                        <!---cibil synopsis--->
+                        <p class="caption">Loan Eligibility</p>
+                            
+                        <table class="cam_table_proposed ">
+                           <!-- <thead>
+                                <tr class="">
+        
+                                   <th> Loan Tenure</th>
+                                   <th>CIBIL SCORE</th>
+                                   <th>OD-INDIVIDUAL</th>
+                                   <th>OD IN JOINT A/C</th>
+                                   <th>OD AS GUARANTOR</th>
+                                   <th>TOTAL OD</th>
+                                   <th>CLEARANCE PROOF</th>
+                                   <th>REMARKS</th>
+                                </tr>
+                            </thead> -->
+                            <tbody>
+                                <tr>
+                                    <td>Loan Tenure</td>
+                                    <td>13.00</td>
+                                    <td>
+                                        Interest Rate in %
+                                    </td>
+                                    <td>13.00</td>
+                                    <td>1331.00</td>
+                                    <td>IIR Eligibility</td>
+                                    <td>1385957.00</td>                                            
+                                </tr>
+                                <tr>
+                           
+                                    <td>FOIR Eligibility</td>
+                                    <td>1732446.00 </td>
+                                    <td>
+                                       Loan Amount Requested 
+                                    </td>
+                                    <td>1500000.00</td>
+                                    <td> Loan Eligibility: </td>
+                                    <td>1385957.00 </td>
+                                    <td colspan="2"></td>                                                      
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--cibil synopsis-->
+        
+                        <!--banking synopsis-->
+                        <p class="caption">Property Details</p>
+                        <table class="cam_table_proposed">
+                           
+        
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Property Type</td>
+                                                        <td>Self Occupied Residence</td>
+                                                        <td> Constuction Stage</td>
+                                                        <td>Ready to occupy</td>
+                                                        <td>Consturction Type</td>
+                                                        <td>Buliding</td>
+                                                        <td></td>
+                                                        <td></td>                                             
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Land Area</td>
+                                                        <td>580.00</td>
+                                                        <td>
+                                                            Guideline Value / Sqft
+                                                        </td>
+                                                        <td>402.00</td>
+                                                        <td>Market Value / Sqft</td>
+                                                        <td>3325.00</td>
+                                                        <td> Considered Land Value</td>
+                                                        <td>1928500.00</td>
+                                                                                                     
+                                                    </tr>
+                                                    <tr>
+                                                       <td> Construction/Building Area (sqft)</td>
+                                                        <td>580.00</td>
+                                                        <td>
+                                                            Construction/Building Area (as per
+validation)
+                                                        </td>
+                                                        <td>1000.00</td>
+                                                        <td>Amenities</td>
+                                                        <td>0.00</td>
+                                                        <td>Construction/Building Cost</td>
+                                                        <td>580000.00 </td>         
+                                                    </tr>
+                                                    <tr>
+                                                       <td> Total Property Cost</td>
+                                                        <td>2508500.00</td>
+                                                        <td>
+                                                             Loan Eligibility as per LCR/LTV
+                                                        </td>
+                                                        <td>464000.00 </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>         
+                                                    </tr>
+                                                    <tr>
+                                                       <td> Final Loan Amount Recommended Value</td>
+                                                        <td>464000.00</td>
+                                                        <td> IIR as per Loan Amount Recommneded in %</td>
+                                                        <td>13.00</td>
+                                                        <td> LCR as per Loan AmountRecommdned in %</td>
+                                                        <td>80.00</td>
+                                                        <td>IIR % + LCR %</td>
+                                                        <td>93.00</td>         
+                                                    </tr>
+                                                    <tr>
+                                                       <td colspan="8"> Name of Insured Person for Credit Shield: RAMESH GOKALDAS CHUHAN</td>
+                                                               
+                                                    </tr>
+                                                   
+                                                </tbody>
+                                            </table>
+                        <!--banking synopsis-->
+        
+                        <!---fleet summary-->
+                        <p class="caption">Observation Summary</p>
+                    <table class="cam_table_proposed">
+                        
+                    <tbody>
+                        <tr>
+                            <td>Branch Name</td>
+                            <td>BAPUNAGAR</td>
+                                                                         
+                        </tr>
+                        <tr>
+                            <td>Customer Name</td>
+                            <td>RAMESH GOKALDAS CHUHAN</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Observer</td>
+                            <td></td>
+                           
+                        </tr>
+                                               
+                        <tr>
+                            <td>Net Income after factoring</td>
+                            <td> 46125.00</td>            
+                        </tr>
+                        <tr>
+                            <td>Obligation</td>
+                            <td>0.00</td>              
+                        </tr>
+                        <tr>
+                            <td>Property Type</td>
+                            <td>Self Occupied Residence</td>            
+                        </tr>
+                        <tr>
+                            <td> Land SQ FT</td>
+                            <td>580.00</td>           
+                        </tr>    
+                        <tr>
+                            <td> Reginet/Guideline value (Rs.)</td>
+                            <td>402.00</td>           
+                        </tr>
+                        <tr>
+                            <td>Market value</td>
+                            <td>3325.00</td>           
+                        </tr>
+                        <tr>
+                            <td> Total Land value</td>
+                            <td>1928500.00</td>           
+                        </tr>
+                        <tr>
+                            <td> Construction/Building Area</td>
+                            <td>580.00</td>           
+                        </tr>
+                        <tr>
+                            <td> Construction/Building Cost</td>
+                            <td>580000.00</td>           
+                        </tr>
+                         <tr>
+                            <td>Total property value</td>
+                            <td> 2508500.00</td>           
+                        </tr>
+                         <tr>
+                            <td> Loan amount recommeded</td>
+                            <td> 464000.00</td>           
+                        </tr>
+                         <tr>
+                            <td> Variance in %</td>
+                            <td></td>           
+                        </tr>
+                        <tr>
+                            <td> Tolerance</td>
+                            <td></td>           
+                        </tr>
+                        <tr>
+                            <td>Decision</td>
+                            <td></td>           
+                        </tr> 
+                        <tr>
+                            <td>Remarks</td>
+                            <td></td>           
+                        </tr>                                            
+                    </tbody>
+                    </table>
+                        <!--fleet summary--->
+        
+                        <!--track validation summary-->
+                        <p class="caption">FINAL FILE CREDIT SCORE</p>
+        <table class="cam_table_proposed">
+       
+                    <!-- <thead>
+                    <tr class="">
+                        <th>
+                            TRACK VALIDATED
+                        </th>
+                        <th>
+                            5
+                        </th>
+                        <th>
+                            FINANCIER
+                        </th>
+                        <th>
+                            ASSET
+                        </th>
+                        <th>
+                            VEH REG NO
+                        </th>
+                        <th>
+                            SEASONING
+                        </th>
+                        <th  colspan="2">
+                            OVERALL
+                        </th>
+                        <th  colspan="2">
+                            LAST 6 MONTH
+                        </th>
+                        <th  colspan="2">
+                            LAST 12 MONTH
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                        </td>
+                        <td>
+                            AD
+                        </td>
+                        <td>
+                            PD
+                        </td>
+                        <td>
+                            AD
+                        </td>
+                        <td>
+                            PD
+                        </td>
+                        <td>
+                            AD
+                        </td>
+                        <td>
+                            PD
+                        </td>
+                    </tr>
+                    </thead> -->
+                    <tbody>
+                    <tr>
+                        <td>
+                            Customer Name
+                        </td>
+                        <td colspan="2">
+                             RAMESH GOKALDAS CHUHAN
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            PD DONE BY
+                        </td>
+                        <td>
+                            BAPUNAGAR
+                        </td>
+                        <td>
+                          Branch Manager 
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                             FINAL FILE CREDIT SCORE
+                        </td>
+                        <td colspan="2">
+                            84
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            RISK CATEGORY
+                        </td>
+                        <td colspan="2" style="background:green; color:white;">
+                            Low Risk
+                        </td>
+                        
+                    </tr>
+                    
+                    </tbody>
+        </table>
+           
+                      
+                    <table class="cam_table_proposed">
+                                
+                        <tbody>
+                            <tr>
+                            <td colspan="1" rowspan="1"><b>PRODUCT</b></td>
+                            <td colspan="3" rowspan="1" class="text-center"><b>G-HF</b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><b>SCORING PARAMETERS</b></td>
+                                <td><b>PARTICULARS</b></td>
+                                <td><b>Score</b></td>                            
+                            </tr>
+                            <tr>
+                                <td><b>Section A</b></td>
+                                <td><b>Income Related</b></td>
+                                <td></td> 
+                                <td></td>         
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Business or Job vintage</td>
+                                 <td>More than 15 years</td>
+                                <td>10</td>    
+                            </tr>
+        
+                            <tr>
+                                <td>2</td>
+                                <td>Nature of Business/Job</td>
+                                 <td>Temp.structure</td>
+                                <td>8</td>    
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td> Income Type</td>
+                                 <td>Ass.Busi/Rental income+ Cash salary with docs</td>
+                                <td>8</td>    
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Monthly Income</td>
+                                 <td>More than 30k</td>
+                                <td>10</td>     
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="3"><b>Section-A Total Score</b></td>
+                                <td><b>36</b></td>
+                            </tr>  
+                            <tr>
+                                <td><b>Section B</b></td>
+                                <td><b>Credit Record</b></td>
+                                <td></td> 
+                                <td></td>         
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>IIR</td>
+                                 <td>More than 20%</td>
+                                <td>5</td>    
+                            </tr>
+        
+                            <tr>
+                                <td>6</td>
+                                <td>FOIR</td>
+                                 <td>More than 25%</td>
+                                <td>10</td>      
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Credit History</td>
+                                 <td>Clean cibil & high mark record</td>
+                                <td>10</td>      
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Relationship with Equitas</td>
+                                 <td>Non-Memeber</td>
+                                <td>1</td>      
+                            </tr>
+                            <tr>
+                                <td colspan="3"><b>Section-B Total Score</b></td>
+                                <td><b>26</b></td>
+                            </tr>  
+                            <tr>
+                                <td>Section C</td>
+                                <td>Collateral</td>
+                                <td></td> 
+                                <td></td>         
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Quality of Collateral</td>
+                                 <td>Self Occupied Residence</td>
+                                <td>10</td>    
+                            </tr>
+        
+                            <tr>
+                                <td>10</td>
+                                <td>LTV</td>
+                                 <td>Less than 20%</td>
+                                <td>10</td>      
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td> Considered plot value vis a vis Guideline value</td>
+                                 <td>More than 2 times of GV</td>
+                                <td>2</td>      
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="3"><b>Section-C Total Score</b></td>
+                                <td><b>22</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    </form> 
+                        </div>
+
+                
+               
+
+				</div>
+				<div class="row btn-sec clear-both  mt-0 mb-4">
+                    <div class="col-sm-5">
+                        
+                    </div>
+                    <div class="col-sm-7 text-right">
+                        <button class="btn btn-primary dash_href" type="button"><a href="eligibility_basic.html">Back</a></button>
+                        <!-- <button class="btn btn-primary" type="button"> Save </button> -->
+                        <button class="btn btn-primary dash_href" type="button"><a href="../retail_sales_dashboard/my_dashboard.html">Submit to credit</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-success alert-dismissible" id="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Souring Details saved Successfully.
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer ">
+        <div class="container ">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script-progress-step.js "></script>
+    <script type="text/javascript">
+        myFunction();
+    
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+    
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+    
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+    
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script>
+        $("#alert ").hide();
+        $("#submit ").click(function() {
+            $("#alert ").toggle();
+        });
+
+        var hdr_locations_ids = new Array("#credit_sourcing_details","#credit_application_details","#credit_vehicle_details","#credit_fleet_details","#credit_liveloan","#credit_income_details","#credit_psl_data","#credit_vehicle_valuation","#credit_tvr_details","#credit_fi_pd","#credit_vehicle_viability","#credit_existing_relationship","#credit_score_card","#credit_cam","#credit_deviations","#credit_insurance","#credit_conditions","#credit_term_sheets","#credit_sanction_details");
+         var length_hdr_locations_ids = hdr_locations_ids.length;
+        $('button').click(function() {
+            var get_button_id_here = $(this).attr('id');
+            var actual_id_get = "#" + get_button_id_here;
+            for (m = 0; m < length_hdr_locations_ids; m++) {
+                if (hdr_locations_ids[m] == actual_id_get) {
+                    var get_html_file_name_here = actual_id_get.split("#");
+                    var actual_file_name = get_html_file_name_here[1] + ".html";
+                    var path = actual_file_name;
+                    document.location = path;
+                } else {
+
+                }
+
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(".first-row").css("display", "none");
+        $(".prev-first-data").click(function(){
+            $(".first-row").css({"display":"block"});
+            $(".second-row").css({"display":"none"});
+
+        });
+        $(".next-second-data").click(function(){
+            $(".first-row").css({"display":"none"});
+            $(".second-row").css({"display":"block"});
+
+
+        });
+   </script>
+    <script src="js/preview.js "></script>
+
+</body>
+
+</html>

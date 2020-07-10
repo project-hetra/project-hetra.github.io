@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Hetra | Login</title>
+    <!-- Style -->
+    <!---version 4 ---->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!---version 4 ---->
+
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <!--   <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/custom.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico">
+
+</head>
+
+<body>
+    <header class="navbar navbar-static-top">
+        <div class="container-fluid">
+
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="vertical-middle text-center">
+
+                <div class="search">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class="logo">
+                            <form>
+							<div class="form-group">
+								<label for="username" class="sr-only">User Name</label>
+								<div class="input-group input-medium">
+									<span class="input-group-btn">
+										<button class="btn btn-default" disabled><i class="fa fa-user"></i></button>
+									</span>
+									<input type="text" class="form-control" id="username" placeholder="AD Username">
+								</div>		
+							</div>
+							<div class="form-group">
+								<label for="pswd" class="sr-only">Password</label>
+								<div class="input-group input-medium">
+									<span class="input-group-btn">
+										<button class="btn btn-default" disabled><i class="fa fa-lock"></i></button>
+									</span>
+									<input type="password" class="form-control" id="pswd" placeholder="AD Password">
+								</div>
+							</div>
+							<a onclick="activity();" class="btn btn-primary">Sign In</a>
+						</form>		
+						
+                          <!----  <form class="form-signin">
+                                <div class="form-label-group">
+                                    <input type="text" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
+                                    <label for="inputEmail">User Name</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                    <label for="inputPassword">Password</label>
+                                </div>
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="activity();">Sign in</button>
+                                <hr class="my-4">
+
+                            </form> ---->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="footer pf">
+        <div class="container-fluid">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript">
+    function activity() {
+   document.location = '../retail_sales_activity/sales_activity_search.html';
+}
+
+</script>
+ <!-- Latest compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+
+<!-- jQuery library -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+<!-- Popper JS -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
+</html>

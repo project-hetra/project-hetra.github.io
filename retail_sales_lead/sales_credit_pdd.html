@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>DDE</title>
+    <!-- Style -->
+    <!-- Style version 4 -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/jquery.min.3.5.1.js"></script>
+        <script src="js/bootstrap.min.4.4.1.js"></script> 
+        <!--version 4--->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/dde.css" rel="stylesheet">
+    <link href="css/cam.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-progress-step.css" rel="stylesheet">
+    <link href="css/accordians-style.css" rel="stylesheet">
+        <link href="css/update.css" rel="stylesheet">
+		
+    <style>
+/**header style starts here**/
+.input-group.input-medium {
+    height: 34px !important;
+}
+.input-group-btn {
+    height: 34px;
+}
+
+.form-control.date_width{height:34px;}
+
+.fa.fa-search {
+    position: absolute;
+    left: 40px;
+    font-size: 16px;
+}
+#myInput {
+    height: 44px;
+    border: 1px solid #dedede;
+    border-radius: 22px;
+    padding: 6px 48px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+    width: 93%;
+}
+.header_dropdown {
+    justify-content: end;
+}
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 22px;
+    border: 1px solid #dedede;
+    position: absolute;
+    z-index: 2000;
+    background-color: white;
+    top: 42px;
+}
+.name {
+    color: #333 !important;
+}
+.navbar-default.navbar-nav > li > a {
+    color: #333 !important;
+}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu li a:focus, .dropdown-menu li a:hover {
+    background-color: #272264 !important;
+    color: #ffffff !important;
+}
+#myUL > li >a{color:#333 !important;}
+@media(min-width:320px) and (max-width:767px){
+            .col-md-4.navbar-brand {width: 50%;}
+            .dropdown-menu.show > li {text-align: left;padding:10px;}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+.navbar-default .navbar-collapse {
+    border-color: #fff;
+    background: #fff;
+    border: none;
+}
+}
+.color-white {
+    color: white !important;
+    font-size: 14px;
+}
+.card-title {
+    margin-bottom: 0px !important;
+    font-size: 17px !important;
+   
+}
+.card-title > a{ color: white !important;}
+.title{font-size:18px !important;}
+.input-group-btn {
+    border: 1px solid #ccc;
+    margin-right: -1%;
+    border-radius: 4px;
+}
+/**header style ends here**/
+/*version four style ends here*/
+        .top_button{
+                     /* margin: 20px; */
+            /* padding: 20px; */
+            height: 38px;
+            width: 99%;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+                }
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                label {
+                    font-size: 13px!important;
+    font-family: "Open sans",Helvetica,Arial,sans-serif;
+    font-weight: 400px;
+            }
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+        
+        /*version four styles starts here*/
+        a {color:#fff !important; font-size:14px;}
+        .form .col-md-2 {
+            width: 20% !important;
+            max-width: 20% !important;
+            flex: 0 0 20% !important;
+        }
+        .input-group-btn {
+            border: 1px solid #ccc;
+            margin-right: -1%;
+            border-radius: 4px;
+        }
+        @media(min-width:320px) and (max-width:767px){
+        .form .col-md-2 {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+        }
+        u{color:#333!important;}
+        }
+        
+        /**header style starts here**/
+        .fa.fa-search {
+            position: absolute;
+            left: 40px;
+            font-size: 16px;
+        }
+        #myInput {
+            height: 44px;
+            border: 1px solid #dedede;
+            border-radius: 22px;
+            padding: 6px 48px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+            width: 93%;
+        }
+        .header_dropdown {
+            justify-content: end;
+        }
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 22px;
+            border: 1px solid #dedede;
+            position: absolute;
+            z-index: 2000;
+            background-color: white;
+            top: 42px;
+            left:-10px;
+        }
+        .name {
+            color: #333 !important;
+        }
+        .navbar-default.navbar-nav > li > a {
+            color: #333 !important;
+        }
+        .dropdown-menu.show > li > a{color:#333 !important;}
+        .dropdown-menu li a:focus, .dropdown-menu li a:hover {
+            background-color: #272264 !important;
+            color: #ffffff !important;
+        }
+        #myUL > li >a{color:#333 !important;}
+        @media(min-width:320px) and (max-width:767px){
+                    .col-md-4.navbar-brand {width: 50%;}
+                    .dropdown-menu.show > li {text-align: left;padding:10px;}
+        .dropdown-menu.show > li > a{color:#333 !important;}
+        .dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+        .navbar-default .navbar-collapse {
+            border-color: #fff;
+            background: #fff;
+            border: none;
+        }
+        }
+        #myUL li a::before {
+    content: '';
+    position: absolute;
+    background: url(../images/search.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    left: 20px;
+    top: 10px;
+    }
+    #myUL li a {
+    padding: 8px 60px;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    position: relative;
+    text-align: left;
+    }
+    span.fa.fa-search.dde {
+    padding: 11px 0px;
+    }
+        /**header style ends here**/
+        /*version four style ends here*/
+        
+    </style>
+   <style>
+
+        .panel-primary{
+            background-color: #1d1a4b!important;
+            color: white!important;
+        }
+
+        .form label {
+				font-size: 13px!important;
+			}
+           
+
+.image-upload input {
+    cursor: pointer;
+    opacity: 0;
+    height: 5%;
+    width: 5%;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.fa.fa-upload
+{
+    font-size:20px;
+    } 
+
+    .fa.fa-plus
+{
+    font-size:20px;
+    }
+
+    .fa.fa-minus
+{
+    font-size:20px;
+    }
+.date_width{width: 146px;
+    margin: 0px;
+    font-size: 12px;}
+
+    @media (min-width: 992px){
+        .form .col-md-2 {
+    width: 20%;
+}
+    }
+
+        .form-group.col-sm-6.col-md-3.col-lg-3 {
+                width: 28%;
+            }
+            .form-group.col-sm-6.col-md-4.col-lg-3 {
+    width: 28%;
+    max-width: 28%;
+}
+.form-group.col-sm-3.col-md-2 {
+    max-width: 14.28% !important;
+flex: 0 0 14.28% !important;
+}
+        .image-upload input {
+    cursor: pointer;
+    opacity: 0;
+    height: 5%;
+    width: 5%;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+.text-dec {
+    text-decoration: underline;
+}
+.{height:37px;}
+.fa.fa-upload{font-size:20px;}
+.date_width{width: 146px;
+    margin: 0px;
+    font-size: 12px;}
+    .upload_down {
+    margin-top: 30px;
+}
+.image-upload{margin-top:8px;}
+.action{width:100%;}
+.form-group.col-sm-6.col-md-2.col-lg-3 {
+    width: 15%;
+}
+.radio-inline.p-0.m-0 {
+    padding: 0px;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+.upload_sanction{
+position: absolute;
+font-size: 50px;
+opacity: 0;
+right: 87px;
+top: 34px;
+width: 95px;
+height: 37px;
+}
+.col-form-label {
+    width: 50%;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-weight: bolder;
+    font-size: 14px !important;
+}
+.input_design {
+    color: #1d1a4b !important;
+}
+.upload_label{width:100%;}
+    </style>
+    <!-- Script -->
+    <script src="js/jquery.min.3.5.1.js"></script>
+    <script src="js/bootstrap.min.4.4.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dde.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function readURL(input) {
+                var inptall = $(':input');
+                var inpttype = inptall.attr('type');
+
+                if (inpttype = "file") {
+                    for (var i = 0; i < input.files.length; i++) {
+                        if (input.files[i]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                var img = $('<a href="' + e.target.result + '"> preview this image</a><img id="dynamic">');
+                                img.attr('src', e.target.result);
+
+                                img.appendTo('#form1');
+                            }
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    }
+                }
+            }
+
+
+
+            $("#imgUpload").change(function() {
+                readURL(this);
+            });
+            $("#imgUpload1").change(function() {
+                readURL(this);
+            });
+        });
+    </script>
+
+
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+     Favicons -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico">
+</head>
+
+<body class="bg">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+            <div class="container-fluid">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+                <a href="../retail_sales_dde_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+                <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" autofocus>
+                <span class="fa fa-search"></span> 
+                <ul id="myUL" class="unique">
+                    <li><a href="" >Create New Lead</a></li>
+                <li><a href="../retail_sales_dde_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li>
+                <li><a href="" >View PD Tasks</a></li>
+                <li><a href="" >View Pending Queries</a></li>
+                <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li>
+                <li><a href="" >View Declined Leads</a></li>
+                <li><a href="" >Track Lead Status</a></li> 
+                </ul>
+                </form>
+                  <div class="col-md-4 collapse navbar-collapse header_dropdown" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mt-2 mt-lg-0">
+                      <li class="dropdown">
+                            <a href="#" class="name" data-toggle="dropdown">
+                                <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Dhanapal Nataraj</a></li>
+                                <li><a href=""> <select class="form-control"><option value="Sales Officer" selected="selected" >Sales Officer</option></select></a></li>
+                                <li><a href="#">Velachery Branch</a></li>
+                                <!--- <li><a href="#profile" >Profile</a></li> ---->
+                               
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                  </div>
+                  
+                </nav>
+                <!-- <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                </div> -->
+                
+            </div>
+        </header>
+
+    <main class="mar-top90 mt-1">
+        <div class="container-fluid overflow-hidden">
+            <h3 class="margin_zero mt-0">Loan No : 12345</h3>
+            <div class="row top_bar pb-0 pt-2">
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    <div class="row m-0">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Lead ID </label>
+                            <label for="lead_created_by_name" class="col-form-label-two">12345</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Product</label>
+                            <label for="lead_created_by_name" class="col-form-label-two">LAP</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="customer_name_label">Loan Amount</label>
+                            <label for="customer_name" class="col-form-label-two">500000</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="roi">Applicant</label>
+                            <label for="roi_value" class="col-form-label-two">Deepika Malhotra</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Status </label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">In progress</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Queue</label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">PDD</label>
+                        </div>
+                    </div>
+                    </div>
+            
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-5">
+                <a href="document_applicant.html"> <button class="btn btn-primary top_button" type="button">View/Upload Document</button></a> 
+                </div>               
+                
+            </div>
+            <!--progress bar-->
+            <div class="multisteps-form" style="margin-top:20px;">
+                <!-- <div class="multisteps-form__progress">
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="document_applicant">Applicant Document</button>
+                    <button class="multisteps-form__progress-btn " type="button" id="document_collateral">Collateral Document</button>
+                    <button class="multisteps-form__progress-btn " type="button" id="document_others" >Other Document</button>                    
+                </div> -->
+               
+                <form class="form">
+                <div class="container-fluid overflow-hidden">
+                    <!-- <div class="row m-0">
+                        <div class="form-group col-sm-3 col-md-3">
+    
+                        </div>
+                        <div class="form-group col-sm-6 col-md-6" style="margin-bottom: 0px;">
+                            <div class="form-group col-sm-3 col-md-3 text-right" style="padding: 0px;">
+                                <label for="document" style="padding-top:8px;">Choose Applicant</label>                        
+                            </div>
+                            <div class="form-group col-sm-3 col-md-3">                        
+                                <select class="form-control">
+                                    <option>Deepika Malhotra</option>
+                                    <option>Navin Reddy</option>
+                                    <option>Sampath Kumar</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        <div class="form-group col-sm-2 col-md-2">
+    
+                        </div>
+                    </div> -->
+                    <div class="row js-active" data-animation="scaleIn">                      
+                        <div class="col-md-12 p-0 panel-group" id="accordion">                            
+                            <div class="card">
+                                <div class="card-header" id="headingTwo1">
+                                  <h4 class="card-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo1">
+                                        <!-- <i class="fa fa-plus-circle"></i>&nbsp; --> Physical Tracking<i class="fa fa-angle-down"></i>
+                                    </a> 
+                                  </h4>
+                                </div>
+                                <div id="collapseTwo1" class="collapse show" aria-expanded="true"  >
+                                 <div class="panel-body" id="show_1_div_identity" >
+                                    <div class="row m-0"> 
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <label for="document" class="">Document Name</label>
+                                            <input type="text" class="form-control" id="amount" value="Document Name 1" readonly>
+                                        </div>
+                                         <div class="form-group col-sm-3 col-md-2">
+                                            <label for="documentnumber">PDO Tracking No.</label>
+                                            <input type="text" class="form-control" id="amount" value="" >
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <label for="idate" class="">Sales couriered date</label>
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <label for="idate" class="">CPC receipt date</label>
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                        </div>
+                                        <!-- <div class="form-group col-sm-3 col-md-2">
+                                            <label for="documentnumber">Physical Tracking No.</label>
+                                            <input type="text" class="form-control" id="amount" value="" >
+                                        </div> -->
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <label for="documentnumber" class="">Document Number</label>
+                                            <input type="text" class="form-control" id="amount" value="109876">
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <label class="upload_label">View Document </label>
+                                            <div class="btn btn-primary uploadsan">Upload
+                                            <input type="file" name="file" class="upload_sanction" readonly="">
+                                            </div>
+                                            
+                                        </div> 
+                    
+                                       
+                                    </div>
+                                    <div class="row m-0"> 
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label for="document" class="">Document Name</label> -->
+                                            <input type="text" class="form-control" id="amount" value="Document Name 2" readonly>
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label for="idate" class="">Expected Date</label> -->
+                                            <input type="text" class="form-control" id="amount" value="">
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label class="upload_label ">Upload </label> -->
+                                            <!-- <div class="btn btn-primary uploadsan">Upload -->
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                            </div>
+                                            <!-- <div class="form-group col-sm-3 col-md-2">
+                                            
+                                    <input type="text" class="form-control " id="date">
+                                </div> -->
+                                <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label for="documentnumber" class="">Document Number</label> -->
+                                            <input type="text" class="form-control" id="amount" value="109876">
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label class="upload_label">View Document </label> -->
+                                          
+                                            <input type="text" name="" class="form-control"  value="#inv09876">
+                                            
+                                            
+                                        </div> 
+                                        </div>
+                                        
+                                       
+                                        </div> 
+                                     <div class="row m-0"> 
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label for="document" class="">Document Name</label> -->
+                                            <input type="text" class="form-control" id="amount" value="Document Name 3" readonly>
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label for="idate" class="">Expected Date</label> -->
+                                            <input type="text" class="form-control" id="amount" value="">
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label class="upload_label ">Upload </label> -->
+                                            <!-- <div class="btn btn-primary uploadsan">Upload -->
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                            </div>
+                                            <!-- <div class="form-group col-sm-3 col-md-2">
+                                            
+                                    <input type="text" class="form-control " id="date">
+                                </div> -->
+                                <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label for="documentnumber" class="">Document Number</label> -->
+                                            <input type="text" class="form-control" id="amount" value="109876">
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <!-- <label class="upload_label">View Document </label> -->
+                                          
+                                            <input type="text" name="" class="form-control"  value="#inv09876">
+                                            
+                                            
+                                        </div> 
+                                        </div>
+                                        <div classs="row">
+                                           <div class="form-group col-sm-3 col-md-2">
+                                            <label for="documentnumber">Physical Tracking No.</label>
+                                            <input type="text" class="form-control" id="amount" value="">
+                                        </div>
+                                       </div>
+                                        </div>    
+                                        
+                                    </div>                                        
+                                    
+                                    </div>
+                                    
+                                    </div>
+                                   
+                                </div>
+                                
+                              </div>
+
+                             
+
+                            
+                              
+                        
+                        <!---- <p class="btn btn-primary" id="add_more_documents" >Add More Additional Documents</p> ----->
+                        <br /> 
+                        </div>
+                        
+                        <!--mobile view start-->
+                        <div class="col-xs-12 d-sm-none d-md-none">
+                            <!---<div class="box active" data-toggle="modal" data-target="#photo">
+                                <div><i class="fa fa-image"></i></div>
+                                <div> Photo </div>
+                            </div>
+                            <div class="box">
+                                <div><i class="fa fa-image"></i></div>
+                                <div> Signature </div>
+                            </div>
+                            <div class="box" data-toggle="modal" data-target="#Id_proof">
+                                <div><i class="fa fa-address-card"></i></div>
+                                <div> ID Proof </div>
+                            </div>----->
+                            <div class="box">
+                               <!--  <div><i class="fa fa-plus-circle"></i></div> -->
+                                <div> Additional </div>
+                            </div>
+                        </div>
+                        <!--mobile view end-->
+                    </div>
+                    <div class="row js-active m-0 container-fluid" data-animation="scaleIn">                      
+                        <div class="col-md-12 p-0 panel-group" id="accordion">                            
+                            <div class="card">
+                                <div class="card-header" id="headingTwo1">
+                                  <h4 class="card-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo1">
+                                        <!-- <i class="fa fa-plus-circle"></i>&nbsp; --> Deferral Documents<i class="fa fa-angle-down"></i>
+                                    </a> 
+                                  </h4>
+                                </div>
+                                <div id="collapseTwo1" class="collapse show" aria-expanded="true"  >
+                                 <div class="panel-body" id="show_1_div_identity" >
+                                    <div class="row m-0"> 
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <label for="document" class="">Document Name</label>
+                                            <input type="text" class="form-control" id="amount" value="MOTD" readonly>
+                                        </div>
+                                        
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <label for="idate" class="">Expected Date</label>
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                        </div>
+                                        
+                                      
+                                      
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <label for="Status" class="">Status</label>
+                                            <select name="status" id="deferral_status" class="form-control">
+                                                <option value="Pending">Yes</option>
+                                                <option value="Submitted">No</option>
+                                                <option value="Submitted">Mismatch</option>
+                                            </select>
+                                        </div>
+                                        <!--<div class="form-group col-sm-3 col-md-2">
+                                            <label class="">CPC Check</label>
+                                            <select name="status" id="deferral_status" class="form-control">
+                                                <option value="">--Select ---</option>
+                                                <option value="Pending">Verified</option>
+                                                <option value="Submitted">Image not clear</option>
+                                            </select>
+                                        </div> -->
+                                       
+                                    </div>
+                                    <div class="row m-0"> 
+                                        <div class="form-group col-sm-4 col-md-4">
+                                           <!--  <label for="document" class="">Document Name</label> -->
+                                            <input type="text" class="form-control" id="amount" value="Title Deed" readonly>
+                                        </div>
+                                        
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <!-- <label for="idate" class="">Expected Date</label> -->
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                        </div>
+                                        
+                                      
+                                      
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <!-- <label for="Status" class="">Status</label> -->
+                                            <select name="status" id="deferral_status" class="form-control">
+                                                <option value="Pending">Yes</option>
+                                                <option value="Submitted">No</option>
+                                                <option value="Submitted">Mismatch</option>
+                                            </select>
+                                        </div>
+                                        <!--<div class="form-group col-sm-3 col-md-2">
+                                            <label class="">CPC Check</label>
+                                            <select name="status" id="deferral_status" class="form-control">
+                                                <option value="">--Select ---</option>
+                                                <option value="Pending">Verified</option>
+                                                <option value="Submitted">Image not clear</option>
+                                            </select>
+                                        </div> -->
+                                       
+                                    </div>
+                              <!--        <div class="row m-0"> 
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <label for="document" class="">Document Name</label>
+                                            <input type="text" class="form-control" id="amount" value="RC" readonly>
+                                        </div>
+                                        
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <label for="idate" class="">Expected Date</label>
+                                            <div class="input-group input-medium">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default fleet_date"> <i class="fa fa-calendar"></i> </button>
+                                    </span>
+                                    <input type="date" class="form-control date_width" id="date">
+                                </div>
+                                        </div>
+                                        
+                                      
+                                      
+                                        <div class="form-group col-sm-4 col-md-4">
+                                            <label for="Status" class="">Status</label>
+                                            <select name="status" id="deferral_status" class="form-control">
+                                                <option value="Pending">Yes</option>
+                                                <option value="Submitted">No</option>
+                                                <option value="Submitted">Mismatch</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-3 col-md-2">
+                                            <label class="">CPC Check</label>
+                                            <select name="status" id="deferral_status" class="form-control">
+                                                <option value="">--Select ---</option>
+                                                <option value="Pending">Verified</option>
+                                                <option value="Submitted">Image not clear</option>
+                                            </select>
+                                        </div> 
+                                       
+                                    </div>   -->                     
+                                    
+                                    </div>
+                                    
+                                    </div>
+                                   
+                                </div>
+                                
+                              </div>
+
+                             
+
+                            
+                              
+                        
+                        <!---- <p class="btn btn-primary" id="add_more_documents" >Add More Additional Documents</p> ----->
+                        <br /> 
+                        </div>
+                        
+                        <!--mobile view start-->
+                        <div class="col-xs-12 d-sm-none d-md-none">
+                            <!---<div class="box active" data-toggle="modal" data-target="#photo">
+                                <div><i class="fa fa-image"></i></div>
+                                <div> Photo </div>
+                            </div>
+                            <div class="box">
+                                <div><i class="fa fa-image"></i></div>
+                                <div> Signature </div>
+                            </div>
+                            <div class="box" data-toggle="modal" data-target="#Id_proof">
+                                <div><i class="fa fa-address-card"></i></div>
+                                <div> ID Proof </div>
+                            </div>----->
+                            <div class="box">
+                               <!--  <div><i class="fa fa-plus-circle"></i></div> -->
+                                <div> Additional </div>
+                            </div>
+                        </div>
+                        <!--mobile view end-->
+                    </div>
+                </div>
+            </form>
+
+                
+            
+
+				</div>
+				<div class="row btn-sec clear-both mb-4 mt-0 mr-0 ml-0">
+								
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-7 text-right">
+                        <button class="btn btn-primary dash_href mar-right8"><a href="../retail_sales_dashboard/my_dashboard.html">Back</a></button>
+                        <button class="btn btn-primary dash_href " type="button"><a href="../retail_sales_dashboard/my_dashboard.html">Submit</a></button>
+                    </div>
+                            
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="alert alert-success alert-dismissible" id="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Souring Details saved Successfully.
+        </div> -->
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer ">
+        <div class="container ">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script-progress-step.js "></script>
+    <script type="text/javascript">
+        myFunction();
+    
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+    
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+    
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+    
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+        
+        
+
+
+        $(document).ready(function()
+        {	
+        
+            $("#d_date").prop("disabled", true);
+            $("#deferral_status").change(function(){
+            var type_vals =  $("#deferral_status").val();
+                if(type_vals == "Deferred")
+                {
+                    $("#d_date").prop("disabled", false);
+                }
+                else
+                {
+                    $("#d_date").prop("disabled", true);
+                }
+            
+            });
+            
+            
+            
+            var hdr_locations_ids = new Array("#document_applicant","#document_collateral","#document_others");
+            var length_hdr_locations_ids = hdr_locations_ids.length;
+                $('button').click(function(){
+                    var get_button_id_here = $(this).attr('id');
+                    var actual_id_get = "#"+get_button_id_here;
+                for(m=0;m<length_hdr_locations_ids;m++)
+                {
+                    if(hdr_locations_ids[m] == actual_id_get)
+                    {
+                        var get_html_file_name_here = actual_id_get.split("#");
+                        var actual_file_name = get_html_file_name_here[1]+".html";
+                        var path = actual_file_name;
+                        document.location = path;
+                    }
+                    else
+                    {
+                        
+                    }
+    
+                }
+            });
+
+           
+    
+//             var div_arr = new Array("#show_1_div_identity","#show_2_div_identity","#show_3_div_identity","#show_4_div_identity","#show_5_div_identity");
+// 			var div_arr_len = div_arr.length;
+// 			//add_more_documents_upload10 | add_more_documents10 add_more_documents_remove1
+// 			var div_icon_remove_arr = new Array("#add_more_documents_remove1","#add_more_documents_remove2","#add_more_documents_remove3","#add_more_documents_remove4","#add_more_documents_remove5","#add_more_documents_remove6","#add_more_documents_remove7","#add_more_documents_remove8","#add_more_documents_remove9","#add_more_documents_remove10");
+// 			var div_icon_remove_arr_len = div_icon_remove_arr.length;
+// 			var div_icon_docum = new Array("#add_more_documents1","#add_more_documents2","#add_more_documents3","#add_more_documents4","#add_more_documents5","#add_more_documents6","#add_more_documents7","#add_more_documents8","#add_more_documents9","#add_more_documents10");
+// 			var div_icon_docum_len = div_icon_docum.length;
+// 			for(m=1;m<div_arr_len;m++)
+// 			{
+// 				//alert(div_icon_docum[m]);
+
+// 					$(div_arr[m]).hide();
+// 					$("#add_more_documents1").click(function(){
+// 						$(div_arr[1]).show();
+// 					});
+// 					$("#add_more_documents2").click(function(){
+// 						$(div_arr[2]).show();
+// 					});
+// 					$("#add_more_documents3").click(function(){
+// 						$(div_arr[3]).show();
+// 					});
+// 					$("#add_more_documents4").click(function(){
+// 						$(div_arr[4]).show();
+// 					});
+// 					$("#add_more_documents5").click(function(){
+// 						$(div_arr[5]).show();
+// 					});
+					
+
+// 					/*$("#add_more_documents_remove1").click(function(){
+// 						$(div_arr[0]).hide();
+// 					});*/
+
+// 					$("#add_more_documents_remove2").click(function(){
+// 						$(div_arr[1]).hide();
+// 					});
+// 					$("#add_more_documents_remove3").click(function(){
+// 						$(div_arr[2]).hide();
+// 					});
+// 					$("#add_more_documents_remove4").click(function(){
+// 						$(div_arr[3]).hide();
+// 					});
+// 					$("#add_more_documents_remove5").click(function(){
+// 						$(div_arr[4]).hide();
+// 					});
+					
+// 					//add_more_documents_upload10
+
+// 					$("#add_more_documents_remove1").click(function(){
+// 						$("#upload_files1").file_upload();
+// 					});
+
+// 					$(".custom-file-input").on("change", function() {
+//   var fileName = $(this).val().split("\\").pop();
+//   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+// });
+            
+// }
+
+
+// var div_arr_add = new Array("#show_1_div_address","#show_2_div_address","#show_3_div_address","#show_4_div_address","#show_5_div_address");
+// 			var div_arr_add_len = div_arr_add.length;
+// 			//add_more_documents_upload10 | add_more_documents10 add_more_documents_remove1a
+// 			var div_icon_remove_arr_add = new Array("#add_more_documents_remove1a","#add_more_documents_remove2a","#add_more_documents_remove3a","#add_more_documents_remove4a","#add_more_documents_remove5a");
+// 			var div_icon_remove_arr_add_len = div_icon_remove_arr_add.length;
+// 			var div_icon_docum_add = new Array("#add_more_documents1a","#add_more_documents2a","#add_more_documents3a","#add_more_documents4a","#add_more_documents5a");
+// 			var div_icon_docum_add_len = div_icon_docum_add.length;
+// 			for(n=1;n<div_arr_add_len;n++)
+// 			{
+// 				// alert(div_icon_docum_add[n]);
+
+// 					$(div_arr_add[n]).hide();
+// 					$("#add_more_documents1a").click(function(){
+// 						$(div_arr_add[1]).show();
+// 					});
+// 					$("#add_more_documents2a").click(function(){
+// 						$(div_arr_add[2]).show();
+// 					});
+// 					$("#add_more_documents3a").click(function(){
+// 						$(div_arr_add[3]).show();
+// 					});
+// 					$("#add_more_documents4a").click(function(){
+// 						$(div_arr_add[4]).show();
+// 					});
+// 					$("#add_more_documents5a").click(function(){
+// 						$(div_arr_add[5]).show();
+// 					});
+				
+
+// 					// $("#add_more_documents_remove1a").click(function(){
+// 					// 	$(div_arr_add[0]).hide();
+// 					// });
+
+// 					$("#add_more_documents_remove2a").click(function(){
+// 						$(div_arr_add[1]).hide();
+// 					});
+// 					$("#add_more_documents_remove3a").click(function(){
+// 						$(div_arr_add[2]).hide();
+// 					});
+// 					$("#add_more_documents_remove4a").click(function(){
+// 						$(div_arr_add[3]).hide();
+// 					});
+// 					$("#add_more_documents_remove5a").click(function(){
+// 						$(div_arr_add[4]).hide();
+// 					});
+					
+// 					//add_more_documents_upload10
+
+// 					$("#add_more_documents_remove1a").click(function(){
+// 						$("#upload_files1").file_upload();
+// 					});
+
+// 					$(".custom-file-input").on("change", function() {
+//   var fileName = $(this).val().split("\\").pop();
+//   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+// });
+            
+// }
+            
+    
+//         });
+
+
+//         var div_arr_income = new Array("#show_1_div_income","#show_2_div_income","#show_3_div_income","#show_4_div_income","#show_5_div_income");
+// 			var div_arr_income_len = div_arr_income.length;
+// 			//add_more_documents_upload1a0 | add_more_documents10 add_more_documents_remove1in
+// 			var div_icon_remove_arr_income = new Array("#add_more_documents_remove1in","#add_more_documents_remove2in","#add_more_documents_remove3in","#add_more_documents_remove4in","#add_more_documents_remove5in");
+// 			var div_icon_remove_arr_income_len = div_icon_remove_arr_income.length;
+// 			var div_icon_docum_income = new Array("#add_more_documents1in","#add_more_documents2in","#add_more_documents3in","#add_more_documents4in","#add_more_documents5in");
+// 			var div_icon_docum_income_len = div_icon_docum_income.length;
+// 			for(o=1;o<div_arr_income_len;o++)
+// 			{
+// 				//alert(div_icon_docum[o]);
+
+// 					$(div_arr_income[o]).hide();
+// 					$("#add_more_documents1in").click(function(){
+// 						$(div_arr_income[1]).show();
+// 					});
+// 					$("#add_more_documents2in").click(function(){
+// 						$(div_arr_income[2]).show();
+// 					});
+// 					$("#add_more_documents3in").click(function(){
+// 						$(div_arr_income[3]).show();
+// 					});
+// 					$("#add_more_documents4in").click(function(){
+// 						$(div_arr_income[4]).show();
+// 					});
+// 					$("#add_more_documents5in").click(function(){
+// 						$(div_arr_income[5]).show();
+// 					});
+				
+
+// 					/*$("#add_more_documents_remove1in").click(function(){
+// 						$(div_arr_income[0]).hide();
+// 					});*/
+
+// 					$("#add_more_documents_remove2in").click(function(){
+// 						$(div_arr_income[1]).hide();
+// 					});
+// 					$("#add_more_documents_remove3in").click(function(){
+// 						$(div_arr_income[2]).hide();
+// 					});
+// 					$("#add_more_documents_remove4in").click(function(){
+// 						$(div_arr_income[3]).hide();
+// 					});
+// 					$("#add_more_documents_remove5in").click(function(){
+// 						$(div_arr_income[4]).hide();
+// 					});
+					
+// 					//add_more_documents_upload1a0
+
+// 					$("#add_more_documents_remove1in").click(function(){
+// 						$("#upload_files1").file_upload();
+// 					});
+
+// 					$(".custom-file-input").on("change", function() {
+//   var fileName = $(this).val().split("\\").pop();
+//   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+// });
+            
+// }
+
+// var div_arr_additional = new Array("#show_1_div_additional","#show_2_div_additional","#show_3_div_additional","#show_4_div_additional","#show_5_div_additional");
+// 			var div_arr_additional_len = div_arr_additional.length;
+// 			//add_more_documents_upload1a0 | add_more_documents10 add_more_documents_remove1adt
+// 			var div_icon_remove_arr_additional = new Array("#add_more_documents_remove1adt","#add_more_documents_remove2adt","#add_more_documents_remove3adt","#add_more_documents_remove4adt","#add_more_documents_remove5adt");
+// 			var div_icon_remove_arr_additional_len = div_icon_remove_arr_additional.length;
+// 			var div_icon_docum_additional = new Array("#add_more_documents1adt","#add_more_documents2adt","#add_more_documents3adt","#add_more_documents4adt","#add_more_documents5adt");
+// 			var div_icon_docum_additional_len = div_icon_docum_additional.length;
+// 			for(p=1;p<div_arr_additional_len;p++)
+// 			{
+// 				//alert(div_icon_docum[o]);
+
+// 					$(div_arr_additional[p]).hide();
+// 					$("#add_more_documents1adt").click(function(){
+// 						$(div_arr_additional[1]).show();
+// 					});
+// 					$("#add_more_documents2adt").click(function(){
+// 						$(div_arr_additional[2]).show();
+// 					});
+// 					$("#add_more_documents3adt").click(function(){
+// 						$(div_arr_additional[3]).show();
+// 					});
+// 					$("#add_more_documents4adt").click(function(){
+// 						$(div_arr_additional[4]).show();
+// 					});
+// 					$("#add_more_documents5adt").click(function(){
+// 						$(div_arr_additional[5]).show();
+// 					});
+				
+
+// 					/*$("#add_more_documents_remove1adt").click(function(){
+// 						$(div_arr_additional[0]).hide();
+// 					});*/
+
+// 					$("#add_more_documents_remove2adt").click(function(){
+// 						$(div_arr_additional[1]).hide();
+// 					});
+// 					$("#add_more_documents_remove3adt").click(function(){
+// 						$(div_arr_additional[2]).hide();
+// 					});
+// 					$("#add_more_documents_remove4adt").click(function(){
+// 						$(div_arr_additional[3]).hide();
+// 					});
+// 					$("#add_more_documents_remove5adt").click(function(){
+// 						$(div_arr_additional[4]).hide();
+// 					});
+					
+// 					//add_more_documents_upload1a0
+
+// 					$("#add_more_documents_remove1adt").click(function(){
+// 						$("#upload_files1").file_upload();
+// 					});
+
+// 					$(".custom-file-input").on("change", function() {
+//   var fileName = $(this).val().split("\\").pop();
+//   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+// });
+            
+// }
+            
+    
+        
+            
+    
+        
+    </script>
+<script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>   
+    <script src="js/preview.js "></script>
+
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Sampling Spot</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-progress-step.css" rel="stylesheet">
+    <!-- Script version 4-->
+    <script src="js/jquery.min.3.5.1.js"></script>
+    <script src="js/bootstrap.min.4.4.1.js"></script>
+     <!-- Script version 4-->
+
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.ico">
+   
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $(".dropdown_menu").hide();
+              $(".name").click(function(){
+                $(".dropdown_menu").toggle();
+              });
+            });
+        </script>
+    <style type="text/css">
+
+    a{
+        color:#fff!important;
+    }
+        .search .microphone-icon {
+    /* background: url(../images/mic.png) no-repeat center; */
+    cursor: pointer;
+    /*margin-inline-end: 16px;*/
+    padding: 11px 18px 0px 7px;
+    right: 0;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    /*background-color: #f68834;*/
+    color: #0c0c0c;
+    font-weight: bold;
+    
+
+}
+/**header style starts here**/
+.fa.fa-search {
+    position: absolute;
+    left: 40px;
+    font-size: 16px;
+}
+#myInput {
+    height: 44px;
+    border: 1px solid #dedede;
+    border-radius: 22px;
+    padding: 6px 48px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+    width: 93%;
+}
+.header_dropdown {
+    justify-content: end;
+}
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 22px;
+    border: 1px solid #dedede;
+    position: absolute;
+    z-index: 2000;
+    background-color: white;
+    top: 42px;
+    left:4px;
+}
+.name {
+    color: #333 !important;
+}
+.navbar-default.navbar-nav > li > a {
+    color: #333 !important;
+}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu li a:focus, .dropdown-menu li a:hover {
+    background-color: #272264 !important;
+    color: #ffffff !important;
+}
+#myUL > li >a{color:#333 !important;}
+@media(min-width:320px) and (max-width:767px){
+            .col-md-4.navbar-brand {width: 50%;}
+            .dropdown-menu.show > li {text-align: left;padding:10px;}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+.navbar-default .navbar-collapse {
+    border-color: #fff;
+    background: #fff;
+    border: none;
+}
+}
+#create_button_top
+{
+    margin-top: 30px;
+    margin-left: 120px;
+}
+/**header style ends here**/
+.dropdown_menu{
+    list-style-type: none;
+padding: 6px;
+margin: 0;
+border: 1px solid #dedede;
+position: absolute;
+z-index: 2000;
+background-color: white;
+top: 47px;
+box-shadow: 0 6px 12px rgba(0,0,0,.175);
+width: 166px;
+}
+.dropdown_menu > a{color:#333 !important;}
+    </style>
+</head>
+
+<body class="bg">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+            <div class="container-fluid">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+                <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+                <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" >
+                <span class="fa fa-search"></span> 
+                <ul id="myUL" class="unique">
+                    <li><a href="../retail_sales_lead/retail_sales_create_lead.html" >Create New Lead</a></li> 
+                    <li><a href="../retail_sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li> 
+                    <li><a href="">View PD Tasks</a></li> 
+                    <li><a href="">View Pending Queries</a></li> 
+                    <li><a href="">View Sanctioned Leads Awaiting Discussion</a></li> 
+                    <li><a href="">View Declined Leads</a></li> 
+                    <li><a href="">Track Lead Status</a></li> 
+                </ul>
+                </form>
+                   <div class="col-md-4 collapse navbar-collapse header_dropdown d-flex justify-content-end" id="navbarTogglerDemo03">
+                <div class="navbar-nav mt-2 mt-lg-0">
+                  
+                        <a href="#" class="name">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown_menu">
+                            <a href="#">Dhanapal Nataraj</a>
+                            <div class="mt-2"></div>
+                            <a href="#"> 
+                                <select class="form-control">
+                                <option value="Sales Officer" selected="selected" >Sales Officer</option>
+                                <option value="Sales Officer" selected="selected" >Credit Officer</option>
+                            </select>
+                            </a>
+                            <div class="mt-2"></div>
+                            <a href="#">Velachery Branch</a>
+                             <div class="mt-2"></div>
+                        
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                           
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+            
+              </div>
+                  
+                </nav>            
+            </div>
+        </header>
+        <main class="mar-top90 mt-1">
+        <div class="container-fluid overflow-hidden">
+            <h3 class="mt-1">Lead ID : 12345</h3>
+            <div class="row top_bar">
+                    <div class="col-lg-10 col-md-10 col-sm-12">
+                        <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_created_by">Lead ID </label>
+                                <label for="lead_created_by_name" class="col-form-label-two">12345</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_created_by">Product</label>
+                                <label for="lead_created_by_name" class="col-form-label-two">LAP</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="customer_name_label">Loan Amount</label>
+                                <label for="customer_name" class="col-form-label-two">500000</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="roi">Applicant</label>
+                                <label for="roi_value" class="col-form-label-two">Deepika Malhotra</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_handled_by">Status </label>
+                                <label for="lead_handled_by_name" class="col-form-label-two">In progress</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label" for="lead_handled_by">Queue</label>
+                                <label for="lead_handled_by_name" class="col-form-label-two">Spot Response</label>
+                            </div>
+                        </div>
+                        </div>
+                
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-5">
+                    <a href="document_applicant.html"> <button class="btn btn-primary top_button" type="button">View/Upload Document</button></a> 
+                    </div>               
+                    
+                </div>
+            <!----<div class="multisteps-form">
+                <div class="multisteps-form__progress">
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="dde_technical_verification">Technical Verification </button>
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="dde_cross_sell_details">Cross Sell Details</button> 
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="credit_psl_data">PSL Details</button>
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="dde_scoring">Scoring</button>
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="dde_cibil_od_details">CIBIL OD Details</button>
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="dde_eligibility_details">Eligibility Details</button>
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="dde_eligibility_a">Eligibility A</button>
+                    
+                    <button class="multisteps-form__progress-btn" type="button" id="dde_lip_verification">LIP Verification</button>
+                    <button class="multisteps-form__progress-btn" type="button" id="dde_deviations">Deviations</button>
+                    <button class="multisteps-form__progress-btn" type="button" id="dde_credit_sampling_cam">CAM</button>
+                </div>
+                </div> ---->
+            </div>
+            <div class="content">
+                        <h5 class="title">Sampling Spot Response</h5>
+                        <div class="row">
+                        <div class="form-group col-sm-12 col-md-4 col-lg-4" id="sampling_cam1" >
+                                <label for="">Sampling Rejection Type</label>
+                                <select class="form-control" id="" name="" disabled="">
+                                     <option value="">-- select one -- </option>
+                                        <option value="SPOT" selected="">SPOT</option>
+                                        <option value="PPD and Others">PPD and Others</option> 
+                                     </select>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-4 col-lg-4" id="sampling_cam1" >
+                                <label for="">Sampling Rejection Category</label>
+                                <select class="form-control" id="" name="" disabled="">
+                                     <option value="">-- select one -- </option>
+                                        <option value=""></option>
+                                        <option value=""></option> 
+                                     </select>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="">Sampling Remarks</label>
+                                        <input type="text" class="form-control" id="" name="" disabled="">
+                                    </div>
+                        <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="">EMP ID</label>
+                                        <input type="text" class="form-control" id="" name="" disabled="">
+                                    </div>
+                        <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="">EMP Name</label>
+                                        <input type="text" class="form-control" id="" name="" disabled="">
+                                    </div>
+                        <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="">Designation</label>
+                                        <input type="text" class="form-control" id="" name="" disabled="">
+                                    </div>
+
+                         <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                                        <label for="">Branch Response</label>
+                                        <input type="text" class="form-control" id="" name="">
+                                    </div>
+                        
+
+                        </div>
+
+
+            <div class="row mb-5">
+                        
+                            <div class="col-sm-5">   
+                                
+                            </div>
+                            <div class="col-sm-7 text-right">
+                                <button class="btn btn-primary dash_href " type="button"><a href="../retail_sales_dashboard/my_dashboard.html">Back</a></button>
+                                <button class="btn btn-primary"> <a href="../retail_sales_dashboard/my_dashboard.html">Sumbit to Credit</a></button>
+                               <!---- <button class="btn btn-primary dash_href" ><a href="dde_sampling_spot_response_sales.html">Sampling Spot Response By Sales</a></button> --->
+                                <button class="btn btn-primary dash_href button_header" type="button"><a href="../retail_sales_dashboard/my_dashboard.html">Next</a></button>
+                            </div>
+                                
+                    </div>
+        </div>
+    </main>
+    <footer class="footer pf">
+        <div class="container">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var hdr_locations_ids = new Array("#dde_technical_verification","#dde_scoring","#dde_eligibility_details", "#dde_cross_sell_details", "#dde_credit_sampling_cam","#dde_deviations","#dde_cibil_od_details","#credit_psl_data","#dde_lip_verification","#dde_eligibility_a");   
+        var length_hdr_locations_ids = hdr_locations_ids.length;
+            $('button').click(function(){
+                var get_button_id_here = $(this).attr('id');
+                var actual_id_get = "#"+get_button_id_here;
+            for(m=0;m<length_hdr_locations_ids;m++)
+            {
+                if(hdr_locations_ids[m] == actual_id_get)
+                {
+                    var get_html_file_name_here = actual_id_get.split("#");
+                    var actual_file_name = get_html_file_name_here[1]+".html";
+                    var path = actual_file_name;
+                    document.location = path;
+                }
+                else
+                {
+                    
+                }
+
+            }
+        });
+            $("#lip_div").hide();
+            $("#lip_verif").click(function(){
+                $("#lip_div").toggle();
+            });
+        });
+    </script>
+    
+</body>
+</html>

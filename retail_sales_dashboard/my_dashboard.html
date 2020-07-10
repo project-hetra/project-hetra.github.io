@@ -1,0 +1,2453 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<title></title>
+		<!-- Style -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/dashboard.css" rel="stylesheet">
+		<link href="css/style-responsive.css" rel="stylesheet">
+		
+		<!-- jQuery library -->
+		<script src="js/jquery.min.3.5.1.js"></script>
+		<!-- Popper JS -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+		<!-- Latest compiled JavaScript -->
+		<script src="js/bootstrap.min.4.4.1.js"></script> 
+		<!-- Font Awesome -->
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<!-- Fonts
+		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+		Favicons -->
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<link rel="icon" href="images/favicon.png">
+		<style type="text/css">
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: #fff !important;
+    background-color: #1d1a4b;
+}
+			.submenu.active:hover:active:focus:focus-within {
+    color: #fff !important;
+    background-color: #1d1a4b !important;
+}
+		#myInput {
+		    height: 44px;
+		    border: 1px solid #dedede;
+		    border-radius: 22px;
+		    padding: 6px 48px;
+		    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+		    width:93%;
+		}
+		.header_dropdown{justify-content:end;}
+		.fa.fa-search {
+		    position: absolute;
+			left: 40px;
+			font-size: 16px;
+		}
+		.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {color: #fff !important;background-color: #1d1a4b;}
+		a {color: #272264;}
+		#filter-btn {
+		    background-color: #fff;
+		    border: 1px solid #ccc;
+		    margin-top: 17px;
+		}
+		#clearbtn {
+	    background-color: #fff;
+	    border: 1px solid #ccc;
+		}
+		.btn.btn-default {
+    border: 1px solid #ccc;
+    background-color: white;
+}
+		@media(min-width:320px) and (max-width:767px){
+			.col-md-4.navbar-brand {width: 50%;}
+			.nav-pills > li {width: 100%;}
+			.name {color: #333 !important;}
+			.navbar-default .navbar-collapse {
+    border-color: #fff;
+    background: #fff;
+    border: none;
+}
+.dropdown-menu.show > li {text-align: left;padding:10px;}
+.dropdown-menu.show > li > a{color:#333 !important;}
+.dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+
+		}
+
+
+      /*
+    Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+    */
+    @media
+      only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+        .table tbody tr td {
+            border-top: 1px solid #e6e6e6;
+            padding: 10px !important;
+            padding-left: 50% !important;
+        }
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+      /*margin: 0 0 1rem 0;*/
+    }
+      
+    tr:nth-child(odd) {
+      /*background: #ccc;*/
+    }
+    
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+            height:40px;
+        }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        /*
+        Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+        */
+        td:nth-of-type(1):before { content: "Lead ID"; }
+        td:nth-of-type(2):before { content: "Product"; }
+        td:nth-of-type(3):before { content: "Loan Amount"; }
+        td:nth-of-type(4):before { content: "Applicants"; }
+        td:nth-of-type(5):before { content: "Created on"; }
+        td:nth-of-type(6):before { content: "Created By"; }
+        td:nth-of-type(7):before { content: "Priority"; }
+        td:nth-of-type(8):before { content: "Promocode"; }
+        td:nth-of-type(9):before { content: "Status"; }
+        td:nth-of-type(10):before { content: "History"; }
+        td:nth-of-type(11):before { content: ""; }
+        /*td:nth-of-type(9):before { content: ""; }
+        td:nth-of-type(10):before { content: ""; }
+        td:nth-of-type(11):before { content: ""; }
+        td:nth-of-type(12):before { content: ""; }
+        td:nth-of-type(14):before { content: ""; }
+        td:nth-of-type(15):before { content: ""; }
+        td:nth-of-type(16):before { content: ""; }
+        td:nth-of-type(17):before { content: ""; }*/
+
+    }
+    
+/*table styles ends here*/
+
+   .submenu.active{
+   	    background-color: #1d1a4b;
+    color: #fff !important;
+   }
+   .checkbox label, .radio label {
+    position: initial;
+}
+.dropdown_menu{
+    list-style-type: none;
+padding: 6px;
+margin: 0;
+border: 1px solid #dedede;
+position: absolute;
+z-index: 2000;
+background-color: white;
+top: 47px;
+box-shadow: 0 6px 12px rgba(0,0,0,.175);
+width: 166px;
+}
+.dropdown_menu > a{color:#333 !important;}
+    	</style>
+   
+<script type="text/javascript">
+            $(document).ready(function(){
+                $(".dropdown_menu").hide();
+              $(".name").click(function(){
+                $(".dropdown_menu").toggle();
+              });
+            });
+        </script>
+	</head>
+	
+	<body class="bg m-0">
+		<header class="navbar navbar-default navbar-fixed-top p-0">
+			<div class="container-fluid">
+				<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+    			<a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+    			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+  				<form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+		      	<input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" >
+		        <span class="fa fa-search"></span> 
+		        <ul id="myUL" class="unique">
+		            <li><a href="../retail_sales_lead/retail_sales_create_lead.html" >Create New Lead</a></li> 
+					<li><a href="../retail_sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li> 
+					<li><a href="" >View PD Tasks</a></li> 
+					<li><a href="" >View Pending Queries</a></li> 
+					<li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li> 
+					<li><a href="" >View Declined Leads</a></li> 
+					<li><a href="" >Track Lead Status</a></li> 
+		        </ul>
+   			    </form>
+				  <div class="col-md-4 collapse navbar-collapse header_dropdown d-flex justify-content-end" id="navbarTogglerDemo03">
+                <div class="navbar-nav mt-2 mt-lg-0">
+                  
+                        <a href="#" class="name">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown_menu">
+                            <a href="#">Dhanapal Nataraj</a>
+                            <div class="mt-2"></div>
+                            <a href="#"> 
+                                <select class="form-control">
+                                <option value="Sales Officer" selected="selected" >Sales Officer</option>
+                                <option value="Sales Officer" selected="selected" >Credit Officer</option>
+                            </select>
+                            </a>
+                            <div class="mt-2"></div>
+                            <a href="#">Velachery Branch</a>
+                             <div class="mt-2"></div>
+                        
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                           
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+            
+              </div>
+				  
+				</nav>
+				<!-- <div class="navbar-header">
+					<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+				</div> -->
+				
+			</div>
+		</header>
+		
+		<main class="mar-top85">
+			<div class="container-fluid overflow-hidden">
+				<div class="row m-0 d-flex justify-content-end">
+					<div class="pull-right dropdown nav mb-3">
+								<span class="visible-xs d-md-none pull-left mar-right8 mt-3">
+									<button class="btn btn-default" data-toggle="dropdown"> Add Field <i class="fa fa-angle-down"></i> </button>
+									<ul class="dropdown-menu">
+										<li> <div class="checkbox"><label><input type="checkbox">Product <span class="checkmark"></span></label></div> </li>
+										<li> <div class="checkbox"><label><input type="checkbox">Stage <span class="checkmark"></span> </label></div> </li>
+										<li> <div class="checkbox"><label><input type="checkbox">Loan Amount <span class="checkmark"></span> </label></div> </li>
+										<li> <div class="checkbox"><label><input type="checkbox">Assigned By <span class="checkmark"></span> </label></div> </li>
+									</ul>
+								</span>
+								<button class="btn btn-default" id="filter-btn"> <i class="fa fa-filter"></i> Filter </button>
+						</div>
+				</div> 
+				<div class="filter-block">
+					<div class="row ml-0 mr-0">
+						<div class="col-md-4">
+							<form class="form-inline">
+								<div class="form-group">
+									<label for="filter">Add filter</label> &nbsp;
+									<select class="form-control" id="label">
+										<option value="1">Status</option>
+										<option value="2">Created Date</option>
+										 <option value="3">Assignee</option> 
+										<option value="">Product</option>
+										<option value="4">Created By </option>
+										<option value="5">Loan Amount</option>
+									</select>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-8">
+							<div class="row" id="status-content">
+								<div class="form-group col-sm-4 col-md-3">
+									<div class="checkbox">
+										<label> <input type="checkbox" name=""> Status <span class="checkmark"></span> </label>
+									</div>
+								</div>
+								<div class="form-group col-sm-4">
+									<label class="sr-only">Status</label>
+									<select class="form-control">
+										<option>Select</option>
+									</select>
+								</div>
+							</div>
+							<div class="row" id="date-content">
+								<div class="form-group col-sm-4 col-md-3">
+									<div class="checkbox">
+										<label id="label-select"> <input type="checkbox" name=""> Created Date <span class="checkmark"></span></label>
+									</div>
+								</div>
+								<div class="form-group col-sm-4">
+									<label class="sr-only"></label>
+									<select class="form-control">
+										<option>Select</option>
+									</select>
+								</div> 
+								<div class="form-group col-sm-4">
+									<label class="sr-only">Start Date</label>
+									<div class="input-group input-medium">
+										<span class="input-group-btn">
+											<button class="btn btn-default"> <i class="fa fa-calendar"></i> </button>
+										</span>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 d-flex justify-content-end btn-sec col-xs-12 text-right">
+							<button class="btn btn-default mar-right8" id="clearbtn"> Clear </button>
+							<button class="btn btn-primary"> Apply </button>
+						</div>
+					</div>
+				</div>
+				
+				<ul class="nav nav-pills nav-justified mb-3" id="background_white"  >
+					<li class="active" id="leads" ><a href="#leads javascript:void(0)">Leads</a></li>
+					<li id="pd" class="" ><a href="#pd javascript:void(0)">Personal Discussion</a></li>
+					<li id="legal" class="" ><a href="#legal javascript:void(0)">Legal</a></li>
+					<li id="modt" class="" ><a href="#modt javascript:void(0)">MODT</a></li>
+				    
+				    <!-- <li id="viability" class="" ><a href="#viability javascript:void(0)">Vehicle Viability</a></li> -->
+				    <!---- <li id="query" class="" ><a href="query.html">Query</a></li> --->
+				    <li id="pdd" class="" ><a href="#pdd_section javascript:void(0)">PDD</a></li>
+					<li id="cheque_tracking_menu" class="" ><a href="#cheque_tracking javascript:void(0)">Cheque Tracking</a></li>
+					<li id="spot_reference" class=""><a href="#spot_reference javascript:void(0)">Sampling Spot</a></li>
+				    
+				 </ul>
+			
+
+				 <!--- Leads Section Starts ---->
+				<div id="leads_section">
+						<ul class="nav nav-pills nav-justified mb-3" id="background_white" >
+						    <li class="col-md-2 p-0" id="new_leads" ><a data-toggle="tab" href="#home" class="active submenu">New Leads</a></li>
+						    <li id="sanction_leads" class="col-md-3 p-0" ><a data-toggle="tab" href="#menu1" class="submenu">Sanctioned Leads Pending with Me</a></li>
+						    <li id="sanction_leads_branch" class="col-md-3 p-0" ><a data-toggle="tab" href="#menu2" class="submenu">Sanctioned Leads Pending with Branch</a></li>
+						    <li id="declined_leads" class="col-md-2 p-0" ><a data-toggle="tab" href="#menu3" class="submenu">Declined Leads with Me</a></li>
+						     <li id="declined_leads_branch" class="col-md-2 p-0"><a data-toggle="tab" href="#menu4" class="submenu">Declined Leads with Branch</a></li>
+						 </ul>
+					
+					<div class="tab-content">
+					    <div id="home" class="tab-pane fade in active">
+										<div class="table-responsive application" id="table_common">
+												<table class="table">
+													<thead>
+													  <tr class="table-head-bg">
+														<th>Lead ID <i class="fa fa-sort"></i> </th>
+														<th>Product<i class="fa fa-sort"></i> </th>
+														<th>Loan Amount<i class="fa fa-sort"></i> </th>
+														<th>Applicants<i class="fa fa-sort"></i> </th>
+														<th>Created On <i class="fa fa-sort"></i> </th>
+														<th>Created By <i class="fa fa-sort"></i> </th>
+														<th>Priority<i class="fa fa-sort"></i> </th>
+														<th>Promocode<i class="fa fa-sort"></i> </th>
+														<th>Status <i class="fa fa-sort"></i> </th>
+														<th>History <i class="fa fa-sort"></i> </th>
+													  </tr>
+													</thead>
+													<tbody>
+													  <tr>
+													  	
+														<td><a href="../retail_sales_lead/retail_sales_lead_details.html" id="a_underline"  >12345</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Lead Created</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	
+														<td><a href="../retail_sales_lead/retail_sales_lead_details.html" id="a_underline" >1000002</a></td>
+														<td>HF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Lead Created</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													  <tr>
+													  	
+														<td><a href="../retail_sales_lead/retail_sales_lead_details.html" id="a_underline" >1000003</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Lead Created</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	
+														<td><a href="../retail_sales_lead/retail_sales_lead_details.html" id="a_underline" >1000004</a></td>
+														<td>MHF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Lead Created</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													    <tr>
+													  	
+														<td><a href="../retail_sales_lead/retail_sales_lead_details.html" id="a_underline" >1000005</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Lead Created</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+													  </tr>
+													</tbody>
+												</table>
+												<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+									</div>
+										
+					    </div>
+					  <div id="menu1" class="tab-pane fade">
+					      <div class="table-responsive application" id="table_common">
+												<table class="table">
+													<thead>
+													  <tr class="table-head-bg">
+														<th>Action<i class="fa fa-sort"></i></th>
+														<th>Lead ID <i class="fa fa-sort"></i> </th>
+														<th>Product<i class="fa fa-sort"></i> </th>
+														<th>Loan Amount<i class="fa fa-sort"></i> </th>
+														<th>Applicants<i class="fa fa-sort"></i> </th>
+														<th>Created On <i class="fa fa-sort"></i> </th>
+														<th>Created By <i class="fa fa-sort"></i> </th>
+														<th>Priority<i class="fa fa-sort"></i> </th>
+														<th>Promocode<i class="fa fa-sort"></i> </th>
+														<th>Status <i class="fa fa-sort"></i> </th>
+														<th>History <i class="fa fa-sort"></i> </th>
+													  </tr>
+													</thead>
+													<tbody>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html" id="a_underline"  >12345</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html" id="a_underline" >1000002</a></td>
+														<td>HF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html" id="a_underline" >1000003</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html" id="a_underline" >1000004</a></td>
+														<td>MHF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													    <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html" id="a_underline" >1000005</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+													  </tr>
+													</tbody>
+												</table>
+										<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+									</div>
+					    </div>
+					  <div id="menu2" class="tab-pane fade">
+					      <div class="table-responsive application" id="table_common">
+												<table class="table">
+													<thead>
+													  <tr class="table-head-bg">
+														<th>Action<i class="fa fa-sort"></i></th>
+														<th>Lead ID <i class="fa fa-sort"></i> </th>
+														<th>Product<i class="fa fa-sort"></i> </th>
+														<th>Loan Amount<i class="fa fa-sort"></i> </th>
+														<th>Applicants<i class="fa fa-sort"></i> </th>
+														<th>Created On <i class="fa fa-sort"></i> </th>
+														<th>Created By <i class="fa fa-sort"></i> </th>
+														<th>Priority<i class="fa fa-sort"></i> </th>
+														<th>Promocode<i class="fa fa-sort"></i> </th>
+														<th>Status <i class="fa fa-sort"></i> </th>
+														<th>History <i class="fa fa-sort"></i> </th>
+													  </tr>
+													</thead>
+													<tbody>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html">12345</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html">1000002</a></td>
+														<td>HF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html">1000003</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html">1000004</a></td>
+														<td>MHF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													    <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td><a href="../retail_sales_lead/retail_credit_conditions.html">1000005</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Sanctioned</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+													  </tr>
+													</tbody>
+												</table>
+												<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+									</div>
+					   </div>
+					   <div id="menu3" class="tab-pane fade">
+					      <div class="table-responsive application" id="table_common">
+												<table class="table">
+													<thead>
+													  <tr class="table-head-bg">
+														<th>Action<i class="fa fa-sort"></i></th>
+														<th>Lead ID <i class="fa fa-sort"></i> </th>
+														<th>Product<i class="fa fa-sort"></i> </th>
+														<th>Loan Amount<i class="fa fa-sort"></i> </th>
+														<th>Applicants<i class="fa fa-sort"></i> </th>
+														<th>Created On <i class="fa fa-sort"></i> </th>
+														<th>Created By <i class="fa fa-sort"></i> </th>
+														<th>Priority<i class="fa fa-sort"></i> </th>
+														<th>Promocode<i class="fa fa-sort"></i> </th>
+														<th>Status <i class="fa fa-sort"></i> </th>
+														<th>History <i class="fa fa-sort"></i> </th>
+													  </tr>
+													</thead>
+													<tbody>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_qde/retail_sales_lead_details.html" id="a_underline"  >12345</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_qde/retail_sales_lead_details.html" id="a_underline" >1000002</a></td>
+														<td>HF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_qde/retail_sales_lead_details.html" id="a_underline" >1000003</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Release"  data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_qde/retail_sales_lead_details.html" id="a_underline" >1000004</a></td>
+														<td>MHF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													    <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_qde/retail_sales_lead_details.html" id="a_underline" >1000005</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+													  </tr>
+													</tbody>
+												</table>
+												<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+									</div>
+					   </div>
+					
+					<div id="menu4" class="tab-pane fade">
+					      <div class="table-responsive application" id="table_common">
+												<table class="table">
+													<thead>
+													  <tr class="table-head-bg">
+														<th>Action<i class="fa fa-sort"></i></th>
+														<th>Lead ID <i class="fa fa-sort"></i> </th>
+														<th>Product<i class="fa fa-sort"></i> </th>
+														<th>Loan Amount<i class="fa fa-sort"></i> </th>
+														<th>Applicants<i class="fa fa-sort"></i> </th>
+														<th>Created On <i class="fa fa-sort"></i> </th>
+														<th>Created By <i class="fa fa-sort"></i> </th>
+														<th>Priority<i class="fa fa-sort"></i> </th>
+														<th>Promocode<i class="fa fa-sort"></i> </th>
+														<th>Status <i class="fa fa-sort"></i> </th>
+														<th>History <i class="fa fa-sort"></i> </th>
+													  </tr>
+													</thead>
+													<tbody>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>12345</td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000002</td>
+														<td>HF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000003</td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000004</td>
+														<td>MHF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													    <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000005</td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>Declined</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+													  </tr>
+													</tbody>
+												</table>
+												<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+									</div>
+					   </div>
+					</div>
+				</div>
+				<!---- Leads Section End ------>
+
+				<!---legal discussion-->
+				<div id="legal_section">
+					<ul class="nav nav-pills nav-justified" id="background_white">
+					    <li class="col-md-6 pr-0 pl-0" id="new_leads" ><a data-toggle="tab" href="#my_legal_tasks" class="submenu active">My Legal Tasks</a></li>
+					    <li id="sanction_leads" class="col-md-6 pr-0 pl-0" ><a data-toggle="tab" href="#branch_legal_tasks" class="submenu">Branch Legal Tasks</a></li>
+					 </ul>
+					 <br />
+					<div class="tab-content">
+					    <div id="my_legal_tasks" class="tab-pane fade in active">
+					      <div class="table-responsive application" id="table_common">
+									<table class="table">
+										<thead>
+										  <tr class="table-head-bg">
+											<th>Action<i class="fa fa-sort"></i></th>
+											<th>Lead ID <i class="fa fa-sort"></i> </th>
+											<th>Product<i class="fa fa-sort"></i> </th>
+											<th>Loan Amount<i class="fa fa-sort"></i> </th>
+											<th>Applicants<i class="fa fa-sort"></i> </th>
+											<th>Created On <i class="fa fa-sort"></i> </th>
+											<th>Created By <i class="fa fa-sort"></i> </th>
+											<th>Priority<i class="fa fa-sort"></i> </th>
+											<th>Promocode<i class="fa fa-sort"></i> </th>
+											<th>Status <i class="fa fa-sort"></i> </th>
+											<th>History <i class="fa fa-sort"></i> </th>
+										  </tr>
+										</thead>
+										<tbody>
+										  <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/legal_task.html" id="a_underline"  >12345</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										   <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/legal_task.html" id="a_underline" >1000002</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										  <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/legal_task.html" id="a_underline" >1000003</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										   <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/legal_task.html" id="a_underline" >1000004</a></td>
+											<td>HF</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										    <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_dde/legal_task.html" id="a_underline" >1000005</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+										  </tr>
+										</tbody>
+									</table>
+									<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+						</div>
+					    </div>
+					  <div id="branch_legal_tasks" class="tab-pane fade">
+					      <div class="table-responsive application" id="table_common">
+										<table class="table">
+											<thead>
+											  <tr class="table-head-bg">
+												<th>Action<i class="fa fa-sort"></i></th>
+												<th>Lead ID <i class="fa fa-sort"></i> </th>
+												<th>Product<i class="fa fa-sort"></i> </th>
+												<th>Loan Amount<i class="fa fa-sort"></i> </th>
+												<th>Applicants<i class="fa fa-sort"></i> </th>
+												<th>Created On <i class="fa fa-sort"></i> </th>
+												<th>Created By <i class="fa fa-sort"></i> </th>
+												<th>Priority<i class="fa fa-sort"></i> </th>
+												<th>Promocode<i class="fa fa-sort"></i> </th>
+												<th>Status <i class="fa fa-sort"></i> </th>
+												<th>History <i class="fa fa-sort"></i> </th>
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>12345</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											   <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000002</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											  <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000003</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											   <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000004</td>
+												<td>HF</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											    <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000005</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+											  </tr>
+											</tbody>
+										</table>
+										<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+							</div>
+					    </div>
+					</div>
+				</div>
+
+				<!-- legal discussion-->
+
+				<!---modt discussion-->
+				<div id="modt_section">
+					<ul class="nav nav-pills nav-justified" id="background_white">
+					    <li class="col-md-6 pr-0 pl-0" id="new_leads" ><a data-toggle="tab" href="#my_modt_tasks" class="submenu active">My MODT Tasks</a></li>
+					    <li id="sanction_leads" class="col-md-6 pr-0 pl-0" ><a data-toggle="tab" href="#branch_modt_tasks" class="submenu">Branch MODT Tasks</a></li>
+					 </ul>
+					 <br />
+					<div class="tab-content">
+					    <div id="my_modt_tasks" class="tab-pane fade in active">
+					      <div class="table-responsive application" id="table_common">
+									<table class="table">
+										<thead>
+										  <tr class="table-head-bg">
+											<th>Action<i class="fa fa-sort"></i></th>
+											<th>Lead ID <i class="fa fa-sort"></i> </th>
+											<th>Product<i class="fa fa-sort"></i> </th>
+											<th>Loan Amount<i class="fa fa-sort"></i> </th>
+											<th>Applicants<i class="fa fa-sort"></i> </th>
+											<th>Created On <i class="fa fa-sort"></i> </th>
+											<th>Created By <i class="fa fa-sort"></i> </th>
+											<th>Initate Status<i class="fa fa-sort"></i> </th>
+											<th>Priority<i class="fa fa-sort"></i> </th>
+											<th>Promocode<i class="fa fa-sort"></i> </th>
+											<th>Status <i class="fa fa-sort"></i> </th>
+											<th>History <i class="fa fa-sort"></i> </th>
+										  </tr>
+										</thead>
+										<tbody>
+										  <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/modt_task.html" id="a_underline"  >12345</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Registration Pending</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										   <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/modt_task.html" id="a_underline" >1000002</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Registration Pending</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										  <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/modt_task.html" id="a_underline" >1000003</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Registration Initiated</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										   <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/modt_task.html" id="a_underline" >1000004</a></td>
+											<td>HF</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											<td>Registration Initiated</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+											
+										  </tr>
+										    <tr>
+										  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+											<td><a href="../retail_sales_lead/modt_task.html" id="a_underline" >1000005</a></td>
+											<td>LAP</td>
+											<td>500000</td>
+											<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+											<td>26-Feb-2020</td>
+											<td>Aravind Kumar</td>
+											
+											<td>Registration Completed</td>
+											<td>Yes</td>
+											<td>PROMO001</td>
+											<td>PD</td>
+											<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+										  </tr>
+										</tbody>
+									</table>
+									<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+						</div>
+					    </div>
+					  <div id="branch_modt_tasks" class="tab-pane fade">
+					      <div class="table-responsive application" id="table_common">
+										<table class="table">
+											<thead>
+											  <tr class="table-head-bg">
+												<th>Action<i class="fa fa-sort"></i></th>
+												<th>Lead ID <i class="fa fa-sort"></i> </th>
+												<th>Product<i class="fa fa-sort"></i> </th>
+												<th>Loan Amount<i class="fa fa-sort"></i> </th>
+												<th>Applicants<i class="fa fa-sort"></i> </th>
+												<th>Created On <i class="fa fa-sort"></i> </th>
+												<th>Created By <i class="fa fa-sort"></i> </th>
+												<th>Priority<i class="fa fa-sort"></i> </th>
+												<th>Promocode<i class="fa fa-sort"></i> </th>
+												<th>Status <i class="fa fa-sort"></i> </th>
+												<th>History <i class="fa fa-sort"></i> </th>
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>12345</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											   <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000002</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											  <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000003</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											   <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000004</td>
+												<td>HF</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+												
+											  </tr>
+											    <tr>
+											  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+												<td>1000005</td>
+												<td>LAP</td>
+												<td>500000</td>
+												<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+												<td>26-Feb-2020</td>
+												<td>Aravind Kumar</td>
+												<td>Yes</td>
+												<td>PROMO001</td>
+												<td>PD</td>
+												<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+											  </tr>
+											</tbody>
+										</table>
+										<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+							</div>
+					    </div>
+					</div>
+				</div>
+
+				<!-- modt discussion-->
+				<!--- pd Section Starts ---->
+				<div id="pd_section">
+					<ul class="nav nav-pills nav-justified mb-3" id="background_white">
+					    <li class="col-md-6 col-sm-12  p-0" id="new_leads" ><a data-toggle="tab" href="#my_pd_tasks" class="submenu active">My PD Tasks</a></li>
+					    <li id="sanction_leads" class="col-md-6 col-sm-12 p-0" ><a data-toggle="tab" href="#branch_pd_tasks" class="submenu">Branch PD Tasks</a></li>
+					 </ul>
+					
+					<div class="tab-content">
+					    <div id="my_pd_tasks" class="tab-pane fade in active">
+					      <div class="table-responsive application" id="table_common">
+												<table class="table">
+													<thead>
+													  <tr class="table-head-bg">
+														<th>Action<i class="fa fa-sort"></i></th>
+														<th>Lead ID <i class="fa fa-sort"></i> </th>
+														<th>Product<i class="fa fa-sort"></i> </th>
+														<th>Loan Amount<i class="fa fa-sort"></i> </th>
+														<th>Applicants<i class="fa fa-sort"></i> </th>
+														<th>Created On <i class="fa fa-sort"></i> </th>
+														<th>Created By <i class="fa fa-sort"></i> </th>
+														<th>Priority<i class="fa fa-sort"></i> </th>
+														<th>Promocode<i class="fa fa-sort"></i> </th>
+														<th>Status <i class="fa fa-sort"></i> </th>
+														<th>History <i class="fa fa-sort"></i> </th>
+													  </tr>
+													</thead>
+													<tbody>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_pd/retail_pd.html" id="a_underline"  >12345</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_pd/retail_pd.html" id="a_underline" >1000002</a></td>
+														<td>HF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_pd/retail_pd.html" id="a_underline" >1000003</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_pd/retail_pd.html" id="a_underline" >1000004</a></td>
+														<td>MHF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													    <tr>
+													  	<td><input type="button" class="btn-primary" value="Release" data-toggle="modal" data-target="#releaseModal" /></td>
+														<td><a href="../retail_sales_pd/retail_pd.html" id="a_underline" >1000005</a></td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+													  </tr>
+													</tbody>
+												</table>
+												<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+									</div>
+					    </div>
+					  <div id="branch_pd_tasks" class="tab-pane fade">
+					      <div class="table-responsive application" id="table_common">
+												<table class="table">
+													<thead>
+													  <tr class="table-head-bg">
+														<th>Action<i class="fa fa-sort"></i></th>
+														<th>Lead ID <i class="fa fa-sort"></i> </th>
+														<th>Product<i class="fa fa-sort"></i> </th>
+														<th>Loan Amount<i class="fa fa-sort"></i> </th>
+														<th>Applicants<i class="fa fa-sort"></i> </th>
+														<th>Created On <i class="fa fa-sort"></i> </th>
+														<th>Created By <i class="fa fa-sort"></i> </th>
+														<th>Priority<i class="fa fa-sort"></i> </th>
+														<th>Promocode<i class="fa fa-sort"></i> </th>
+														<th>Status <i class="fa fa-sort"></i> </th>
+														<th>History <i class="fa fa-sort"></i> </th>
+													  </tr>
+													</thead>
+													<tbody>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>12345</td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000002</td>
+														<td>HF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													  <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000003</td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													   <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000004</td>
+														<td>MHF</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td>
+														
+													  </tr>
+													    <tr>
+													  	<td><input type="button" class="btn-primary" value="Assign" data-toggle="modal" data-target="#assignModel" /></td>
+														<td>1000005</td>
+														<td>LAP</td>
+														<td>500000</td>
+														<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+														<td>26-Feb-2020</td>
+														<td>Aravind Kumar</td>
+														<td>Yes</td>
+														<td>PROMO001</td>
+														<td>PD</td>
+														<td><a href="#" data-toggle="tooltip" data-placement="bottom" title="Click to View Timeline Chart" > <i class="fa fa-history"></i></a></td>
+
+													  </tr>
+													</tbody>
+												</table>
+												<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+									</div>
+					    </div>
+					</div>
+				</div>
+				<!---- pd Section End ------>
+				<!--- query Section Starts ---->
+				<div id="query_section">
+					<ul class="nav nav-pills nav-justified mb-3" id="background_white" >
+					    <li class="active" id="new_leads" ><a data-toggle="tab" href="#queries_pending">Queries Pending with Me</a></li>
+					    <li id="sanction_leads" class="" ><a data-toggle="tab" href="#queries_pending_branch">Queries Pending with Branch</a></li>
+					 </ul>
+					 
+					<div class="tab-content">
+					    <div id="queries_pending" class="tab-pane fade in active">
+					    	TBD
+					    </div>
+					  <div id="queries_pending_branch" class="tab-pane fade">
+					  	TBD
+					    
+					    </div>
+					</div>
+				</div>
+				<!---- query Section End ------>
+				
+				<div id="pdd_section">
+					
+					<div class="tab-content">	   
+					<div id="pdd" class="tab-pane fade in active">
+						<div class="table-responsive application" id="table_common">
+							<table class="table">
+								<thead>
+								<tr class="table-head-bg">
+									<th>Lead Id<i class="fa fa-sort"></i> </th>
+									<th>Product<i class="fa fa-sort"></i> </th>
+									<th>Loan Amount<i class="fa fa-sort"></i> </th>
+									<th>Applicants<i class="fa fa-sort"></i> </th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td><a href="../retail_sales_lead/sales_credit_pdd.html" id="a_underline"  >12345</a></td>
+									<td>LAP</td>
+									<td>500000</td>
+									<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+								</tr>
+								<tr>
+								
+									<td><a href="../retail_sales_lead/sales_credit_pdd.html" id="a_underline" >1000002</a></td>
+									<td>HF</td>
+									<td>500000</td>
+									<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+									
+								</tr>
+								<tr>
+									
+									<td><a href="../retail_sales_lead/sales_credit_pdd.html" id="a_underline" >1000003</a></td>
+									<td>HF</td>
+									<td>500000</td>
+									<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+									
+								</tr>
+								<tr>
+									
+									<td><a href="../retail_sales_lead/sales_credit_pdd.html" id="a_underline" >1000004</a></td>
+									<td>LAP</td>
+									<td>500000</td>
+									<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+									
+								</tr>
+									<tr>
+									
+									<td><a href="../retail_sales_dde/retail_predisburement_d_maker.html" id="a_underline" >1000005</a></td>
+									<td>HF</td>
+									<td>500000</td>
+									<td><a href="#applicant_details" data-toggle="modal">2</a></td>
+									
+								</tr>
+								</tbody>
+							</table>
+							<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div id="cheque_tracking" >
+					<!---<h3 class="title">Cheque Tracking</h3>--->
+					<div class="table-responsive application" id="cheque_table_common">
+							<table class="table">
+								<thead>
+								  <tr class="table-head-bg">
+									<th>Loan No<i class="fa fa-sort"></i> </th>
+									<th>Product Category<i class="fa fa-sort"></i> </th>
+									<th>Loan Amount<i class="fa fa-sort"></i> </th>
+									<th>Applicant Name<i class="fa fa-sort"></i> </th>
+									
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr>
+								  	
+									<td><a href="../retail_sales_lead/sales_cheque_tracking.html" id="a_underline"  class="loan_id_123456789" >123456789</a></td>
+									<td>GLAP</td>
+									<td>500000</td>
+									<td>Hari Savanth</td>
+									
+									
+								  </tr>
+								   <tr>
+								  	
+									<td><a href="../retail_sales_lead/sales_cheque_tracking.html" id="a_underline" class="loan_id_234567890" >234567890</a></td>
+									<td>MHF</td>
+									<td>400000</td>
+									<td>Krishnamurty</td>
+									
+								  </tr>
+								  <tr>
+								  	
+									<td><a href="../retail_sales_lead/sales_cheque_tracking.html" id="a_underline"  class="loan_id_345678901">345678901</a></td>
+									<td>GLAP</td>
+									<td>400000</td>
+									<td>Ravi Krishnan</td>
+									
+									
+								  </tr>
+								   <tr>
+								  	
+									<td><a href="../retail_sales_lead/sales_cheque_tracking.html" id="a_underline" class="loan_id_456789012" >456789012</a></td>
+									<td>MHF</td>
+									<td>650000</td>
+									<td>Sivaji Rao</td>
+									
+									
+								  </tr>
+								</tbody>
+							</table>
+						<div class="row clearfix m-0">
+											<div class="records col-xs-3 col-sm-4 col-md-6">
+
+												<form>
+													<div class="row">
+														<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+															<option value="10">10</option>
+															<option value="25">25</option>
+															<option value="50">50</option>
+														</select></div>
+													</div>
+
+												</form>
+											</div>
+
+											<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+											  <ul class="pagination">
+												<li class="disabled"><a href="#"><span>«</span></a></li>
+												<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><span>»</span></a></li>
+											 </ul>
+										   </nav>
+										  
+										</div>
+				</div>
+
+
+									
+										
+						</div>
+						
+						<div id="spot_reference_section">
+					
+							<div class="tab-content">	   
+							<div id="cheque" class="tab-pane fade in active">
+								<div class="table-responsive application" id="table_common">
+									<table class="table">
+															<thead>
+															  <tr class="table-head-bg">
+																<th>Lead Id <i class="fa fa-sort"></i> </th>
+																<th>Product Category<i class="fa fa-sort"></i> </th>
+																<th>Loan Amount<i class="fa fa-sort"></i> </th>
+																<th>Applicant Name<i class="fa fa-sort"></i> </th>
+																<!-- <th>History <i class="fa fa-sort"></i> </th> -->
+															  </tr>
+															</thead>
+															<tbody>
+															  <tr>
+																  
+																<td><a id="a_underline" class="" href="../retail_sales_lead/sampling_spot_response.html">12345</a></td>
+																<td>GLAP</td>
+																<td>500000</td>
+																<td>Hari Savanth</td>
+																<!-- <td><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td> -->
+																
+															  </tr>
+															   <tr>
+																  
+																<td><a id="a_underline" class="" href="../retail_sales_lead/sampling_spot_response.html">1000002</a></td>
+																<td>MHF</td>
+																<td>400000</td>
+																<td>Krishnamurty</td>
+																<!-- <td><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td> -->
+															  </tr>
+															  <tr>
+																  
+																<td><a id="a_underline" class="" href="../retail_sales_lead/sampling_spot_response.html">1000003</a></td>
+																<td>MHF</td>
+																<td>400000</td>
+																<td>Ravi Krishnan</td>
+																<!-- <td><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td> -->
+																
+															  </tr>
+															   <tr>
+																  
+																<td><a id="a_underline" class="" href="../retail_sales_lead/sampling_spot_response.html">1000004</a></td>
+																<td>GLAP</td>
+																<td>650000</td>
+																<td>Sivaji Rao</td>
+																<!-- <td><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Click to View Timeline Chart"> <i class="fa fa-history"></i></a></td> -->
+																
+															  </tr>
+															</tbody>
+														</table>
+									<div class="row clearfix m-0">
+													<div class="records col-xs-3 col-sm-4 col-md-6">
+		
+														<form>
+															<div class="row">
+																<div class="col-lg-3"><label>No. of Rows </label><select class="col-md-3 form-control input-sm float-right">
+																	<option value="10">10</option>
+																	<option value="25">25</option>
+																	<option value="50">50</option>
+																</select></div>
+															</div>
+		
+														</form>
+													</div>
+		
+													<nav class="col-xs-9 col-sm-4 col-md-6 text-left d-flex justify-content-end">
+													  <ul class="pagination">
+														<li class="disabled"><a href="#"><span>«</span></a></li>
+														<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+														<li><a href="#">2</a></li>
+														<li><a href="#">3</a></li>
+														<li><a href="#">4</a></li>
+														<li><a href="#">5</a></li>
+														<li><a href="#"><span>»</span></a></li>
+													 </ul>
+												   </nav>
+												  
+												</div>
+								</div>
+								</div>
+							</div>
+						</div>
+
+			</div>
+		</main>
+		<br />
+		<br /> 
+<!-- The Modal -->
+<div class="modal" id="releaseModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <!---- <h4 class="modal-title">Modal Heading</h4> ----->
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p class="text-center" >The lead with ID: #100001 has been released back to common pool</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer text-center">
+      	<button type="button" class="btn btn-success" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="assignModel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <!---- <h4 class="modal-title">Modal Heading</h4> ---->
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <p class="text-center" >The lead with ID: #1000002 has been assigned to you</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer text-center">
+      	  <button type="button" class="btn btn-success" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+		
+		<!-- Footer -->
+		<footer class="footer">
+			
+				<p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+
+		  
+		</footer>
+		<!-- Applicant details modal-->
+			<div class="modal fade" id="applicant_details">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">Applicant Details</h4>
+						</div>
+						<div class="modal-body">
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+										<tr class="table-head-bg">
+											<th>Entity Type</th>
+											<th>Name</th>
+											<th>Mobile Number</th>
+											<th>Applicant Type</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Individual</td>
+											<td>Deepika Malhotra</td>
+											<td>7894561230</td>
+											<td>Applicant</td>
+										</tr>
+										<tr>
+											<td>Individual</td>
+											<td>Navin Reddy</td>
+											<td>8610426139</td>
+											<td>Co-applicant</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#leads_section").show();
+				$("#pd_section").hide();
+				$("#query_section").hide();
+				$("#viability_section").hide();
+				$("#cheque_tracking").hide();
+				$("#pdd_section").hide();
+				$("#spot_reference_section").hide();
+				$("#modt_section").hide();
+				$("#legal_section").hide();
+
+
+				$("#leads").click(function(){
+					$("#leads_section").show();
+					$("#pd_section").hide();
+					$("#query_section").hide();
+					$("#viability_section").hide();
+					$("#cheque_tracking").hide();
+					$("#pdd_section").hide();
+					$("#modt_section").hide();
+				$("#legal_section").hide();
+
+
+					$("#leads").addClass('active');
+					$("#pd").removeClass('active');
+					$("#query").removeClass('active');
+					$("#viability").removeClass('active');
+					$("#pdd").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").removeClass('active');
+				});
+
+				$("#modt").click(function(){
+					$("#leads_section").hide();
+					$("#modt_section").show();
+					$("#pd_section").hide();
+					$("#query_section").hide();
+					$("#viability_section").hide();
+					$("#cheque_tracking").hide();
+					$("#pdd_section").hide();
+					$("#spot_reference_section").hide();
+					$("#legal_section").hide();
+
+
+					$("#leads").removeClass('active');
+					$("#pd").removeClass('active');
+					$("#query").removeClass('active');
+					$("#viability").removeClass('active');
+					$("#pdd").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").addClass('active');
+					$("#legal_section").removeClass('active');
+				});
+
+				$("#pd").click(function(){
+					$("#leads_section").hide();
+					$("#pd_section").show();
+					$("#query_section").hide();
+					$("#viability_section").hide();
+					$("#cheque_tracking").hide();
+					$("#pdd_section").hide();
+					$("#spot_reference_section").hide();
+					$("#modt_section").hide();
+					$("#legal_section").hide();
+
+
+					$("#leads").removeClass('active');
+					$("#pd").addClass('active');
+					$("#query").removeClass('active');
+					$("#viability").removeClass('active');
+					$("#pdd").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").removeClass('active');
+				});
+				$("#query").click(function(){
+					$("#leads_section").hide();
+					$("#pd_section").hide();
+					$("#query_section").show();
+					$("#cheque_tracking").hide();
+					$("#viability_section").hide();
+					$("#pdd_section").hide();
+					$("#spot_reference_section").hide();
+					$("#modt_section").hide();
+					$("#legal_section").hide();
+
+
+					$("#leads").removeClass('active');
+					$("#pd").removeClass('active');
+					$("#query").addClass('active');
+					$("#viability").removeClass('active');
+					$("#pdd").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").removeClass('active');
+				});
+				$("#viability").click(function(){
+					$("#leads_section").hide();
+					$("#pd_section").hide();
+					$("#query_section").hide();
+					$("#viability_section").show();
+					$("#cheque_tracking").hide();
+					$("#pdd_section").hide();
+					$("#spot_reference_section").hide();
+					$("#modt_section").hide();
+					$("#legal_section").hide();
+
+
+					$("#leads").removeClass('active');
+					$("#pd").removeClass('active');
+					$("#query").removeClass('active');
+					$("#viability").addClass('active');
+					$("#pdd").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").removeClass('active');
+				});
+				$("#cheque_tracking_menu").click(function(){
+					$("#leads_section").hide();
+					$("#pd_section").hide();
+					$("#query_section").hide();
+					$("#viability_section").hide();
+					$("#cheque_tracking").show();
+					$("#pdd_section").hide();
+					$("#spot_reference_section").hide();
+					$("#modt_section").hide();
+					$("#legal_section").hide();
+
+
+					$("#leads").removeClass('active');
+					$("#pd").removeClass('active');
+					$("#query").removeClass('active');
+					$("#pdd").removeClass('active');
+					$("#viability").removeClass('active');
+					$("#cheque_tracking_menu").addClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").removeClass('active');
+				});
+				$("#pdd").click(function(){
+					$("#leads_section").hide();
+					$("#pd_section").hide();
+					$("#query_section").hide();
+					$("#viability_section").hide();
+					$("#cheque_tracking").hide();
+					$("#pdd_section").show();
+					$("#spot_reference_section").hide();
+					$("#modt_section").hide();
+					$("#legal_section").hide();
+
+
+					$("#leads").removeClass('active');
+					$("#pd").removeClass('active');
+					$("#query").removeClass('active');
+					$("#pdd").addClass('active');
+					$("#viability").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").removeClass('active');
+				});
+
+				$("#spot_reference").click(function(){
+					$("#leads_section").hide();
+					$("#pd_section").hide();
+					$("#query_section").hide();
+					$("#viability_section").hide();
+					$("#cheque_tracking").hide();
+					$("#pdd_section").hide();
+					$("#spot_reference_section").show();
+					$("#modt_section").hide();
+					$("#legal_section").hide();
+
+					
+					$("#leads").removeClass('active');
+					$("#pd").removeClass('active');
+					$("#query").removeClass('active');
+					$("#pdd").removeClass('active');
+					$("#viability").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").addClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").removeClass('active');
+					
+				});
+
+
+				$("#legal").click(function(){
+					$("#leads_section").hide();
+					$("#pd_section").hide();
+					$("#query_section").hide();
+					$("#viability_section").hide();
+					$("#cheque_tracking").hide();
+					$("#pdd_section").hide();
+					$("#spot_reference_section").hide();
+					$("#modt_section").hide();
+					$("#legal_section").show();
+
+					
+					$("#leads").removeClass('active');
+					$("#pd").removeClass('active');
+					$("#query").removeClass('active');
+					$("#pdd").removeClass('active');
+					$("#viability").removeClass('active');
+					$("#cheque_tracking_menu").removeClass('active');
+					$("#spot_reference_section").removeClass('active');
+					$("#modt").removeClass('active');
+					$("#legal_section").addClass('active');
+					
+				});
+
+				$(".filter-block").hide();
+			$("#filter-btn").click(function(){
+				$(".filter-block").toggle(200);
+			});
+
+			$("#cheque_results_section").hide();   
+			$(".loan_id_123456789").click(function(){
+				
+				$("#loan_number").html("Lead Id 123456789");
+				$("#cheque_results_section").show(); 
+				$("#cheque_table_common").hide();
+			});
+			$(".loan_id_234567890").click(function(){
+				$("#loan_number").html("Lead Id 234567890");
+				$("#cheque_results_section").show();
+				$("#cheque_table_common").hide();
+			});
+
+			$(".loan_id_345678901").click(function(){
+				$("#loan_number").html("Lead Id 45678901");
+				$("#cheque_results_section").show();
+				$("#cheque_table_common").hide();
+			});
+			$(".loan_id_456789012").click(function(){
+				$("#loan_number").html("Lead Id 456789012");
+				$("#cheque_results_section").show();
+				$("#cheque_table_common").hide();
+			});
+			
+			
+
+			});
+		</script>
+		<script type="text/javascript">
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+ <script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+         
+        $("#sales_create_lead").click(function(){
+            var inptvl= $("#myInput").val("Create Lead");
+            $('.unique').hide();
+        });
+        $("#sales_dashboard").click(function(){
+             var inptvl2 = $("#myInput").val("My Dashboard");
+             $('.unique').hide();
+        });
+        $("#sl_search_ac_btn").click(function(){
+            var html_locvl =  $("#myInput").val();
+            if(html_locvl == "Create Lead" )
+            {  
+                path = "../sales_lead/sales_create_lead.html";
+                document.location = path ;
+            }
+            if(html_locvl == "My Dashboard")
+            {
+                path1 = "../sales_dashboard/my_dashboard.html";
+                document.location = path1 ;
+            }
+        });
+    </script>
+
+</body>
+
+
+</html>
+

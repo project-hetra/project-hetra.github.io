@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>QDE</title>
+    <!-- Style -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <script src="js/jquery.min.3.5.1.js"></script>
+    <script src="js/bootstrap.min.4.4.1.js"></script>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style-progress-step.css" rel="stylesheet">
+    <!-- Script -->
+
+   <!--  <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/applicant-details-js.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Fonts 
+		<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet"/>
+		<!-- Favicons -->
+    <link rel="apple-touch-icon" href="images/mini-logo.png" />
+    <link rel="icon" href="images/favicon.ico">
+    <style>
+
+        
+        .top_button{
+                     /* margin: 20px; */
+            /* padding: 20px; */
+            height: 38px;
+            width: 99%;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+                }
+        
+        .header_dropdown{justify-content:end;}
+        /***header common style***/
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 22px;
+            border: 1px solid #dedede;
+            position: absolute;
+            z-index: 2000;
+            background-color: white;
+            top: 42px;
+        }
+        .dropdown-menu.show {
+            left: 15px;
+        }
+        .dropdown-menu.show > li {text-align:center};
+        
+        /***header common style**/
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                .form label {
+                        font-size: 13px!important;
+                    }
+                   
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+          
+            #myInput {
+                    height: 44px;
+                    border: 1px solid #dedede;
+                    border-radius: 22px;
+                    padding: 6px 48px;
+                    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+                    width:93%;
+                }
+                .header_dropdown{justify-content:end;}
+                .fa.fa-search {
+                    position: absolute;
+                    left: 40px;
+                    font-size: 16px;
+                }
+                .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {color: #fff !important;background-color: #1d1a4b;}
+                a {color: #272264;}
+                #filter-btn {
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    margin-top: 17px;
+                }
+                #clearbtn {
+                background-color: #fff;
+                border: 1px solid #ccc;
+                }
+                .btn.btn-default {
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+                @media(min-width:320px) and (max-width:767px){
+                    .col-md-4.navbar-brand {width: 50%;}
+                    .nav-pills > li {width: 100%;}
+                    .name {color: #333 !important;}
+                    .navbar-default .navbar-collapse {
+            border-color: #fff;
+            background: #fff;
+            border: none;
+        }
+        .dropdown-menu.show > li {text-align: left;padding:10px;}
+        .dropdown-menu.show > li > a{color:#333 !important;}
+        .dropdown-menu.show > li > a:hover{background-color:#fff !important;}
+        
+                }
+        
+        
+              /*
+            Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+            */
+            @media
+              only screen 
+            and (max-width: 760px), (min-device-width: 768px) 
+            and (max-device-width: 1024px)  {
+                .table tbody tr td {
+                    border-top: 1px solid #e6e6e6;
+                    padding: 10px !important;
+                    padding-left: 50% !important;
+                }
+                /* Force table to not be like tables anymore */
+                table, thead, tbody, th, td, tr {
+                    display: block;
+                }
+        
+                /* Hide table headers (but not display: none;, for accessibility) */
+                thead tr {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+        
+            tr {
+              /*margin: 0 0 1rem 0;*/
+            }
+              
+            tr:nth-child(odd) {
+              /*background: #ccc;*/
+            }
+            
+                td {
+                    /* Behave  like a "row" */
+                    border: none;
+                    border-bottom: 1px solid #eee;
+                    position: relative;
+                    padding-left: 50%;
+                    height:40px;
+                }
+        
+                td:before {
+                    /* Now like a table header */
+                    position: absolute;
+                    /* Top/left values mimic padding */
+                    top: 0;
+                    left: 6px;
+                    width: 45%;
+                    padding-right: 10px;
+                    white-space: nowrap;
+                }
+        
+                /*
+                Label the data
+            You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+                */
+                td:nth-of-type(1):before { content: "Lead ID"; }
+                td:nth-of-type(2):before { content: "Product"; }
+                td:nth-of-type(3):before { content: "Loan Amount"; }
+                td:nth-of-type(4):before { content: "Applicants"; }
+                td:nth-of-type(5):before { content: "Created on"; }
+                td:nth-of-type(6):before { content: "Created By"; }
+                td:nth-of-type(7):before { content: "Priority"; }
+                td:nth-of-type(8):before { content: "Promocode"; }
+                td:nth-of-type(9):before { content: "Status"; }
+                td:nth-of-type(10):before { content: "History"; }
+                td:nth-of-type(11):before { content: ""; }
+                /*td:nth-of-type(9):before { content: ""; }
+                td:nth-of-type(10):before { content: ""; }
+                td:nth-of-type(11):before { content: ""; }
+                td:nth-of-type(12):before { content: ""; }
+                td:nth-of-type(14):before { content: ""; }
+                td:nth-of-type(15):before { content: ""; }
+                td:nth-of-type(16):before { content: ""; }
+                td:nth-of-type(17):before { content: ""; }*/
+        
+            }
+            
+        /*table styles ends here*/
+        
+                .panel-primary{
+                    background-color: #1d1a4b!important;
+                    color: white!important;
+                }
+        
+                .form label {
+                        font-size: 13px!important;
+                    }
+                   
+        
+        .image-upload input {
+            cursor: pointer;
+            opacity: 0;
+            height: 5%;
+            width: 5%;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0
+        }
+        .fa.fa-upload
+        {
+            font-size:20px;
+            } 
+        
+            .fa.fa-plus
+        {
+            font-size:20px;
+            }
+        
+            .fa.fa-minus
+        {
+            font-size:20px;
+            }
+        .date_width{width: 146px;
+            margin: 0px;
+            font-size: 12px;}
+        
+            @media (min-width: 992px){
+                .form .col-md-2 {
+            width: 20%;
+        }
+            }
+        
+          
+        
+    </style>
+
+    <style>
+        .fixed-btn {
+            position: fixed;
+            position: fixed;
+            top: 300px;
+            right: -12px;
+            height: 100px;
+            z-index: 999;
+        }
+        
+        .common {
+            display: none;
+        }
+
+        label {
+            font-size: 13px!important;
+            font-family: "Open sans",Helvetica,Arial,sans-serif;
+            font-weight: 400px;
+            }
+    </style>
+</head>
+
+<body class="bg">
+    <header class="navbar navbar-default navbar-fixed-top p-0">
+        <div class="container-fluid">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-0 pb-0">
+            <a href="../retail_sales_dashboard/my_dashboard.html" class="col-md-4 navbar-brand"><img src="images/hetra_logo.png" alt="[Image: Hetra Logo]" title="Hetra" class=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <form class="col-md-4 collapse navbar-collapse form-inline my-2 my-lg-0" id="navbarTogglerDemo03">
+              <input type="text" class="form-control" id="myInput" placeholder="" onkeyup="myFunction()" autofocus>
+            <span class="fa fa-search"></span>
+            <ul id="myUL" class="unique">
+                <li><a href="../sales_lead/sales_create_lead.html" >Create New Lead</a></li>
+                <li><a href="../sales_dashboard/my_dashboard.html" >Go to New Leads Dashboard</a></li>
+                <li><a href="" >View PD Tasks</a></li>
+                <li><a href="" >View Pending Queries</a></li>
+                <li><a href="" >View Sanctioned Leads Awaiting Discussion</a></li>
+                <li><a href="" >View Declined Leads</a></li>
+                <li><a href="" >Track Lead Status</a></li>
+            </ul>
+               </form>
+              <div class="col-md-4 collapse navbar-collapse header_dropdown" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                  <li class="dropdown">
+                        <a href="#" class="name" data-toggle="dropdown">
+                            <span class="name-circle"><span class="name-circle-txt"> D </span></span>Dhanapal Nataraj<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Dhanapal Nataraj</a></li>
+                            <li><a href=""> <select class="form-control"><option value="Sales Officer" selected="selected" >Sales Officer</option></select></a></li>
+                            <li><a href="#">Velachery Branch</a></li>
+                            <!--- <li><a href="#profile" >Profile</a></li> ---->
+                           
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+              
+            </nav>
+            <!-- <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div> -->
+            
+        </div>
+    </header>
+
+    <main class="mar-top90">
+        <div class="container-fluid overflow-hidden">
+            <div class="row top_bar">
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Lead ID </label>
+                            <label for="lead_created_by_name" class="col-form-label-two">1234456</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_created_by">Product</label>
+                            <label for="lead_created_by_name" class="col-form-label-two">LAP</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="customer_name_label">Loan Amount</label>
+                            <label for="customer_name" class="col-form-label-two">500000</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="roi">Applicant</label>
+                            <label for="roi_value" class="col-form-label-two">Deepika Malhotra</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Status </label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">In progress</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group mb-0">
+                            <label class="col-form-label" for="lead_handled_by">Queue</label>
+                            <label for="lead_handled_by_name" class="col-form-label-two">QDE</label>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-5">
+                <a href="document_applicant.html"> <button class="btn btn-primary top_button" type="button">View/Upload Document</button></a> 
+                </div>               
+                
+            </div>
+
+            <!--progress bar-->
+            <div class="multisteps-form">
+                <div class="multisteps-form__progress">
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="sales_additional_applicant_basic">Basic Details</button>
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="sales_additional_applicant_identity">Identity Details</button>
+                    <button class="multisteps-form__progress-btn js-active" type="button" id="sales_additional_applicant_address">Address Details</button>
+                    <button class="multisteps-form__progress-btn" type="button" id="sales_applicant_document_upload">Document Upload</button>
+                </div>
+
+                <div class="content" id="">
+                   
+                            <div class="btn-sec clear-both row">
+                                <div class="col-sm-5">
+                                    <select id="select_main_button_address" class="dropdown_individual" name="">
+                                                <option value="individual"> Individual </option>
+                                                <option value="non-individual"> Non-Individual </option>
+                                            </select>
+                                </div>
+                                <div class="col-sm-7 text-right">
+
+                                </div>
+                            </div>
+                            <div id="individual_section_address">
+                                <!-- <h4 class="title">individual</h4> -->
+                                <h5 class="title">Permanent Address</h5>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="pan">Address Line 1</label>
+                                        <input type="text" class="form-control" id="address1">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 2</label>
+                                        <input type="text" class="form-control" id="address2">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 3</label>
+                                        <input type="text" class="form-control" id="address3">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="pincode">PIN Code</label>
+                                        <input type="text" class="form-control" id="pincode">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">City</label>
+                                        <select class="form-control" id="permanent_address_city">
+                                                    <option>City 1</option>
+                                                    <option>City 2</option>
+                                                    <option>City 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">District</label>
+                                        <select class="form-control" id="permanent_address_district">
+                                                    <option>District 1</option>
+                                                    <option>District 2</option>
+                                                    <option>District 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">State</label>
+                                        <select class="form-control" id="permanent_address_state">
+                                                    <option>State 1</option>
+                                                    <option>State 2</option>
+                                                    <option>State 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Country</label>
+                                        <select class="form-control" id="permanent_address_country">
+                                                    <option>Country 1</option>
+                                                    <option>Country 2</option>
+                                                    <option>Country 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="landline">Landline Number</label>
+                                        <input type="text" class="form-control" id="landline">
+                                    </div>
+
+                                </div>
+                                <div class="btn-sec clear-both row">
+                                    <div class="col-sm-5">
+                                        <h5 class="title">Current/Communication Address</h5>
+                                    </div>
+                                    <div class="col-sm-7 mt-0 d-flex justify-content-end" id="align_this_checkbox" >
+                                        <input type="checkbox" id="address_section_checkbox"> <span id="address_section_checkbox_text">Is it same as your permanent Address? </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="pan">Address Line 1</label>
+                                        <input type="text" class="form-control" id="line1">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 2</label>
+                                        <input type="text" class="form-control" id="line2">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 3</label>
+                                        <input type="text" class="form-control" id="line3">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="current_pincode">PIN Code</label>
+                                        <input type="text" class="form-control" id="current_pincode">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">City</label>
+                                        <select class="form-control" id="current_address_city">
+                                                    <option>City 1</option>
+                                                    <option>City 2</option>
+                                                    <option>City 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">District</label>
+                                        <select class="form-control" id="current_address_district">
+                                                    <option>District 1</option>
+                                                    <option>District 2</option>
+                                                    <option>District 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">State</label>
+                                        <select class="form-control" id="current_address_state">
+                                                    <option>State 1</option>
+                                                    <option>State 2</option>
+                                                    <option>State 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Country</label>
+                                        <select class="form-control" id="current_address_country">
+                                                    <option>Country 1</option>
+                                                    <option>Country 2</option>
+                                                    <option>Country 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Type of Accommmodation</label>
+                                        <select class="form-control">
+                                                    <option>Own House</option>
+                                                    <option>Rented House</option>
+                                                    
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Period of Current Stay (in Years)</label>
+                                        <select class="form-control">
+                                                    <option>5 years</option>
+                                                    <option>2 years</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="current_landline">Landline Number (Residence Phone)</label>
+                                        <input type="text" class="form-control" id="current_landline">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="alternate_mobile">Alternate Mobile Number</label>
+                                        <input type="text" class="form-control" id="alternate_mobile">
+                                    </div>
+                                </div>
+                                <h5 class="title">Office Address</h5>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="pan">Address Line 1</label>
+                                        <input type="text" class="form-control" id="passport">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 2</label>
+                                        <input type="text" class="form-control" id="passport">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 3</label>
+                                        <input type="text" class="form-control" id="passport">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">PIN Code</label>
+                                        <input type="text" class="form-control" id="current_pincode">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">City</label>
+                                        <select class="form-control">
+                                                    <option>City 1</option>
+                                                    <option>City 2</option>
+                                                    <option>City 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">District</label>
+                                        <select class="form-control">
+                                                    <option>District 1</option>
+                                                    <option>District 2</option>
+                                                    <option>District 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">State</label>
+                                        <select class="form-control">
+                                                    <option>State 1</option>
+                                                    <option>State 2</option>
+                                                    <option>State 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Country</label>
+                                        <select class="form-control">
+                                                    <option>Country 1</option>
+                                                    <option>Country 2</option>
+                                                    <option>Country 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Type of Accommmodation</label>
+                                        <select class="form-control">
+                                                    <option>Own House</option>
+                                                    <option>Rented House</option>
+                                                    
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Period of Current Stay (in Years)</label>
+                                        <select class="form-control">
+                                                    <option>5 years</option>
+                                                    <option>2 years</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="current_landline_num">Landline Number (Residence Phone)</label>
+                                        <input type="text" class="form-control" id="current_landline_num">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="alternate_mobile_num">Alternate Mobile Number</label>
+                                        <input type="text" class="form-control" id="alternate_mobile_num">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="non_individual_section_address">
+                                <!-- <h4 class="title">Non-individual</h4>-->
+                                <h4 class="title">Registered Address</h4>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="pan">Address Line 1</label>
+                                        <input type="text" class="form-control" id="cmr_line1">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 2</label>
+                                        <input type="text" class="form-control" id="cmr_line2">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 3</label>
+                                        <input type="text" class="form-control" id="cmr_line3">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">PIN Code</label>
+                                        <input type="text" class="form-control" id="cmr_current_address_pin_code">
+                                                    <!---- <option>pincode 1</option>
+                                                    <option>pincode 2</option>
+                                                    <option>pincode 3</option>
+                                                </select>---->
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">City</label>
+                                        <select class="form-control" id="cmr_current_address_city">
+                                                    <option>City 1</option>
+                                                    <option>City 2</option>
+                                                    <option>City 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">District</label>
+                                        <select class="form-control" id="cmr_current_address_district">
+                                                    <option>District 1</option>
+                                                    <option>District 2</option>
+                                                    <option>District 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">State</label>
+                                        <select class="form-control" id="cmr_current_address_state">
+                                                    <option>State 1</option>
+                                                    <option>State 2</option>
+                                                    <option>State 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Country</label>
+                                        <select class="form-control" id="cmr_current_address_country">
+                                                    <option>Country 1</option>
+                                                    <option>Country 2</option>
+                                                    <option>Country 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Registered  Address Landline Number (Residence Phone)</label>
+                                        <input type="text"  class="form-control" id="cmr_reg_residence_number" >
+                                                   
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Alternate Mobile Number</label>
+                                        <input type="text"  class="form-control">
+                                                   
+                                    </div>
+                                </div>
+                                 <div class="btn-sec clear-both row">
+                                    <div class="col-sm-5">
+                                        <h3 class="title">Communication Address</h3>
+                                    </div>
+                                    <div class="col-sm-7" id="align_this_checkbox" >
+                                        <input type="checkbox" id="address_section_checkbox_cm"> <span id="address_section_checkbox_text_cm">Is it same as your Communication Address? </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="pan">Address Line 1</label>
+                                        <input type="text" class="form-control" id="cm_line1">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 2</label>
+                                        <input type="text" class="form-control" id="cm_line2">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Address Line 3</label>
+                                        <input type="text" class="form-control" id="cm_line3">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="current_pincode">PIN Code</label>
+                                        <input type="text" class="form-control" id="cm_current_pincode">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">City</label>
+                                        <select class="form-control" id="cm_current_address_city">
+                                                    <option>City 1</option>
+                                                    <option>City 2</option>
+                                                    <option>City 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">District</label>
+                                        <select class="form-control" id="cm_current_address_district">
+                                                    <option>District 1</option>
+                                                    <option>District 2</option>
+                                                    <option>District 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">State</label>
+                                        <select class="form-control" id="cm_current_address_state">
+                                                    <option>State 1</option>
+                                                    <option>State 2</option>
+                                                    <option>State 3</option>
+                                                </select>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="passport">Country</label>
+                                        <select class="form-control" id="cm_current_address_country">
+                                                    <option>Country 1</option>
+                                                    <option>Country 2</option>
+                                                    <option>Country 3</option>
+                                                </select>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                                        <label for="current_landline">Landline Number (Residence Phone)</label>
+                                        <input type="text" class="form-control" id="cm_reg_residence_number">
+                                    </div>
+
+                                </div>
+                            </div>
+                      
+                    
+                </div>
+                <div class="btn-sec clear-both row mb-4 mt-0">
+                    <div class="col-sm-5">
+                        <a href="sales_applicant_details.html"><button class="btn btn-primary dash_href" type="button">Back to Applicant Summury</button></a>
+                    </div>
+                    <div class="col-sm-7 text-right">
+                       <a href="sales_additional_applicant_identity.html"> <button class="btn btn-primary dash_href" type="button">Back</button></a>
+                        <button class="btn btn-primary" type="button" id="submit" > Save </button>
+                       <a href="sales_applicant_document_upload.html"> <button class="btn btn-primary dash_href" type="button">Next</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert Message 
+				<div class="alert alert-success alert-dismissible" role="alert" id="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					Application #1000002 is succesfully updated.
+				</div> -->
+
+    </main>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© Equitas Small Finance Bank Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<div class="alert alert-success alert-dismissible" id="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Saved!
+        </div>
+
+
+<script type="text/javascript">
+    $("#alert").hide();
+        $("#submit").click(function() {
+            $("#alert").toggle();
+        });
+</script>
+
+    <script src="js/script-progress-step.js"></script>
+    
+    <script type="text/javascript">
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 100) {
+                $(".fixed-btn").css("display", "block");
+            }
+        });
+    </script>
+
+  <script type="text/javascript" src="js/script-progress-step.js"></script>
+        
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+        var hdr_locations_ids = new Array("#sales_additional_applicant_basic","#sales_additional_applicant_identity","#sales_additional_applicant_address","#sales_applicant_document_upload");
+        var length_hdr_locations_ids = hdr_locations_ids.length;
+            $('button').click(function(){
+                var get_button_id_here = $(this).attr('id');
+                var actual_id_get = "#"+get_button_id_here;
+            for(m=0;m<length_hdr_locations_ids;m++)
+            {
+                if(hdr_locations_ids[m] == actual_id_get)
+                {
+                    var get_html_file_name_here = actual_id_get.split("#");
+                    var actual_file_name = get_html_file_name_here[1]+".html";
+                    var path = actual_file_name;
+                    document.location = path;
+                }
+                else
+                {
+                    
+                }
+
+            }
+        });
+        });
+    </script>
+<script type="text/javascript">
+        myFunction();
+
+        function myFunction() {
+            let inputtedValue = $("#myInput").val();
+            console.log(inputtedValue);
+            if (inputtedValue) {
+                $('.unique').show();
+            } else {
+                $('.unique').hide();
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        var enteredValue = $("#myInput").val();
+        $("#myInput").mouseover(function() {
+            $('.unique').show();
+        });
+
+        $("#myInput").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        });
+
+        $("#myUL").mouseover(function() {
+            $('.unique').show();
+        })
+        $("#myUL").mouseout(function() {
+            if (!enteredValue)
+                $('.unique').hide();
+        })
+    </script>
+    <script type="text/javascript">
+         
+        $("#sales_create_lead").click(function(){
+            var inptvl= $("#myInput").val("Create Lead");
+            $('.unique').hide();
+        });
+        $("#sales_dashboard").click(function(){
+             var inptvl2 = $("#myInput").val("My Dashboard");
+             $('.unique').hide();
+        });
+        $("#sl_search_ac_btn").click(function(){
+            var html_locvl =  $("#myInput").val();
+            if(html_locvl == "Create Lead" )
+            {  
+                path = "../sales_lead/sales_create_lead.html";
+                document.location = path ;
+            }
+            if(html_locvl == "My Dashboard")
+            {
+                path1 = "../sales_dashboard/my_dashboard.html";
+                document.location = path1 ;
+            }
+        });
+    </script>
+</body>
+
+</html>
